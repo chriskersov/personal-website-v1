@@ -2,33 +2,90 @@
 title: Home
 ---
 
+<style>
+/* Pronunciation button */
+.pronounce-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;                 
+  background: transparent;
+  border: none;
+  padding: 0rem 0.25rem 0.10rem; 
+  cursor: pointer;
+  color: inherit;
+  vertical-align: middle;
+  font: inherit;
+  line-height: 1;
+}
+
+.pronounce-btn svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+  stroke-width: 1.5; 
+}
+
+.pronounce-btn svg {
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+}
+
+.profile-img {
+  max-width: 30%;
+  min-width: 120px;
+  float: right;
+}
+
+</style>
+
 <br>
 
-<!-- [<img src="IMG_9234.jpg" style="max-width:15%;min-width:15em;float:right;" alt="Github repo" />](https://github.com/yihui/hugo-xmin) -->
+<img src="1760907231592.jpeg" class="profile-img" alt="Picture of Chris Kersov" />
 
-<img src="1760907231592.jpeg" style="max-width:15%;min-width:29.7%;float:right;" alt="pic of chris" />
+<h1 style="font-size:3.5rem; margin:0 0 -0.2em;">Chris Kersov</h1>
 
-<h1 style="font-size:3.5rem; margin:0 0 0.15em;">Chris Kersov</h1>
+<div style="margin-bottom: 1.45em; color: black">
+  /kr<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɪ</span>s ˈk<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɛə</span>rs<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɒ</span>v/
+
+  <button class="pronounce-btn" id="pronounce-button" aria-label="Play pronunciation of Chris Kersov" title="Play pronunciation of Chris Kersov" onclick="pronounceName()">
+
+<!-- Icon: speaker with sound waves -->
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+  <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+</svg>
+
+  </button>
+
+  <!-- Audio element (use a short, hyphenated filename and place the file under your static or assets folder) -->
+
+<audio id="pronounce-audio" src="chris kersov pronunciation.MP3" preload="none"></audio>
+
+</div>
+
+<script>
+function pronounceName() {
+  speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance('Chris Kairsov');
+  utterance.lang = 'en-GB';
+  utterance.rate = 0.5;    
+  utterance.pitch = 1.0;
+  utterance.volume = 1;
+
+  utterance.onend = () => speechSynthesis.cancel();
+  utterance.onerror = () => speechSynthesis.cancel();
+
+  speechSynthesis.speak(utterance);
+}
+</script>
 
 <br>
-<br>
-
-<!-- ### Data Science in E-Mobility at Shell <img src="https://logos-world.net/wp-content/uploads/2020/11/Shell-Emblem.png" alt="Shell logo" style="max-height:1.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.4em; margin-bottom: 0.1em" /> -->
 
 ### Data Science in E-Mobility at Shell <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/6230badf6b83103f8dafcc43/0x0.png" alt="Shell logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
 
 BSc (Hons) Computer Science and Artificial Intelligence at <a href="https://www.bath.ac.uk/" target="blank" style="color:#000000; text-decoration:underline;">University of Bath</a>
-
-<!-- make the image link to my github -->
-<!-- i want to draw a cool image like https://nicholassobolev.com/ -->
-<!-- i should have a section about university and university modules and coursework -->
-<!-- have those pdfs that prove i am a student -->
-<!-- link the uni in the line above -->
-<!-- also need to link cv -->
-
-<!-- ## Data Science in E-Mobility at Shell <img src="https://wepoweryourcar.com/wp-content/uploads/Shell-Recharge-Public-Charging-Network-Guide.png " alt="Shell logo" style="max-height:10em; vertical-align:middle; " /> -->
-
-<!-- i want the colour of the background of the website to be warmer -->
 
 <br>
 
@@ -49,6 +106,14 @@ also i want to enable google analytics.
 hobbies and interests. watching anime. listening to music. 3ds on the commute to work haha. learning mandarin. drawing sometimes. i just find life so interesting and i love to do lots of things. i built a keyboard i could put that as well. can talk about my current setup. and what i am interested to get into.
 
 also interested in keeping tabs on my personal finances so i made this excel spreadsheet. then link the sheet.
+
+mahjong, chess
+
+nintendo 3ds
+
+want to do thinkpad + linux (can i dual boot my m4 air and play around with linux)
+
+add the name pronounciation thing
 
 <!-- can have a page about speedsolving along with my best time and maybe a solve as well -->
 <!-- Include a page about travel with photos I am proud of.  -->
