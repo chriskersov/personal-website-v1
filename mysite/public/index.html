@@ -2,31 +2,66 @@
 <html lang="en-us">
   <head>
 	<meta name="generator" content="Hugo 0.153.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home | A minimal Hugo website</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/style.css" /> <link
+    rel="stylesheet" href="/css/fonts.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+        options: {
+          skipHtmlTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+      defer
+    ></script>
+    
+
     
   </head>
 
   <body>
     <nav>
-    <ul class="menu">
-      
-      <li><a href="/">Home</a></li>
-      
-      <li><a href="/about/">About</a></li>
-      
-      <li><a href="/categories/">Categories</a></li>
-      
-      <li><a href="/tags/">Tags</a></li>
-      
-      <li><a href="/index.xml">Subscribe</a></li>
-      
-    </ul>
-    <hr/>
+      <ul class="menu">
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/categories/">Categories</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/index.xml">Subscribe</a></li>
+        
+      </ul>
+      <hr />
     </nav>
+  </body>
+</html>
 
 
 <p><a href="https://github.com/yihui/hugo-xmin"><img src="https://simpleicons.org/icons/github.svg" style="max-width:15%;min-width:40px;float:right;" alt="Github repo" /></a></p>
@@ -41,27 +76,26 @@
 <!-- ## Data Science in E-Mobility at Shell <img src="https://wepoweryourcar.com/wp-content/uploads/Shell-Recharge-Public-Charging-Network-Guide.png " alt="Shell logo" style="max-height:10em; vertical-align:middle; " /> -->
 <p>Currently on placement year doing data science within E-Mobility at Shell.
 Studying Computer Science and Artificial Intelligence at the Univeristy of Bath.
-Playing tennis, table tennis, badminton, padel. Solving Rubik&rsquo;s cubes of all various shapes and sizes: 2x2, 3x3, 4x4, 5x5, pyraminx, megaminx. Doing my best to learn mandarin. Travelling when I can. trying Trying hard to take cool photos. Eating a lot. I&rsquo;ve always wanted to document my life. Maybe I can start with blogs, perhaps one day I will start posting vids on youtube.</p>
+Playing tennis, table tennis, badminton, padel. Solving Rubik&rsquo;s cubes of all various shapes and sizes: 2x2, 3x3, 4x4, 5x5, pyraminx, megaminx. Doing my best to learn mandarin. Travelling when I can. trying Trying hard to take cool photos. Eating a lot. I&rsquo;ve always wanted to document my life. Maybe I can start with blogs, perhaps one day I will start posting vids on youtube. also talk aboutu how i string rackets as kind of a mini business.</p>
+<p>I also want to talk very briefly about my work and what i am currently doing at work. what am i learning at work. what do i want to learn at work. goals at work. life at work. also want to talk about learning in my spare time. what stuff am i interested in learning. then maybe on the topic of leanring i can talk about uni.</p>
+<p>i want something about my philosophy towards life as well.</p>
+<p>i want to improve the header as well. header.html</p>
 <!-- can have a page about speedsolving along with my best time and maybe a solve as well -->
 <!-- Include a page about travel with photos I am proud of.  -->
-<pre><code class="language-bash">find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xargs wc -l
+<!-- ```bash
+find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xargs wc -l
+``` -->
+<p>I managed to make code blocks with syntax highlighting. I could make something cool where like it shows a block of code or like a function of sorts and then an animted output of like a cool graph or something. my github profile hahahhaha</p>
+<pre><code class="language-python">print(&quot;hello world&quot;)
 </code></pre>
-<pre><code>      12 ./layouts/single.html
-      20 ./layouts/list.html
-      13 ./layouts/terms.html
-       5 ./layouts/404.html
-       0 ./layouts/_partials/foot_custom.html
-       0 ./layouts/_partials/head_custom.html
-       9 ./layouts/_partials/footer.html
-      20 ./layouts/_partials/header.html
-      51 ./static/css/style.css
-       7 ./static/css/fonts.css
-     137 total
+<pre><code> &gt; hello world
 </code></pre>
-<p>I can certainly further reduce the code, for example, by eliminating the CSS, but I believe a tiny bit of CSS can greatly improve readability. You cannot really find many CSS frameworks that only contain 50 lines of code.</p>
-<p>Although it is a minimal theme, it is actually fully functional. It supports pages (including the home page), blog posts, a navigation menu, categories, tags, and RSS. With <a href="https://github.com/yihui/hugo-xmin/blob/master/exampleSite/layouts/_partials/foot_custom.html">a little bit customization</a>, it can easily support LaTeX math expressions, e.g.,</p>
-<p><code>$${\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)$$</code></p>
-<p>All pages not under the root directory of the website are listed below. You can also visit the list page of a single section, e.g., <a href="/post/">posts</a>, or <a href="/note/">notes</a>. See the <a href="/about/">About</a> page for the usage of this theme.</p>
+<p>i can also render latex equations qhich is cool. maybe i might find a use for this somewhere. maybe when talking about what i am learning idk.</p>
+$$
+{\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)
+$$<p>looks like i can link to other parts just by doing this <a href="/post/">posts</a> <a href="/note/">notes</a>. but idk what these pages are. in the template yihui mentions these &lsquo;pages not under the root directory&rsquo; and shows these. so this must be something to do with the footer.</p>
+<p>i also want to improve the footer.</p>
+<p>i have realised that what i mean by footer and header are the things above and below the dotted lines. but these arent header.html and footer.html. i need to improve my understanding</p>
 
 
 <ul>

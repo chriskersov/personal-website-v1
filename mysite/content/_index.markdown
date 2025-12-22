@@ -20,33 +20,39 @@ BSc (Hons) Computer Science and Artificial Intelligence at University of Bath
 
 Currently on placement year doing data science within E-Mobility at Shell.
 Studying Computer Science and Artificial Intelligence at the Univeristy of Bath.
-Playing tennis, table tennis, badminton, padel. Solving Rubik's cubes of all various shapes and sizes: 2x2, 3x3, 4x4, 5x5, pyraminx, megaminx. Doing my best to learn mandarin. Travelling when I can. trying Trying hard to take cool photos. Eating a lot. I've always wanted to document my life. Maybe I can start with blogs, perhaps one day I will start posting vids on youtube.
+Playing tennis, table tennis, badminton, padel. Solving Rubik's cubes of all various shapes and sizes: 2x2, 3x3, 4x4, 5x5, pyraminx, megaminx. Doing my best to learn mandarin. Travelling when I can. trying Trying hard to take cool photos. Eating a lot. I've always wanted to document my life. Maybe I can start with blogs, perhaps one day I will start posting vids on youtube. also talk aboutu how i string rackets as kind of a mini business.
+
+I also want to talk very briefly about my work and what i am currently doing at work. what am i learning at work. what do i want to learn at work. goals at work. life at work. also want to talk about learning in my spare time. what stuff am i interested in learning. then maybe on the topic of leanring i can talk about uni.
+
+i want something about my philosophy towards life as well.
+
+i want to improve the header as well. header.html
 
 <!-- can have a page about speedsolving along with my best time and maybe a solve as well -->
 <!-- Include a page about travel with photos I am proud of.  -->
 
-```bash
+<!-- ```bash
 find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xargs wc -l
+``` -->
+
+I managed to make code blocks with syntax highlighting. I could make something cool where like it shows a block of code or like a function of sorts and then an animted output of like a cool graph or something. my github profile hahahhaha
+
+```python
+print("hello world")
 ```
 
 ```
-      12 ./layouts/single.html
-      20 ./layouts/list.html
-      13 ./layouts/terms.html
-       5 ./layouts/404.html
-       0 ./layouts/_partials/foot_custom.html
-       0 ./layouts/_partials/head_custom.html
-       9 ./layouts/_partials/footer.html
-      20 ./layouts/_partials/header.html
-      51 ./static/css/style.css
-       7 ./static/css/fonts.css
-     137 total
+ > hello world
 ```
 
-I can certainly further reduce the code, for example, by eliminating the CSS, but I believe a tiny bit of CSS can greatly improve readability. You cannot really find many CSS frameworks that only contain 50 lines of code.
+i can also render latex equations qhich is cool. maybe i might find a use for this somewhere. maybe when talking about what i am learning idk.
 
-Although it is a minimal theme, it is actually fully functional. It supports pages (including the home page), blog posts, a navigation menu, categories, tags, and RSS. With [a little bit customization](https://github.com/yihui/hugo-xmin/blob/master/exampleSite/layouts/_partials/foot_custom.html), it can easily support LaTeX math expressions, e.g.,
+$$
+{\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)
+$$
 
-`$${\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)$$`
+looks like i can link to other parts just by doing this [posts](/post/) [notes](/note/). but idk what these pages are. in the template yihui mentions these 'pages not under the root directory' and shows these. so this must be something to do with the footer.
 
-All pages not under the root directory of the website are listed below. You can also visit the list page of a single section, e.g., [posts](/post/), or [notes](/note/). See the [About](/about/) page for the usage of this theme.
+i also want to improve the footer.
+
+i have realised that what i mean by footer and header are the things above and below the dotted lines. but these arent header.html and footer.html. i need to improve my understanding
