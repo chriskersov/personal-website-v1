@@ -62,103 +62,178 @@
     </nav>
   </body>
 </html>
+ <style>
+.profile-container {
+  max-width: 30%;
+  min-width: 120px;
+  float: right;
+  margin-top: 0.7em;
+  position: relative;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
 
-
-<style>
+#depthCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* border-radius: 50%; */
+}
 </style>
 <br>
-<img src="Chris Kersov pfp.jpeg" class="profile-img" alt="Picture of Chris Kersov" />
+<div class="profile-container" id="profileContainer">
+  <canvas id="depthCanvas"></canvas>
+</div>
 <h1 style="font-size:3.5rem; margin:0 0 -0.2em;">Chris Kersov</h1>
-<div style="margin-bottom: 1.45em; color: #000000">
+<div style="margin-bottom:2.05em; color: #000000">
   /kr<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɪ</span>s ˈk<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɛə</span>rs<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɒ</span>v/
   <button class="pronounce-btn" id="pronounce-button" aria-label="Play pronunciation of Chris Kersov" title="Play pronunciation of Chris Kersov" onclick="pronounceName()">
-<!-- Icon: speaker with sound waves -->
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
-  <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-</svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
   </button>
-  <!-- Audio element (use a short, hyphenated filename and place the file under your static or assets folder) -->
 <p><audio id="pronounce-audio" src="Chris Kersov pronunciation.MP3" preload="none"></audio></p>
 </div>
 <script>
 function pronounceName() {
   speechSynthesis.cancel();
-
   const utterance = new SpeechSynthesisUtterance('Chris Kairsov');
   utterance.lang = 'en-GB';
   utterance.rate = 0.5;    
   utterance.pitch = 1.0;
   utterance.volume = 1;
-
   utterance.onend = () => speechSynthesis.cancel();
   utterance.onerror = () => speechSynthesis.cancel();
-
   speechSynthesis.speak(utterance);
+}
+
+// Depth map effect
+const canvas = document.getElementById('depthCanvas');
+const ctx = canvas.getContext('2d');
+const container = document.getElementById('profileContainer');
+
+let originalImg, depthImg;
+let targetMouseX = 0.5, targetMouseY = 0.5;
+let currentMouseX = 0.5, currentMouseY = 0.5;
+let animationFrame;
+
+// REPLACE THESE WITH YOUR ACTUAL IMAGE PATHS
+const originalSrc = 'Chris Kersov pfp.jpeg';
+const depthSrc = 'Chris Kersov depth.png';
+
+Promise.all([loadImage(originalSrc), loadImage(depthSrc)])
+  .then(([orig, depth]) => {
+    originalImg = orig;
+    depthImg = depth;
+    canvas.width = originalImg.width;
+    canvas.height = originalImg.height;
+    animate();
+  });
+
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+container.addEventListener('mousemove', (e) => {
+  const rect = container.getBoundingClientRect();
+  targetMouseX = (e.clientX - rect.left) / rect.width;
+  targetMouseY = (e.clientY - rect.top) / rect.height;
+});
+
+container.addEventListener('mouseleave', () => {
+  targetMouseX = 0.5;
+  targetMouseY = 0.5;
+});
+
+function animate() {
+  // Smooth interpolation (easing)
+  const ease = 0.1;
+  currentMouseX += (targetMouseX - currentMouseX) * ease;
+  currentMouseY += (targetMouseY - currentMouseY) * ease;
+  
+  render();
+  animationFrame = requestAnimationFrame(animate);
+}
+
+function render() {
+  if (!originalImg || !depthImg) return;
+  
+  const width = canvas.width;
+  const height = canvas.height;
+  
+  ctx.clearRect(0, 0, width, height);
+  ctx.drawImage(originalImg, 0, 0, width, height);
+  
+  const imageData = ctx.getImageData(0, 0, width, height);
+  const pixels = imageData.data;
+  
+  ctx.drawImage(depthImg, 0, 0, width, height);
+  const depthData = ctx.getImageData(0, 0, width, height);
+  const depthPixels = depthData.data;
+  
+  const maxDisplacement = 20;
+  const offsetX = (currentMouseX - 0.5) * maxDisplacement;
+  const offsetY = (currentMouseY - 0.5) * maxDisplacement;
+  
+  const newImageData = ctx.createImageData(width, height);
+  const newPixels = newImageData.data;
+  
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * 4;
+      const depth = depthPixels[i] / 255;
+      const displaceX = Math.round(offsetX * depth);
+      const displaceY = Math.round(offsetY * depth);
+      const srcX = Math.max(0, Math.min(width - 1, x - displaceX));
+      const srcY = Math.max(0, Math.min(height - 1, y - displaceY));
+      const srcI = (srcY * width + srcX) * 4;
+      
+      newPixels[i] = pixels[srcI];
+      newPixels[i + 1] = pixels[srcI + 1];
+      newPixels[i + 2] = pixels[srcI + 2];
+      newPixels[i + 3] = pixels[srcI + 3];
+    }
+  }
+  
+  ctx.putImageData(newImageData, 0, 0);
 }
 </script>
 <br>
 <h3 id="data-science-in-e-mobility-at-shell">Data Science in E-Mobility at Shell <img src="Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" /></h3>
 <p>BSc (Hons) Computer Science and Artificial Intelligence at <a href="https://www.bath.ac.uk/" target="blank" style="color:#00478f; text-decoration:underline;">University of Bath</a></p>
 <br>
-<p>Currently on placement year doing data science within E-Mobility at Shell.
-Studying Computer Science and Artificial Intelligence at the Univeristy of Bath.
-Playing tennis, table tennis, badminton, padel. Solving Rubik&rsquo;s cubes of all various shapes and sizes: 2x2, 3x3, 4x4, 5x5, pyraminx, megaminx. Doing my best to learn mandarin. Travelling when I can. trying Trying hard to take cool photos. Eating a lot. I&rsquo;ve always wanted to document my life. Maybe I can start with blogs, perhaps one day I will start posting vids on youtube. also talk aboutu how i string rackets as kind of a mini business.</p>
-<p>I also want to talk very briefly about my work and what i am currently doing at work. what am i learning at work. what do i want to learn at work. goals at work. life at work. also want to talk about learning in my spare time. what stuff am i interested in learning. then maybe on the topic of leanring i can talk about uni. like books i am reading and stuff for personal learning. maybe homl. and also any courses i am taking.</p>
-<p>i can put my css in the styles.css within static</p>
-<p>also rewrite cv in latex or typst. can also have it previewed in one of the pages. with some annotations or something maybe idk.</p>
-<p>it could be cool to have my timezone and current time for me as well. also have the hk timezone on there.</p>
-<p>i want something about my philosophy towards life as well.</p>
-<p>i want to improve the header as well. header.html</p>
-<p>also i want to enable google analytics.</p>
-<p>when you tab and then it higlights the surrounding of links i want that to be customised. i want the scroll bar to be customised as well.</p>
-<p>hobbies and interests. watching anime. when talking abt the animes i am watching or have watched i can include some manga panels. listening to music. 3ds on the commute to work haha. learning mandarin. drawing sometimes. i just find life so interesting and i love to do lots of things. i built a keyboard i could put that as well. can talk about my current setup. and what i am interested to get into.</p>
-<p>also interested in keeping tabs on my personal finances so i made this excel spreadsheet. then link the sheet.</p>
-<p>mahjong, chess</p>
-<p>nintendo 3ds</p>
-<p>want to do thinkpad + linux (can i dual boot my m4 air and play around with linux)</p>
-<p>add the name pronounciation thing</p>
-<!-- can have a page about speedsolving along with my best time and maybe a solve as well -->
-<!-- Include a page about travel with photos I am proud of.  -->
-<!-- ```bash
-find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xargs wc -l
-``` -->
-<p>I managed to make code blocks with syntax highlighting. I could make something cool where like it shows a block of code or like a function of sorts and then an animted output of like a cool graph or something. my github profile hahahhaha</p>
-<pre><code class="language-python">print(&quot;hello world&quot;)
-</code></pre>
-<pre><code> &gt; hello world
-</code></pre>
-<p>i can also render latex equations qhich is cool. maybe i might find a use for this somewhere. maybe when talking about what i am learning idk.</p>
-$$
-{\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)
-$$<p>looks like i can link to other parts just by doing this <a href="/post/">posts</a> <a href="/note/">notes</a>. but idk what these pages are. in the template yihui mentions these &lsquo;pages not under the root directory&rsquo; and shows these. so this must be something to do with the footer.</p>
-<p>i also want to improve the footer.</p>
-<p>i have realised that what i mean by footer and header are the things above and below the dotted lines. but these arent header.html and footer.html. i need to improve my understanding</p>
+<p>I am in my third year of university studying CS + AI, maintaining a first-class honours, and currently on a placement year at Shell in Central London. I&rsquo;m gaining invaluable industry experience in data science while pursuing my passion for leveraging technology to solve complex business problems.</p>
 
 
-<ul>
-  
-  <li>
-    <span class="date">2017/06/14</span>
-    <a href="/note/2017/06/14/another-note/">Another Note on A blogdown Tutorial</a>
-  </li>
-  
-  <li>
-    <span class="date">2017/06/13</span>
-    <a href="/note/2017/06/13/a-quick-note/">A Quick Note on Two Beautiful Websites</a>
-  </li>
-  
-  <li>
-    <span class="date">2016/02/14</span>
-    <a href="/post/2016/02/14/a-plain-markdown-post/">A Plain Markdown Post</a>
-  </li>
-  
-  <li>
-    <span class="date">2015/07/23</span>
-    <a href="/post/2015/07/23/lorem-ipsum/">Lorem Ipsum</a>
-  </li>
-  
-</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <footer>
   

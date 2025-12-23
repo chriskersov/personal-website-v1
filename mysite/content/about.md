@@ -9,6 +9,138 @@ title: About
 
 <br>
 
+### Sports:
+
+#### Tennis
+
+Talk about tennis history.
+How much I love it.
+How long I have been playing.
+My equipment, shoes etc.
+Predictions for next grand slam.
+ML predictor for next grand slam github link maybe.
+(I could do this for each year and then see how evolves etc).
+Racket stringing as sort of a mini business.
+IMAGE OF ME PLAYING TENNIS - NEEDS TO BE COLD.
+
+#### Table tennis
+
+Talk about how much I love table tennis.
+My equipment.
+How I got into table tennis.
+Watching table tennis and fav players etc: ma long, truls, anders, fan.
+My fav ma long photo and maybe truls celebration photo.
+IMAGE OF ME PLAYING TABLE TENNIS AT WORK.
+
+#### Badminton
+
+Talk about my badminton interests.
+How I got into it.
+Want to play more, will play more at uni.
+My equipment.
+IMAGE OF ME PLAYING BADMINTON WITH YU SUM.
+
+#### Padel
+
+### Interests:
+
+#### Rubik's Cubes:
+
+Solving Rubik's cubes of various shapes and sizes:
+2x2, 3x3, 4x4, 5x5, pyraminx, megaminx.
+
+#### Learning Mandarin:
+
+Give some explanation as to why I am learning Mandarin.
+How much I have learnt so far.
+My learning goals: HSK 1 etc.
+
+#### Travelling:
+
+Recently started travelling more.
+Absolutely love it.
+Places I have been to: list them.
+Places I plan and want to go.
+
+#### Photography:
+
+Some cool photos I have taken.
+I wish to learn more about photography.
+I love taking photos of pretty scenery.
+
+#### Eating:
+
+I love eating.
+
+#### Learning:
+
+Learning in my spare time.
+What stuff am I interested in learning.
+Books I am reading for personal learning. HOML.
+Any courses I am taking.
+
+#### Anime:
+
+Anime I am watching currently.
+Animes I have enjoyed.
+Could include some manga panels or cool photos.
+
+#### Gaming:
+
+Minecraft.
+Nintendo 3DS jailbroken.
+
+#### Personal Finances:
+
+Interested in staying on top of my finances.
+Created Excel spreadsheet to track.
+Could link the sheet.
+
+#### Tech:
+
+Logitech MX master 3.
+M4 Macbook Air.
+iPad air something (i want to look into e ink tablets).
+Sony xm5s (cant live without them).
+Nintendo 3ds.
+logitech mx master keyboard
+or my own keyboard I created (show photos - blank keycaps)
+
+Want to purchase and upgrade a thinkpad
+and use linux
+
+also rewrite cv in latex or typst. can also have it previewed in one of the pages. with some annotations or something maybe idk.
+
+it could be cool to have my timezone and current time for me as well. also have the hk timezone on there.
+
+i want something about my philosophy towards life as well.
+
+also i want to enable google analytics.
+
+when you tab and then it higlights the surrounding of links i want that to be customised. i want the scroll bar to be customised as well.
+
+I managed to make code blocks with syntax highlighting. I could make something cool where like it shows a block of code or like a function of sorts and then an animted output of like a cool graph or something. my github profile hahahhaha
+
+```python
+print("hello world")
+```
+
+```
+ > hello world
+```
+
+i can also render latex equations qhich is cool. maybe i might find a use for this somewhere. maybe when talking about what i am learning idk.
+
+$$
+{\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)
+$$
+
+looks like i can link to other parts just by doing this [posts](/post/) [notes](/note/). but idk what these pages are. in the template yihui mentions these 'pages not under the root directory' and shows these. so this must be something to do with the footer.
+
+i also want to improve the footer.
+
+i have realised that what i mean by footer and header are the things above and below the dotted lines. but these arent header.html and footer.html. i need to improve my understanding
+
 **XMin** is the first Hugo theme I have designed. The original reason that I wrote it was I needed a minimal example of Hugo themes when I was writing the [**blogdown**](https://github.com/rstudio/blogdown) book. Basically I wanted a simple theme that supports a navigation menu, a home page, other single pages, lists of pages, blog posts, categories, tags, and RSS. That is all. Nothing fancy. In terms of CSS and JavaScript, I really want to keep them minimal. In fact, this theme does not contain any JavaScript code at all, although on this example website I did introduce some JavaScript code (still relatively simple anyway). The theme does not contain any images, either, and is pretty much a plain-text theme.
 
 The theme name "XMin" can be interpreted as "**X**ie's **Min**imal theme" (Xie is my last name) or "e**X**tremely **Min**imal theme".

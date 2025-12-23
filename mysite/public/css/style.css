@@ -90,4 +90,5 @@ thead, tfoot, tr:nth-child(even) { background: #eee; }
   max-width: 30%;
   min-width: 120px;
   float: right;
+  margin-top: 0.7em;
 }
