@@ -121,6 +121,9 @@ when you tab and then it higlights the surrounding of links i want that to be cu
 
 I managed to make code blocks with syntax highlighting. I could make something cool where like it shows a block of code or like a function of sorts and then an animted output of like a cool graph or something. my github profile hahahhaha
 
+perhaps on my projects page i could have a heatmap of my leetcode
+and also a heatmap of my github
+
 ```python
 print("hello world")
 ```

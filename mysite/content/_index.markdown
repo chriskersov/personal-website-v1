@@ -157,8 +157,14 @@ function render() {
 
 ### Data Science in E-Mobility at Shell <img src="Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
 
-BSc (Hons) Computer Science and Artificial Intelligence at <a href="https://www.bath.ac.uk/" target="blank" style="color:#00478f; text-decoration:underline;">University of Bath</a>
+BSc (Hons) Computer Science and Artificial Intelligence at <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a>
 
 <br>
 
 I am in my third year of university studying CS + AI, maintaining a first-class honours, and currently on a placement year at Shell in Central London. I'm gaining invaluable industry experience in data science while pursuing my passion for leveraging technology to solve complex business problems.
+
+Following my placement, I look forward to applying these industry insights to my final year and my dissertation. I am excited to return to an academic environment where I can continue tackling challenging, high-level topics. Looking further ahead, I am eager to pursue graduate opportunities for 2027, where I can continue delivering impact through data-driven innovation.
+
+I am currently working on a predictive model for the 2026 Australian Open using historical ATP match data. I am experimenting with XGBoost and a deep neural network implementation, with plans to validate performance during the live tournament. This project combines my love for playing and watching tennis with a genuine interest in machine learning. I have wanted to build something like this for quite a while, and I am excited to see how the model evolves as I refine it across all the upcoming Slams.
+
+This website explores various aspects of my life, from professional work and education to personal hobbies and interests. If you would like to get in touch, please feel free to message me on <a href="https://www.linkedin.com/in/chriskersov" target="_blank" style="color:black; text-decoration:underline;">LinkedIn</a>.
