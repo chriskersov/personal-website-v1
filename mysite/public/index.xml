@@ -37,11 +37,32 @@
       <description>&lt;p&gt;&lt;strong&gt;Lorem ipsum&lt;/strong&gt; dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore &lt;em&gt;magna aliqua&lt;/em&gt;. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&#xA;&lt;p&gt;Quisque mattis volutpat lorem vitae feugiat. Praesent porta est quis porta imperdiet. Aenean porta, mi non cursus volutpat, mi est mollis libero, id suscipit orci urna a augue. In fringilla euismod lacus, vitae tristique massa ultricies vitae. Mauris accumsan ligula tristique, viverra nulla sed, porta sapien. Vestibulum facilisis nec nisl blandit convallis. Maecenas venenatis porta malesuada. Ut ac erat tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla sodales quam sit amet tincidunt egestas. In et turpis at orci vestibulum ullamcorper. Aliquam sed ante libero. Sed hendrerit arcu lacus.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <title></title>
+      <link>http://localhost:1313/experience/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;br&gt;&#xA;&lt;h1 style=&#34;font-size:3.5rem; margin:0 0 -0.2em;&#34;&gt;About&lt;/h1&gt;&#xA;&lt;br&gt;&#xA;&lt;h3 id=&#34;sports&#34;&gt;Sports:&lt;/h3&gt;&#xA;&lt;h4 id=&#34;tennis&#34;&gt;Tennis&lt;/h4&gt;&#xA;&lt;p&gt;Talk about tennis history.&#xA;How much I love it.&#xA;How long I have been playing.&#xA;My equipment, shoes etc.&#xA;Predictions for next grand slam.&#xA;ML predictor for next grand slam github link maybe.&#xA;(I could do this for each year and then see how evolves etc).&#xA;Racket stringing as sort of a mini business.&#xA;IMAGE OF ME PLAYING TENNIS - NEEDS TO BE COLD.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/experience/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Education</title>
+      <link>http://localhost:1313/education/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/education/</guid>
+      <description>&lt;br&gt;&#xA;&lt;h1 style=&#34;font-size:3.5rem; margin:0 0 -0.2em;&#34;&gt;Education&lt;/h1&gt;&#xA;&lt;br&gt;&#xA;&lt;div style=&#34;text-align:justify; text-justify:inter-word;&#34;&gt;&#xA;I am currently studying Computer Science and Artificial Intelligence at the University of Bath and am on track to graduate with First-Class Honours. Previously, I achieved A*AA at A-level, studying Computer Science, Mathematics, and Further Mathematics at St Dominic&#39;s Sixth Form College.&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;university-of-bath&#34;&gt;University of Bath&lt;/h2&gt;&#xA;&lt;h3 id=&#34;bschons-computer-science-and-artificial-intelligence&#34;&gt;BSc(Hons) Computer Science and Artificial Intelligence&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Year 3 - Placement Year&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;On placement year at Shell in central London. I am a data scientist working within the E-Mobility team.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Interests</title>
+      <link>http://localhost:1313/interests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/interests/</guid>
+      <description>&lt;br&gt;&#xA;&lt;h1 style=&#34;font-size:3.5rem; margin:0 0 -0.2em;&#34;&gt;Interests&lt;/h1&gt;&#xA;&lt;br&gt;&#xA;&lt;h3 id=&#34;sports&#34;&gt;Sports:&lt;/h3&gt;&#xA;&lt;h4 id=&#34;tennis&#34;&gt;Tennis&lt;/h4&gt;&#xA;&lt;p&gt;Talk about tennis history.&#xA;How much I love it.&#xA;How long I have been playing.&#xA;My equipment, shoes etc.&#xA;Predictions for next grand slam.&#xA;ML predictor for next grand slam github link maybe.&#xA;(I could do this for each year and then see how evolves etc).&#xA;Racket stringing as sort of a mini business.&#xA;IMAGE OF ME PLAYING TENNIS - NEEDS TO BE COLD.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

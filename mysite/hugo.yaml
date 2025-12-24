@@ -16,21 +16,18 @@ menu:
     - name: Home
       url: ""
       weight: 1
-    - name: About
-      url: "about/"
-      weight: 2
     - name: Education
-      url: "categories/"
-      weight: 3
+      url: "education/"
+      weight: 2
     - name: Experience
-      url: "categories/"
-      weight: 4
+      url: "experience/"
+      weight: 3
     - name: Projects
-      url: "tags/"
+      url: "projects/"
+      weight: 4
+    - name: Interests
+      url: "interests/"
       weight: 5
-    - name: Contact
-      url: "tags/"
-      weight: 6
     # - name: Subscribe
     #   url: "index.xml"
 

@@ -1,11 +1,11 @@
 ---
-title: About
+title: Interests
 # author: Chris Kersov
 ---
 
 <br>
 
-<h1 style="font-size:3.5rem; margin:0 0 -0.2em;">About</h1>
+<h1 style="font-size:3.5rem; margin:0 0 -0.2em;">Interests</h1>
 
 <br>
 
