@@ -44,18 +44,11 @@
       <description></description>
     </item>
     <item>
-      <title></title>
-      <link>http://localhost:1313/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Education</title>
       <link>http://localhost:1313/education/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/education/</guid>
-      <description>&lt;br&gt;&#xA;&lt;h1 style=&#34;font-size:3.5rem; margin:0 0 -0.2em;&#34;&gt;Education&lt;/h1&gt;&#xA;&lt;br&gt;&#xA;&lt;div style=&#34;text-align:justify; text-justify:inter-word;&#34;&gt;&#xA;I am currently studying Computer Science and Artificial Intelligence at the University of Bath and am on track to graduate with First-Class Honours. Previously, I achieved A*AA at A-level, studying Computer Science, Mathematics, and Further Mathematics at St Dominic&#39;s Sixth Form College.&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;university-of-bath&#34;&gt;University of Bath&lt;/h2&gt;&#xA;&lt;h3 id=&#34;bschons-computer-science-and-artificial-intelligence---first-7242&#34;&gt;BSc(Hons) Computer Science and Artificial Intelligence - &lt;em&gt;First (72.42%)&lt;/em&gt;&lt;/h3&gt;&#xA;&lt;hr style=&#34;border-style: dashed; color: rgba(0,0,0,0.25)&#34;/&gt;&#xA;&lt;p&gt;&lt;strong&gt;Year 3 - Placement Year&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr style=&#34;border-style: dashed; color: rgba(0,0,0,0.25)&#34;/&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;On placement year at Shell in central London. I am a data scientist working within the E-Mobility team.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr style=&#34;border-style: dashed; color: rgba(0,0,0,0.25)&#34;/&gt;&#xA;&lt;p&gt;&lt;strong&gt;Year 2 - 72.42%&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>&lt;br&gt;&#xA;&lt;h1 style=&#34;font-size:3.5rem; margin:0 0 -0.2em;&#34;&gt;Education&lt;/h1&gt;&#xA;&lt;br&gt;&#xA;&lt;p&gt;proof of student downloads for chris kersov&#xA;can i have my a level certificates on here as pdf?&lt;/p&gt;&#xA;&lt;div style=&#34;text-align:justify; text-justify:inter-word;&#34;&gt;&#xA;I am currently studying Computer Science and Artificial Intelligence at the University of Bath and am on track to graduate with First-Class Honours. Previously, I achieved A*AA at A-level, studying Computer Science, Mathematics, and Further Mathematics at St Dominic&#39;s Sixth Form College.&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;university-of-bath&#34;&gt;University of Bath&lt;/h2&gt;&#xA;&lt;h3 id=&#34;bschons-computer-science-and-artificial-intelligence---first-7242&#34;&gt;BSc(Hons) Computer Science and Artificial Intelligence - First (72.42%)&lt;/h3&gt;&#xA;&lt;hr style=&#34;border-style: dashed; color: rgba(0,0,0,0.25)&#34;/&gt;&#xA;&lt;p&gt;&lt;strong&gt;Year 3 - Placement Year&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Interests</title>
@@ -63,6 +56,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/interests/</guid>
       <description>&lt;br&gt;&#xA;&lt;h1 style=&#34;font-size:3.5rem; margin:0 0 -0.2em;&#34;&gt;Interests&lt;/h1&gt;&#xA;&lt;br&gt;&#xA;&lt;h3 id=&#34;sports&#34;&gt;Sports:&lt;/h3&gt;&#xA;&lt;h4 id=&#34;tennis&#34;&gt;Tennis&lt;/h4&gt;&#xA;&lt;p&gt;Talk about tennis history.&#xA;How much I love it.&#xA;How long I have been playing.&#xA;My equipment, shoes etc.&#xA;Predictions for next grand slam.&#xA;ML predictor for next grand slam github link maybe.&#xA;(I could do this for each year and then see how evolves etc).&#xA;Racket stringing as sort of a mini business.&#xA;IMAGE OF ME PLAYING TENNIS - NEEDS TO BE COLD.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Projects</title>
+      <link>http://localhost:1313/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;just had an idea to evolve the ML grand slam predictor further&lt;/li&gt;&#xA;&lt;li&gt;i want to have live match prediction kinda like google and football&lt;/li&gt;&#xA;&lt;li&gt;use this video to learn how to do this ml stuff by looking a match:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=L23oIHZE14w&#34;&gt;https://www.youtube.com/watch?v=L23oIHZE14w&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;just cool to be able to learn and play with this stuff anyways&lt;/li&gt;&#xA;&lt;li&gt;but perhaps the ml predictor could make a prediction&#xA;&lt;ul&gt;&#xA;&lt;li&gt;then after the match is over watch the match back and improve its prediction or something&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;idk im not exactly sure yet but there is something cool that can be done here i know there is&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

@@ -9,13 +9,16 @@ title: Education
 
 <br>
 
+proof of student downloads for chris kersov
+can i have my a level certificates on here as pdf?
+
 <div style="text-align:justify; text-justify:inter-word;">
 I am currently studying Computer Science and Artificial Intelligence at the University of Bath and am on track to graduate with First-Class Honours. Previously, I achieved A*AA at A-level, studying Computer Science, Mathematics, and Further Mathematics at St Dominic's Sixth Form College.
 </div>
 
 ## University of Bath
 
-### BSc(Hons) Computer Science and Artificial Intelligence - _First (72.42%)_
+### BSc(Hons) Computer Science and Artificial Intelligence - First (72.42%)
 
 <hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
 
@@ -40,7 +43,7 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
 
 <!-- synopsis -->
 
-- <span style="text-decoration: underline;">Synopsis:</span> <span style="font-style: italic;">"You will work in a team to propose, design, develop, and evaluate a software system, using a modern software process such as agile. You will learn how to gather requirements, specify software, develop models in preparation for writing code, as well as test and evaluate software. You will consider risk management, cyber-security, and other ethical aspects, as well as report on the process and the resulting software."</span>
+- <span style="text-decoration: underline;">Synopsis:</span> <span style="font-style: italic;">'You will work in a team to propose, design, develop, and evaluate a software system, using a modern software process such as agile. You will learn how to gather requirements, specify software, develop models in preparation for writing code, as well as test and evaluate software. You will consider risk management, cyber-security, and other ethical aspects, as well as report on the process and the resulting software.'</span>
 
 <!-- content -->
 
@@ -178,6 +181,8 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
 
 > <span style="text-decoration: underline;">My thoughts:</span> This was a challenging module with a large amount of detailed material. The foundations component covered theoretical machine learning topics that I found compelling, and the tutorials allowed us to implement what we learned in code. The frontiers component focused on conducting research in the rapidly evolving field of machine learning and involved weekly reading groups where we analysed and presented research papers; my favourite paper to present was the AlphaGo paper. The coursework was a research proposal, which I enjoyed. The exam was very hard due to the breadth of content and emphasised applying knowledge to novel problems.
 
+<hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
+
 **Year 1 - 75.50%**
 
 <hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
@@ -309,18 +314,64 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
 
 ## St Dominic's Sixth Form College
 
-### A-Levels - _A\*AA_
+### A-Levels - A\*AA
 
 <hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
 
 **Computer Science - A\***
 
+<div style="display:flex; gap:1.25rem; align-items:flex-start; flex-wrap:wrap;">
+
+<blockquote style="flex:1; min-width:260px; padding:1rem 1.25rem; border-left:0.35rem solid rgba(0,0,0,0.12); margin-top: 1.5em">
+<p><span style="text-decoration: underline;">My thoughts:</span> I really enjoyed A‑Level Computer Science; the content was engaging and the coursework was enjoyable. My teacher, <a href="https://www.linkedin.com/in/howard-bennett-a23630250/" target="_blank" style="color: black; text-decoration:underline;">Howard Bennett</a>, was excellent - both an effective and entertaining instructor. I also met <a href="https://www.linkedin.com/in/aaryan-patel-b03321320/" target="_blank" style="color: black; text-decoration:underline;">Aaryan Patel</a>, who quickly became one of my best friends. The hard work paid off: I achieved an A*, and Aaryan and I were the only two students in the whole school to do so; I am very grateful for my performance in this subject.</p>
+</blockquote>
+
+<figure style="flex:0 0 320px; max-width:35%; margin:0 2.5rem 0 0;">
+    <img src="Chris and Aaryan Astar.jpg" alt="Chris and Aaryan A*" style="width:100%; height:auto; display:block; margin:0;">
+</figure>
+
+</div>
+
+<br>
+
+<hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
+
+Computer Systems
+
+- <span style="text-decoration: underline;">Synopsis:</span> <span style="font-style: italic;">"Students are introduced to the internal workings of the (CPU), data exchange, software development, data types and legal and ethical issues. It covers: The characteristics of contemporary processors, input, output and storage devices; Types of software and the different methodologies used to develop software; Data exchange between different systems; Data types, data structures and algorithms; Legal, moral, cultural and ethical issues."</span>
+
+- <span style="text-decoration: underline;">Content:</span> <span style="font-style: italic;">"Structure and Function of the Processor; Types of Processor; Input, Output and Storage; Systems Software; Applications Generation; Software; Development; Types of Programming Language; Compression, Encryption and Hashing; Databases; Networks; Web Technologies; Data Types; Data; Structures; Boolean Algebra; Computing Related Legislation; Moral and Ethical Issues."</span>
+
+<hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
+
+Algorithms and Programming
+
+- <span style="text-decoration: underline;">Synopsis:</span> <span style="font-style: italic;">"This builds on Computer Systems to include computational thinking and problem-solving. It covers: What is meant by computational thinking (thinking abstractly, thinking ahead, thinking procedurally etc.); Problem solving and programming – how computers and programs can be used to solve problems; Algorithms and how they can be used to describe and solve problems."</span>
+
+- <span style="text-decoration: underline;">Content:</span> <span style="font-style: italic;">"Thinking Abstractly; Thinking Ahead; Thinking Procedurally; Thinking Logically; Thinking Concurrently; Programming Techniques; Computational Methods; Analysis, Design and Comparison of Algorithms; Algorithms for the Main Data Structures; Sorting Algorithms; Searching Algorithms; Path Finding Algorithms"</span>
+
+<hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
+
+Coursework
+
+- <span style="text-decoration: underline;">Synopsis:</span> "Students are expected to apply the principles of computational thinking to a practical coding programming project. They will analyse, design, develop, test, evaluate and document a program written in a suitable programming language. The project is designed to be independently chosen by the student and provides them with the flexibility to investigate projects within the diverse field of computer science. We support a wide and diverse range of languages.
+
+> <span style="text-decoration: underline;">My thoughts:</span> Although we used Python throughout the two years, this was my first large programming project. I developed a full‑stack Formula 1 statistics website that aggregated race and season data from the Ergast Developer API (now deprecated). I think if I were to tackle a project related to F1 today I would use the <a href="https://github.com/theOehrly/Fast-F1" target="_blank" style="color: black; text-decoration:underline;">Fast‑F1 Python package</a>. The site presented relevant F1 statistics in a clean, minimal interface - frontend built with HTML, CSS and JavaScript; backend implemented in PHP with a MySQL database running on XAMPP. I implemented user registration and login, persistent user preferences, and dynamic theming (for example, adapting the appearance to the user’s supported team and chosen theme). I also wrote a comprehensive 245‑page report covering everything from the design and code explanations to evaluation and proposed future improvements. I scored 69/70 on this coursework, which contributed significantly to my A\*.
+
 <hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
 
 **Mathematics - A**
 
+- Pure Mathematics
+- Statistics & Mechanics
+
 <hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
 
 **Further Mathematics - A**
+
+- Core Pure 1
+- Core Pure 2
+- Further Statistics 1
+- Further Statistics 2
 
 <hr style="border-style: dashed; color: rgba(0,0,0,0.25)"/>
