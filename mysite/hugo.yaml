@@ -1,5 +1,5 @@
-baseurl: "https://example.org/" # please update this to your actual URL
-languageCode: "en-us"
+baseurl: "https://localhost:1313/" # please update this to your actual URL
+languageCode: "en-uk"
 title: "Chris Kersov"
 theme: "hugo-xmin"
 googleAnalytics: ""

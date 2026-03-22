@@ -9,6 +9,28 @@ title: Interests
 
 <br>
 
+- just had an idea to evolve the ML grand slam predictor further
+- i want to have live match prediction kinda like google and football
+- use this video to learn how to do this ml stuff by looking a match:
+  - https://www.youtube.com/watch?v=L23oIHZE14w
+- just cool to be able to learn and play with this stuff anyways
+- but perhaps the ml predictor could make a prediction
+  - then after the match is over watch the match back and improve its prediction or something
+- idk im not exactly sure yet but there is something cool that can be done here i know there is
+
+- i want to do the ml predictor for mens and woman
+- perhaps for aus open i can do for mens only
+- then for roland garros i can do for woman as well
+- i also want to have money involved
+- what about sentiment analysis
+- also what bookies
+  - haha what if you make a parlay for some likely combinations
+
+- need to fix the pronounciation of chris kersov to be able to work on all browsers
+- just make it play a stored audio
+
+- have a cv download on the first page
+
 ### Sports:
 
 #### Tennis

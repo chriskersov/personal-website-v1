@@ -30,20 +30,6 @@ body {
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Optima';
-  src: url('/css/Optima BoldItalic.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Optima';
-  src: url('/css/Optima MediumItalic.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
 code {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 85%;
