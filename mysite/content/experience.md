@@ -21,8 +21,6 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 <p>My placement year as a Data Scientist within Shell's E-Mobility team in central London was an incredibly varied and rewarding experience, spanning data analysis, machine learning, and software engineering to support both research and development and strategic business decisions.</p>
 
-<br>
-
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
     <td style="width:18%; border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:middle; text-align:center; color:black; background:#f5f5f5;"><strong>Machine Learning and Modelling</strong></td>
@@ -74,13 +72,12 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 ### 08/2021 - 05/2025&nbsp;-----&nbsp;Gerrards Cross, Hayes, Bath
 
-<br>
+<span style="color:red;">add intro summary paragraph</span>
 
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
     <td style="width:18%; border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:middle; text-align:center; color:black; background:#f5f5f5;"><strong>Customer Facing</strong></td>
-    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:top;">Working at Screwfix in multiple locations gave me a strong foundation in customer service, communication, and teamwork. I thrived in a fast-paced retail environment, consistently approaching every customer interaction with a positive attitude and turning enquiries into sales. I identified high-spending customers, built genuine relationships with them, and promoted them to trade accounts where it was a good fit - directly contributing to increased store revenue.</p>
-    <p>I took pride in going above and beyond for customers, frequently taking extra time to ensure people found exactly what they needed. This dedication was reflected in the feedback I received, including multiple five-star reviews on Google and Trustpilot, as well as many positive responses through online post-order prompted feedback.</td>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:top;">Working at Screwfix in multiple locations gave me a strong foundation in customer service, communication, and teamwork. I thrived in a fast-paced retail environment, consistently approaching every customer interaction with a positive attitude and turning enquiries into sales. I identified high-spending customers, built genuine relationships with them, and promoted them to trade accounts where it was a good fit - directly contributing to increased store revenue.<br><br>I took pride in going above and beyond for customers, frequently taking extra time to ensure people found exactly what they needed. This dedication was reflected in the feedback I received, including multiple five-star reviews on Google and Trustpilot, as well as many positive responses through online post-order prompted feedback.</td>
   </tr>
 </table>
 
