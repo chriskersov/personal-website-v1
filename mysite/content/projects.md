@@ -51,9 +51,9 @@ A web tool for converting Nintendo 3DS MPO stereo images into animated wobble GI
     </tr>
     <tr>
         <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
-            <a href="../experience/" style="color:black; text-decoration:underline;">
+            <a href="../experience/" style="color:black; text-decoration:none;">
               <div id="readme-container" style="max-height:500px; overflow-y:auto; border:1px solid #e8e8e8; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem;">
-                <div id="readme-content" style="font-family:monospace; font-size:0.72rem; line-height:1.7; color:black; margin:0; white-space:pre-wrap; word-break:break-word;">Loading README...</div>
+                <div id="readme-content" style="font-family:monospace; color:black; margin:0; white-space:pre-wrap; word-break:break-word;">Loading README...</div>
               </div>
             </a>
         </td>
