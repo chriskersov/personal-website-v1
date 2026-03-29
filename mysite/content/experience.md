@@ -21,7 +21,7 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 <p>My placement year as a Data Scientist within Shell's E-Mobility team in central London was an incredibly varied and rewarding experience, spanning data analysis, machine learning, and software engineering to support both research and development and strategic business decisions.</p>
 
-<br>
+<!-- <br> -->
 
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
@@ -73,7 +73,7 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 ### 08/2021 - 05/2025&nbsp;-----&nbsp;Gerrards Cross, Hayes, Bath
 
-<span style="color:red;">add intro summary paragraph</span>
+My experience at Screwfix across three locations over nearly four years built the interpersonal and operational skills that underpin everything else I do. Working in a fast-paced retail environment taught me how to communicate clearly, perform under pressure, and work as part of a team - qualities I continue to draw on in technical settings.
 
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>

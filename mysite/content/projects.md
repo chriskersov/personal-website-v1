@@ -6,7 +6,7 @@ Title: Projects
 
 <h1 style="font-size:3.5rem; margin:0 0 -0.2em;">Projects</h1>
 
-This is a summary / intro paragraph about the projects I have made. I really enjoy doing personal projects in my spare time. I always have so many ideas and I find it so fun to be able to implement them into real life. I'm always thinking about new ideas or ways to improve my projects / solving problems.
+This page showcases the personal projects I've built in my spare time. I always have so many ideas and I love being able to bring them to life. I'm always thinking about what to build next, or how to make something I've already built better.
 
 <br>
 
@@ -20,28 +20,26 @@ This is a summary / intro paragraph about the projects I have made. I really enj
 
 Streamlit, Pillow, NumPy, Streamlit Community Cloud
 
-<div style="display:grid; grid-template-columns:1.5fr 0.5fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
+A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required.
 
-<div>
-
-A web tool for converting Nintendo 3DS MPO stereo images into animated wobble GIFs. Upload an MPO file, adjust the wobble speed and frame count, and download the result — all in the browser with no installation required. Built and deployed on Streamlit Community Cloud.
-
-</div>
-
-<div>
-
-<div id="carousel" style="position:relative; width:100%;">
-  <img id="carousel-img" src="/projects/screenshot1.png" alt="Project screenshot" style="width:100%; display:block; border:1px solid #e8e8e8;">
-  <div style="display:flex; justify-content:center; align-items:center; gap:1rem; margin-top:0.5rem;">
-    <button onclick="prevSlide()" style="background:none; border:none; cursor:pointer; font-size:1rem; color:#999;">&#8592;</button>
-    <span id="carousel-counter" style="font-size:0.75rem; color:#999;">1 / 3</span>
-    <button onclick="nextSlide()" style="background:none; border:none; cursor:pointer; font-size:1rem; color:#999;">&#8594;</button>
+<!-- <div style="display:grid; grid-template-columns:1.5fr 0.5fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
+å
+  <div>
+  A web tool for converting Nintendo 3DS MPO stereo images into animated wobble GIFs. Upload an MPO file, adjust the wobble speed and frame count, and download the result — all in the browser with no installation required. Built and deployed on Streamlit Community Cloud.
   </div>
-</div>
 
-</div>
+  <div>
+    <div id="carousel" style="position:relative; width:100%;">
+      <img id="carousel-img" src="/projects/screenshot1.png" alt="Project screenshot" style="width:100%; display:block; border:1px solid #e8e8e8;">
+      <div style="display:flex; justify-content:center; align-items:center; gap:1rem; margin-top:0.5rem;">
+        <button onclick="prevSlide()" style="background:none; border:none; cursor:pointer; font-size:1rem; color:#999;">&#8592;</button>
+        <span id="carousel-counter" style="font-size:0.75rem; color:#999;">1 / 3</span>
+        <button onclick="nextSlide()" style="background:none; border:none; cursor:pointer; font-size:1rem; color:#999;">&#8594;</button>
+      </div>
+    </div>
+  </div>
 
-</div>
+</div> -->
 
 <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse;">
     <tr>
@@ -51,9 +49,9 @@ A web tool for converting Nintendo 3DS MPO stereo images into animated wobble GI
     </tr>
     <tr>
         <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
-            <a href="../experience/" style="color:black; text-decoration:none;">
-              <div id="readme-container" style="max-height:500px; overflow-y:auto; border:1px solid #e8e8e8; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem;">
-                <div id="readme-content" style="font-family:monospace; color:black; margin:0; white-space:pre-wrap; word-break:break-word;">Loading README...</div>
+            <a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank"  style="color:black; text-decoration:none;">
+              <div id="readme-container" style="max-height:500px; overflow-y:auto; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem;">
+                <div id="readme-content" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
               </div>
             </a>
         </td>
@@ -85,9 +83,23 @@ function updateCarousel() {
 function nextSlide() { current = (current + 1) % slides.length; updateCarousel(); }
 function prevSlide() { current = (current - 1 + slides.length) % slides.length; updateCarousel(); }
 
-fetch("https://raw.githubusercontent.com/chriskersov/3DS-wobble-gif/main/README.md")
+const REPO_RAW_BASE = "https://raw.githubusercontent.com/chriskersov/3DS-wobble-gif/main/";
+
+fetch(REPO_RAW_BASE + "README.md")
   .then(r => r.text())
-  .then(text => { document.getElementById("readme-content").innerHTML = marked.parse(text); })
+  .then(text => {
+    // Rewrite relative markdown image paths
+    let rewritten = text.replace(
+      /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,
+      (match, alt, src) => `![${alt}](${REPO_RAW_BASE}${src})`
+    );
+    // Rewrite relative src="" attributes in HTML tags
+    rewritten = rewritten.replace(
+      /src="(?!https?:\/\/)([^"]+)"/g,
+      (match, src) => `src="${REPO_RAW_BASE}${src}"`
+    );
+    document.getElementById("readme-content").innerHTML = marked.parse(rewritten);
+  })
   .catch(() => { document.getElementById("readme-content").textContent = "Could not load README."; });
 </script>
 
