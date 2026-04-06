@@ -9,6 +9,29 @@ title: Interests
 
 <br>
 
+ideas for future projects
+
+- aus open predictor
+- roland garros predictor (so many further things that can be built on top of this)
+- world cup predictor
+- premier league predictor
+
+- an f1 related project
+
+- llm free tier memory mover
+
+- terminal typing test with basic customisability that dies when you make a mistake
+- but has better versions as well
+- and also gives in depth analsis as to waht you did while typing
+
+- quant finance related projects
+- something that could be useful for my final year project
+- with some machine learning could be cool
+
+- make my github profile look pretty
+
+- make a readme for my github main page
+
 - look into how best to market projects to get users. like for the 3ds one for example.
 
 - a project that takes your current chat lets say you reached your limit then converts it to some format. then you take that to a new free ai tier then upload it there and boom its caught up and dont need to worry about the context window. what format to convert it to and how i am not sure. binary, tokens, idk. also how can you export a whole chat. im sure thats possible. but yeah this should be a useable tool maybe even a chrome extension or something.

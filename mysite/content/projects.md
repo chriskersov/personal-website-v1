@@ -18,9 +18,7 @@ This page showcases the personal projects I've built in my spare time. I always 
 
 ### <a href="https://3ds-wobble-gif.streamlit.app" target="_blank" style="color:black; text-decoration:underline;">Link</a>&nbsp;-----&nbsp;<a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
 
-Streamlit, Pillow, NumPy, Streamlit Community Cloud
-
-<!-- A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required. -->
+Streamlit, Pillow, NumPy, Streamlit Community Clouds
 
 <div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
 
@@ -28,8 +26,8 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
  A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required.
   </div>
 
-<div style="width:100%; border: 2px solid #ccc;">
-  <div onclick="openLightbox(0)" style="position:relative; cursor:pointer; overflow:hidden; background:#000; line-height:0;">
+<div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+  <div onclick="openLightbox(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
     <img src="/projects/screenshot1.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
     <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
@@ -45,7 +43,7 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
 
 </div>
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse;">
+<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
         <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center;">
             <strong>README.md</strong>
@@ -54,7 +52,7 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
     <tr>
         <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
             <a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank"  style="color:black; text-decoration:none;">
-              <div id="readme-container" style="max-height:500px; overflow-y:auto; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem;">
+              <div id="readme-container" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem; box-sizing:border-box; width:100%;">
                 <div id="readme-content" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
               </div>
             </a>
@@ -75,7 +73,11 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
 <style>
   details[open] summary .arrow { display: none; }
   details:not([open]) summary .open-arrow { display: none; }
-  details[open] #readme-container { max-height:none; }
+  /* details[open] #readme-container { max-height:none; } */
+
+  #readme-container::-webkit-scrollbar {
+    display: none;
+  }
 </style>
 
 <script>
@@ -146,5 +148,3 @@ fetch(REPO_RAW_BASE + "README.md")
   })
   .catch(() => { document.getElementById("readme-content").textContent = "Could not load README."; });
 </script>
-
-<!-- ─── PROJECT 02 ─────────────────────────────────────────── -->
