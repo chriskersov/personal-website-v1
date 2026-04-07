@@ -118,6 +118,9 @@ function updateLightbox() {
 function lightboxNext() { lightboxIndex = (lightboxIndex + 1) % slides.length; updateLightbox(); }
 function lightboxPrev() { lightboxIndex = (lightboxIndex - 1 + slides.length) % slides.length; updateLightbox(); }
 
+document.getElementById("lightbox").addEventListener("click", function(e) {
+  if (e.target === this) closeLightbox();
+});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
