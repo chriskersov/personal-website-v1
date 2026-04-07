@@ -9,6 +9,17 @@ Title: Projects
 This page showcases the personal projects I've built in my spare time. I always have so many ideas and I love being able to bring them to life. I'm always thinking about what to build next, or how to make something I've already built better.
 
 <br>
+ 
+<div style="border: 2px solid #ccc; padding: 1rem 1.25rem;">
+  <p style="margin: 0 0 0.5rem; font-weight: bold;">Contents</p>
+  <ol style="margin: 0; padding-left: 1.25rem; color: #888;">
+    <li><a href="#3ds-mpo-wobble-tool" style="color: #888; text-decoration: none;">3DS MPO Wobble Tool</a></li>
+    <li><a href="#personal-finances-ai" style="color: #888; text-decoration: none;">Personal Finances AI</a></li>
+  </ol>
+</div>
+ 
+<br>
+<br>
 
 <!-- <hr style="border:none; border-top:1px solid #e0e0e0; margin:0 0 3.5rem;"> -->
 
@@ -152,4 +163,103 @@ fetch(REPO_RAW_BASE + "README.md")
     document.getElementById("readme-content").innerHTML = marked.parse(rewritten);
   })
   .catch(() => { document.getElementById("readme-content").textContent = "Could not load README."; });
+</script>
+
+<!-- ─── PROJECT 02 ─────────────────────────────────────────── -->
+
+<br>
+<br>
+ 
+## Personal Finances AI
+ 
+### <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+ 
+<div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">openpyxl</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Ollama</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">qwen2.5:7b</span>
+</div>
+ 
+<div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
+ 
+  <div>
+    A Streamlit app that reads a personal Excel finance workbook — one sheet per month, tracking needs, wants, savings, income, and spending by category — and uses a locally running LLM to generate a plain-English summary of the current month. It produces a monthly digest covering cash flow, budget goal tracking, top spending categories, and a forward-looking observation. Everything runs fully offline on the machine; the Excel file is never committed to the repo.
+  </div>
+ 
+<div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+  <div onclick="openLightbox2(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
+    <img src="/projects/screenshot7.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+      <span style="color:white;">1 photo</span>
+    </div>
+  </div>
+  <div onclick="openLightbox2(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:black; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
+</div>
+ 
+</div>
+ 
+<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+    <tr>
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center;">
+            <strong>README.md</strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
+            <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:black; text-decoration:none;">
+              <div id="readme-container-2" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem; box-sizing:border-box; width:100%;">
+                <div id="readme-content-2" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+              </div>
+            </a>
+        </td>
+    </tr>
+</table>
+ 
+<div id="lightbox2" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center;">
+  <button onclick="closeLightbox2()" style="position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">✕</button>
+  <img id="lightbox2-img" src="" style="max-width:90vw; max-height:85vh; display:block; object-fit:contain;">
+  <span id="lightbox2-counter" style="position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); color:white; font-size:0.8rem;"></span>
+</div>
+ 
+<script>
+const slides2 = ["/projects/screenshot7.png"];
+let lightboxIndex2 = 0;
+ 
+function openLightbox2(index) {
+  lightboxIndex2 = index;
+  const lb = document.getElementById("lightbox2");
+  lb.style.display = "flex";
+  document.getElementById("lightbox2-img").src = slides2[lightboxIndex2];
+  document.getElementById("lightbox2-counter").textContent = (lightboxIndex2 + 1) + " / " + slides2.length;
+}
+function closeLightbox2() {
+  document.getElementById("lightbox2").style.display = "none";
+}
+document.getElementById("lightbox2").addEventListener("click", function(e) {
+  if (e.target === this) closeLightbox2();
+});
+</script>
+ 
+<script>
+const REPO_RAW_BASE_2 = "https://raw.githubusercontent.com/chriskersov/personal-finances-ai/main/";
+ 
+fetch(REPO_RAW_BASE_2 + "README.md")
+  .then(r => r.text())
+  .then(text => {
+    let rewritten = text.replace(
+      /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,
+      (match, alt, src) => `![${alt}](${REPO_RAW_BASE_2}${src})`
+    );
+    rewritten = rewritten.replace(
+      /src="(?!https?:\/\/)([^"]+)"/g,
+      (match, src) => `src="${REPO_RAW_BASE_2}${src}"`
+    );
+    document.getElementById("readme-content-2").innerHTML = marked.parse(rewritten);
+  })
+  .catch(() => { document.getElementById("readme-content-2").textContent = "Could not load README."; });
 </script>
