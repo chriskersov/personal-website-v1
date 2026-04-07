@@ -118,7 +118,6 @@ function updateLightbox() {
 function lightboxNext() { lightboxIndex = (lightboxIndex + 1) % slides.length; updateLightbox(); }
 function lightboxPrev() { lightboxIndex = (lightboxIndex - 1 + slides.length) % slides.length; updateLightbox(); }
 
-// Close on backdrop click
 document.getElementById("lightbox").addEventListener("click", function(e) {
   if (e.target === this) closeLightbox();
 });
