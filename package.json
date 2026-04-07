@@ -1,4 +1,6 @@
 {
+  "name": "personal-website",
+  "version": "0.1.0",
   "scripts": {
     "release": "standard-version"
   },
