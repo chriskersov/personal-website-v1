@@ -10,14 +10,97 @@ This page showcases the personal projects I've built in my spare time. I always 
 
 <br>
  
-<div style="border: 2px solid #ccc; padding: 1rem 1.25rem;">
-  <p style="margin: 0 0 0.5rem; font-weight: bold;">Contents</p>
-  <ol style="margin: 0; padding-left: 1.25rem; color: #888;">
-    <li><a href="#3ds-mpo-wobble-tool" style="color: #888; text-decoration: none;">3DS MPO Wobble Tool</a></li>
-    <li><a href="#personal-finances-ai" style="color: #888; text-decoration: none;">Personal Finances AI</a></li>
-  </ol>
+<div style="display:grid; grid-template-columns:0.5fr 0.5fr; gap:1rem; align-items:stretch;">
+  <div style="border: 2px solid #ccc; padding: 1rem 1.25rem;">
+    <ul style="margin: 0; padding-left: 0; list-style: none;">
+      <li><a href="#3ds-mpo-wobble-tool" style="color: black; text-decoration: none;">3DS MPO Wobble Tool</a></li>
+      <li><a href="#personal-finances-ai" style="color: black; text-decoration: none;">Personal Finances AI</a></li>
+    </ul>
+  </div>
+  <div style="border: 2px solid #ccc; padding: 1rem 1.25rem;">
+    <div id="contrib-graph"></div>
+  </div>
 </div>
- 
+
+<script>
+const GITHUB_TOKEN = "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";
+const USERNAME = "chriskersov";
+
+async function fetchContributions() {
+  const query = `{
+    user(login: "${USERNAME}") {
+      contributionsCollection {
+        contributionCalendar {
+          weeks {
+            contributionDays {
+              contributionCount
+              date
+            }
+          }
+        }
+      }
+    }
+  }`;
+
+  const res = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      "Authorization": `bearer ${GITHUB_TOKEN}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ query })
+  });
+
+  const data = await res.json();
+  return data.data.user.contributionsCollection.contributionCalendar.weeks;
+}
+
+function getColor(count) {
+  if (count === 0) return "#e8e8e8";
+  if (count <= 2)  return "#aaaaaa";
+  if (count <= 5)  return "#777777";
+  if (count <= 9)  return "#444444";
+  return "#111111";
+}
+
+async function renderGraph() {
+  const weeks = await fetchContributions();
+
+  const container = document.getElementById("contrib-graph");
+  const cellSize = 10;
+  const gap = 2;
+  const cols = weeks.length;
+  const rows = 7;
+  const totalW = cols * (cellSize + gap) - gap;
+  const totalH = rows * (cellSize + gap) - gap;
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", `0 0 ${totalW} ${totalH}`);
+  svg.setAttribute("width", "100%");
+  svg.style.display = "block";
+
+  weeks.forEach((week, col) => {
+    week.contributionDays.forEach((d, row) => {
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", col * (cellSize + gap));
+      rect.setAttribute("y", row * (cellSize + gap));
+      rect.setAttribute("width", cellSize);
+      rect.setAttribute("height", cellSize);
+      rect.setAttribute("rx", 2);
+      rect.setAttribute("fill", getColor(d.contributionCount));
+      const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      title.textContent = `${d.date}: ${d.contributionCount} contribution${d.contributionCount !== 1 ? "s" : ""}`;
+      rect.appendChild(title);
+      svg.appendChild(rect);
+    });
+  });
+
+  container.appendChild(svg);
+}
+
+renderGraph();
+</script>
+
 <br>
 <br>
 
