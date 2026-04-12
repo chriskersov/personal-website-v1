@@ -23,6 +23,8 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 <!-- <br> -->
 
+<span style="color:red;">talk about project curve and using power, current, voltage data. trends. histogircal data to make a future prediction using domain knowledge and working closely wth the business team. percentages and probabilities customers satisfied. looking at rnpv and npv and working to make sure we make the right decision in terms of chargers so taht in 10 years time we dont lose money. multi hundred million dollar problem because of preivously poor decisions and sheer amount of numbers and money that will be spent. </span>
+
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
     <td style="width:18%; border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:middle; text-align:center; color:black; background:#f5f5f5;"><strong>Data Analysis and Data Engineering</strong></td>
@@ -41,6 +43,8 @@ My experience spans both industry and customer-facing environments, giving me a 
 </table>
 
 <br>
+
+<span style="color:red;">generated x amount of money from leads / customers etc that use the lead generator then shell team uses the tool</span>
 
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>

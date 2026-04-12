@@ -9,6 +9,203 @@ Title: Projects
 This page showcases the personal projects I've built in my spare time. I always have so many ideas and I love being able to bring them to life. I'm always thinking about what to build next, or how to make something I've already built better.
 
 <br>
+ 
+<div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start;">
+<div style="display:flex; flex-direction:column; gap:1rem;">
+    <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4; text-align: center;">
+                <strong>Contents</strong>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 1rem 1.25rem; vertical-align: top; background: white;">
+                <ul style="margin: 0; padding-left: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem;">
+                  <li><a href="#3ds-mpo-wobble-tool" style="color: orange; text-decoration: none;">3DS MPO Wobble Tool</a></li>
+                  <li><a href="#" style="color: red; text-decoration: none;">LLM Memory Mover</a></li>
+                  <li><a href="#" style="color: red; text-decoration: none;">MPO Parser NPM Package</a></li>
+                  <li><a href="#" style="color: red; text-decoration: none;">Australian Open Predictor</a></li>
+                  <li><a href="#personal-finances-ai" style="color: orange; text-decoration: none;">Personal Finances AI</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Roland Garros Predictor</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Something Else</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Something Else</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Something Else</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Something Else</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Something Else</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Something Else</a></li>    
+                  <li><a href="#" style="color: red; text-decoration: none;">Something Else</a></li>    
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+  <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 0.8rem 1.25rem; background: white;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+              <span><span style="color: red;">●</span> Not Started</span>
+              <span><span style="color: orange;">●</span> In Progress</span>
+              <span><span style="color:#40c463;">●</span> Completed</span>
+            </div>
+        </td>
+    </tr>
+  </table>
+
+  </div>
+
+  <div style="display:flex; flex-direction:column; justify-content: flex-start;"> <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4; text-align: center;">
+                <strong>Github Contribution Graph</strong>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 1rem; vertical-align: top; text-align: center; background: white;">
+                <div id="contrib-graph" style="width:100%;"></div>
+            </td>
+        </tr>
+    </table>
+  </div>
+</div>
+
+<!-- <div style="display:grid; grid-template-columns:0.5fr 0.5fr; gap:1rem; align-items:stretch;">
+  <div style="display:flex; flex-direction:column; gap:1rem;">
+    <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 1rem 1.25rem; vertical-align: top; background: white;">
+                <ul style="margin: 0; padding-left: 0; list-style: none;">
+                  <li><a href="#3ds-mpo-wobble-tool" style="color: orange; text-decoration: none;">3DS MPO Wobble Tool</a></li>
+                  <li><a href="#" style="color: red; text-decoration: none;">MPO Parser NPM Package</a></li>
+                  <li><a href="#personal-finances-ai" style="color: orange; text-decoration: none;">Personal Finances AI</a></li>
+                  <li><a href="#" style="color: red; text-decoration: none;">LLM Memory Mover</a></li>
+                  <li><a href="#" style="color: red; text-decoration: none;">Australian Open Predictor</a></li>
+                  <li><a href="#" style="color: red; text-decoration: none;">Roland Garros Predictor</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 0.8rem 1.25rem; background: white;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                  <span><span style="color: red;">●</span> Not Started</span>
+                  <span><span style="color: orange;">●</span> In Progress</span>
+                  <span><span style="color:#40c463;">●</span> Completed</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+  </div>
+
+  <div style="display:flex;">
+    <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 1rem; vertical-align: middle; text-align: center; background: white;">
+                <div id="contrib-graph" style="width:100%;"></div>
+            </td>
+        </tr>
+    </table>
+  </div>
+</div> -->
+
+<script>
+const GITHUB_TOKEN = "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";
+const USERNAME = "chriskersov";
+
+async function fetchContributions() {
+  const query = `{
+    user(login: "${USERNAME}") {
+      contributionsCollection {
+        contributionCalendar {
+          weeks {
+            contributionDays {
+              contributionCount
+              date
+            }
+          }
+        }
+      }
+    }
+  }`;
+
+  const res = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      "Authorization": `bearer ${GITHUB_TOKEN}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ query })
+  });
+
+  const data = await res.json();
+  return data.data.user.contributionsCollection.contributionCalendar.weeks;
+}
+
+function getColor(count) {
+  if (count === 0) return "#e8e8e8";
+  if (count <= 2)  return "#aaaaaa";
+  if (count <= 5)  return "#777777";
+  if (count <= 9)  return "#444444";
+  return "#111111";
+}
+
+function getColor(count) {
+  if (count === 0) return "#ebedf0"; // GitHub empty cell
+  if (count <= 2)  return "#9be9a8"; // GitHub Light Green
+  if (count <= 5)  return "#40c463"; // GitHub Medium Green
+  if (count <= 9)  return "#30a14e"; // GitHub Dark Green
+  return "#216e39";                // GitHub Deepest Green
+}
+
+async function renderGraph() {
+  const allWeeks = await fetchContributions();
+  const weeks = allWeeks.slice(-13);
+
+  const container = document.getElementById("contrib-graph");
+  
+  // FIX: Clear the container before appending the new graph
+  container.innerHTML = ""; 
+
+  const cellSize = 10;
+  const gap = 2;
+  const cols = weeks.length;
+  const rows = 7;
+  const totalW = cols * (cellSize + gap) - gap;
+  const totalH = rows * (cellSize + gap) - gap;
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", `0 0 ${totalW} ${totalH}`);
+  svg.setAttribute("width", "100%"); 
+  svg.style.display = "block";
+
+  weeks.forEach((week, col) => {
+    week.contributionDays.forEach((d, row) => {
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", col * (cellSize + gap));
+      rect.setAttribute("y", row * (cellSize + gap));
+      rect.setAttribute("width", cellSize);
+      rect.setAttribute("height", cellSize);
+      rect.setAttribute("rx", 2);
+      rect.setAttribute("fill", getColor(d.contributionCount));
+      
+      const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      title.textContent = `${d.date}: ${d.contributionCount} contribution${d.contributionCount !== 1 ? "s" : ""}`;
+      rect.appendChild(title);
+      svg.appendChild(rect);
+    });
+  });
+
+  container.appendChild(svg);
+}
+
+renderGraph();  
+
+renderGraph();
+</script>
+
+<br>
+<br>
 
 <!-- <hr style="border:none; border-top:1px solid #e0e0e0; margin:0 0 3.5rem;"> -->
 
@@ -18,9 +215,12 @@ This page showcases the personal projects I've built in my spare time. I always 
 
 ### <a href="https://3ds-wobble-gif.streamlit.app" target="_blank" style="color:black; text-decoration:underline;">Link</a>&nbsp;-----&nbsp;<a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
 
-Streamlit, Pillow, NumPy, Streamlit Community Cloud
-
-<!-- A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required. -->
+<div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Pillow</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">NumPy</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit Community Cloud</span>
+</div>
 
 <div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
 
@@ -28,8 +228,8 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
  A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required.
   </div>
 
-<div style="width:100%; border: 2px solid #ccc;">
-  <div onclick="openLightbox(0)" style="position:relative; cursor:pointer; overflow:hidden; background:#000; line-height:0;">
+<div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+  <div onclick="openLightbox(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
     <img src="/projects/screenshot1.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
     <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
@@ -45,7 +245,7 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
 
 </div>
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse;">
+<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
         <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center;">
             <strong>README.md</strong>
@@ -54,7 +254,7 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
     <tr>
         <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
             <a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank"  style="color:black; text-decoration:none;">
-              <div id="readme-container" style="max-height:500px; overflow-y:auto; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem;">
+              <div id="readme-container" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem; box-sizing:border-box; width:100%;">
                 <div id="readme-content" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
               </div>
             </a>
@@ -75,7 +275,11 @@ Streamlit, Pillow, NumPy, Streamlit Community Cloud
 <style>
   details[open] summary .arrow { display: none; }
   details:not([open]) summary .open-arrow { display: none; }
-  details[open] #readme-container { max-height:none; }
+  /* details[open] #readme-container { max-height:none; } */
+
+  #readme-container::-webkit-scrollbar {
+    display: none;
+  }
 </style>
 
 <script>
@@ -100,9 +304,15 @@ function updateLightbox() {
 function lightboxNext() { lightboxIndex = (lightboxIndex + 1) % slides.length; updateLightbox(); }
 function lightboxPrev() { lightboxIndex = (lightboxIndex - 1 + slides.length) % slides.length; updateLightbox(); }
 
-// Close on backdrop click
 document.getElementById("lightbox").addEventListener("click", function(e) {
   if (e.target === this) closeLightbox();
+});
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeLightbox();
+    closeLightbox2();
+  }
 });
 </script>
 
@@ -148,3 +358,100 @@ fetch(REPO_RAW_BASE + "README.md")
 </script>
 
 <!-- ─── PROJECT 02 ─────────────────────────────────────────── -->
+
+<br>
+<br>
+ 
+## Personal Finances AI
+ 
+### <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+ 
+<div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">openpyxl</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Ollama</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">qwen2.5:7b</span>
+</div>
+ 
+<div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
+ 
+  <div>
+    A Streamlit app that reads a personal Excel finance workbook — one sheet per month, tracking needs, wants, savings, income, and spending by category — and uses a locally running LLM to generate a plain-English summary of the current month. It produces a monthly digest covering cash flow, budget goal tracking, top spending categories, and a forward-looking observation. Everything runs fully offline on the machine; the Excel file is never committed to the repo.
+  </div>
+ 
+<div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+  <div onclick="openLightbox2(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
+    <img src="/projects/screenshot7.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
+    <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+      <span style="color:white;">1 photo</span>
+    </div>
+  </div>
+  <div onclick="openLightbox2(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:black; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
+</div>
+ 
+</div>
+ 
+<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+    <tr>
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center;">
+            <strong>README.md</strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
+            <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:black; text-decoration:none;">
+              <div id="readme-container-2" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; background:#ededed; padding:1rem 1.25rem; margin-top:0.5rem; box-sizing:border-box; width:100%;">
+                <div id="readme-content-2" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+              </div>
+            </a>
+        </td>
+    </tr>
+</table>
+ 
+<div id="lightbox2" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center;">
+  <button onclick="closeLightbox2()" style="position:absolute; top:1.5rem; right:1.5rem; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">✕</button>
+  <img id="lightbox2-img" src="" style="max-width:90vw; max-height:85vh; display:block; object-fit:contain;">
+  <span id="lightbox2-counter" style="position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); color:white; font-size:0.8rem;"></span>
+</div>
+ 
+<script>
+const slides2 = ["/projects/screenshot7.png"];
+let lightboxIndex2 = 0;
+ 
+function openLightbox2(index) {
+  lightboxIndex2 = index;
+  const lb = document.getElementById("lightbox2");
+  lb.style.display = "flex";
+  document.getElementById("lightbox2-img").src = slides2[lightboxIndex2];
+  document.getElementById("lightbox2-counter").textContent = (lightboxIndex2 + 1) + " / " + slides2.length;
+}
+function closeLightbox2() {
+  document.getElementById("lightbox2").style.display = "none";
+}
+document.getElementById("lightbox2").addEventListener("click", function(e) {
+  if (e.target === this) closeLightbox2();
+});
+</script>
+ 
+<script>
+const REPO_RAW_BASE_2 = "https://raw.githubusercontent.com/chriskersov/personal-finances-ai/main/";
+ 
+fetch(REPO_RAW_BASE_2 + "README.md")
+  .then(r => r.text())
+  .then(text => {
+    let rewritten = text.replace(
+      /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,
+      (match, alt, src) => `![${alt}](${REPO_RAW_BASE_2}${src})`
+    );
+    rewritten = rewritten.replace(
+      /src="(?!https?:\/\/)([^"]+)"/g,
+      (match, src) => `src="${REPO_RAW_BASE_2}${src}"`
+    );
+    document.getElementById("readme-content-2").innerHTML = marked.parse(rewritten);
+  })
+  .catch(() => { document.getElementById("readme-content-2").textContent = "Could not load README."; });
+</script>
