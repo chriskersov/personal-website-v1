@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "mysite/layouts/**/*.html": "gohtml"
+  },
+  "[gohtml]": {
+    "editor.formatOnSave": false
+  }
+}

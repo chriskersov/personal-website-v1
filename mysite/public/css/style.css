@@ -32,12 +32,12 @@ hr {
 /* code */
 pre {
   border: 1px solid #ddd;
-  box-shadow: 5px 5px 5px #eee;
+  /* box-shadow: 5px 5px 5px #eee; */
   padding: 1em;
   overflow-x: auto;
 }
 
-code { background: #f9f9f9; }
+/* code { background: #f9f9f9; } */
 pre code { background: none; }
 
 /* misc elements */

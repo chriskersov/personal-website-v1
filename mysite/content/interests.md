@@ -11,6 +11,10 @@ title: Interests
 
 ideas for future projects
 
+- UK weather analysis
+
+- create an npm package that converts mpo file to two jpegs
+
 - aus open predictor
 - roland garros predictor (so many further things that can be built on top of this)
 - world cup predictor
