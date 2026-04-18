@@ -1,0 +1,26 @@
+{{- $username := .Get "username" | default "chriskersov" -}}
+{{- $token := getenv "HUGO_PARAMS_GITHUB_TOKEN" -}}
+{{- $headers := dict "Content-Type" "application/json" -}}
+
+{{- if $token -}}
+    {{- $headers = merge $headers (dict "Authorization" (printf "bearer %s" $token)) -}}
+{{- end -}}
+
+{{- $q1 := printf "query { user(login: %q) {" $username -}}
+{{- $q2 := " contributionsCollection { contributionCalendar {" -}}
+{{- $q3 := " weeks { contributionDays { contributionCount date } } } } } }" -}}
+
+{{- $body := dict "query" (printf "%s%s%s" $q1 $q2 $q3) | jsonify -}}
+{{- $opts := dict "method" "post" "body" $body "headers" $headers -}}
+{{- $weeks := slice -}}
+
+{{- with try (resources.GetRemote "https://api.github.com/graphql" $opts) -}}
+    {{- with .Value -}}
+        {{- $payload := . | transform.Unmarshal -}}
+        {{- with index $payload "data" "user" "contributionsCollection" "contributionCalendar" "weeks" -}}
+            {{- $weeks = . -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $weeks | jsonify -}}
