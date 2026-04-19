@@ -21,21 +21,21 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
 
 <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; text-align: center;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: #f4f4f4;">
             <strong>Year 3</strong>
         </td>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: #f4f4f4;">
             <strong>Year 2&nbsp;—&nbsp;72.42%</strong>
         </td>
-        <td style="width:34%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
+        <td style="width:34%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: #f4f4f4;">
             <strong>Year 1&nbsp;—&nbsp;75.50%</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top;">
-            <a href="../experience/" style="color:black; text-decoration:underline;">Placement Year</a>
+        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+            <a href="../experience/" style="color:#888; text-decoration:underline;">Placement Year</a>
         </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top;">
+        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
             <details>
                 <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
@@ -56,7 +56,7 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
                 </div>
             </details>
         </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top;">
+        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
             <details>
                 <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
@@ -92,18 +92,18 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
 
 <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; text-align: center;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem;">
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4;">
             <strong>Computer Science&nbsp;—&nbsp;A*</strong>
         </td>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem;">
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4;">
             <strong>Mathematics&nbsp;—&nbsp;A</strong>
         </td>
-        <td style="width:34%; border: 1px solid #ccc; padding: 0.5rem 0.75rem;">
+        <td style="width:34%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4;">
             <strong>Further Mathematics&nbsp;—&nbsp;A</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top;">
+        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
             <details>
                 <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
@@ -112,7 +112,7 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
                 </div>
             </details>
         </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top;">
+        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
             <details>
                 <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
@@ -121,7 +121,7 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
                 </div>
             </details>
         </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top;">
+        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
             <details>
                 <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
