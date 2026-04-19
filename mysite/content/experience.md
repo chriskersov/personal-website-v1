@@ -21,9 +21,12 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 <p>My placement year as a Data Scientist within Shell's E-Mobility team in central London was an incredibly varied and rewarding experience, spanning data analysis, machine learning, and software engineering to support both research and development and strategic business decisions.</p>
 
-<!-- <br> -->
+<details>
+  <summary style="cursor:pointer;"><strong><span class="more-label">More info</span><span class="less-label">Less info</span></strong></summary>
 
-<span style="color:red;">talk about project curve and using power, current, voltage data. trends. histogircal data to make a future prediction using domain knowledge and working closely wth the business team. percentages and probabilities customers satisfied. looking at rnpv and npv and working to make sure we make the right decision in terms of chargers so taht in 10 years time we dont lose money. multi hundred million dollar problem because of preivously poor decisions and sheer amount of numbers and money that will be spent. </span>
+<br>
+
+<!-- <br> -->
 
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
@@ -38,6 +41,9 @@ My experience spans both industry and customer-facing environments, giving me a 
   <tr>
     <td style="width:18%; border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:middle; text-align:center; color:black; background:#f5f5f5;"><strong>Machine Learning and Modelling</strong></td>
     <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:top; text-align: justify   ">I built time series classification algorithms to identify similar charging patterns, and worked as part of a team building upon and improving a Temporal Fusion Transformer model to predict EV charging curves across a wide range of applications - from enhancing the user charging experience to dynamic load management across thousands of Shell Recharge sites. This work builds upon <a href="https://www.nature.com/articles/s41467-025-65970-y" target="_blank" style="color:black; text-decoration:underline;">this paper</a> led by my technical supervisor Robert Doel in collaboration with Imperial College London.<br><br>
+    Beyond curve prediction, I developed forecasting models for power (kW) trends to drive strategic procurement. Also by combining historical voltage (V) data with predicted power profiles, I modelled potential current (A) behaviors to inform the selection of specific cabling and charger hardware. This involved implementing advanced ML techniques to ensure long-term asset viability. 
+    <br><br>
+    I worked closely with the business team to translate these technical insights into NPV and rNPV projections. By ensuring our infrastructure decisions were backed by predictive data, I helped safeguard the profitability of high-cap investments over a 10-year horizon, balancing immediate charging efficiency with long-term financial stability. <br><br>
     I also conducted large-scale data analyses on customer charging data, built personalised lightweight machine learning models tailored to individual charging behaviour, and carried out analysis to support rNPV calculations for potential earnings projections. This extended to analysing how such models could be deployed to optimise charging efficiency, reduce energy losses, and enable faster charging for customers.</td>
   </tr>
 </table>
@@ -71,6 +77,8 @@ My experience spans both industry and customer-facing environments, giving me a 
   </tr>
 </table>
 
+</details>
+
 <br>
 
 ## Screwfix&nbsp;-----&nbsp;Retail Assistant
@@ -78,6 +86,11 @@ My experience spans both industry and customer-facing environments, giving me a 
 ### 08/2021 - 05/2025&nbsp;-----&nbsp;Gerrards Cross, Hayes, Bath
 
 My experience at Screwfix across three locations over nearly four years built the interpersonal and operational skills that underpin everything else I do. Working in a fast-paced retail environment taught me how to communicate clearly, perform under pressure, and work as part of a team - qualities I continue to draw on in technical settings.
+
+<details>
+  <summary style="cursor:pointer;"><strong><span class="more-label">More info</span><span class="less-label">Less info</span></strong></summary>
+
+<br>
 
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
@@ -95,7 +108,10 @@ My experience at Screwfix across three locations over nearly four years built th
   </tr>
 </table>
 
+</details>
+
 <style>
-  details[open] summary .arrow { display: none; }
-  details:not([open]) summary .open-arrow { display: none; }
+  details summary .less-label { display: none; }
+  details[open] summary .more-label { display: none; }
+  details[open] summary .less-label { display: inline; }
 </style>
