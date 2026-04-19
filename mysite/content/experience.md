@@ -22,7 +22,7 @@ My experience spans both industry and customer-facing environments, giving me a 
 <p>My placement year as a Data Scientist within Shell's E-Mobility team in central London was an incredibly varied and rewarding experience, spanning data analysis, machine learning, and software engineering to support both research and development and strategic business decisions.</p>
 
 <details>
-  <summary style="cursor:pointer;"><strong><span class="more-label">More info</span><span class="less-label">Less info</span></strong></summary>
+  <summary style="cursor:pointer;"><span class="more-label">More info</span><span class="less-label">Less info</span></summary>
 
 <br>
 
@@ -88,7 +88,7 @@ My experience spans both industry and customer-facing environments, giving me a 
 My experience at Screwfix across three locations over nearly four years built the interpersonal and operational skills that underpin everything else I do. Working in a fast-paced retail environment taught me how to communicate clearly, perform under pressure, and work as part of a team - qualities I continue to draw on in technical settings.
 
 <details>
-  <summary style="cursor:pointer;"><strong><span class="more-label">More info</span><span class="less-label">Less info</span></strong></summary>
+  <summary style="cursor:pointer;"><span class="more-label">More info</span><span class="less-label">Less info</span></summary>
 
 <br>
 
@@ -111,6 +111,20 @@ My experience at Screwfix across three locations over nearly four years built th
 </details>
 
 <style>
+  details > summary {
+    color: #888;
+  }
+
+  details > summary::marker {
+    color: #888;
+    font-size: 0.85rem;
+  }
+
+  details > summary::-webkit-details-marker {
+    color: #888;
+    font-size: 0.85rem;
+  }
+
   details summary .less-label { display: none; }
   details[open] summary .more-label { display: none; }
   details[open] summary .less-label { display: inline; }
