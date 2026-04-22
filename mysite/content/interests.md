@@ -16,6 +16,82 @@ This page is a snapshot of who I am outside of work and computer science - the m
 <br>
 <br>
 
+<div style="max-width: 70rem; margin: 0 auto;">
+  <div style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
+    <div style="border: 1px solid #ccc; background: #fafafa; padding: 0.75rem; overflow-x: auto;">
+      <svg viewBox="0 0 920 360" width="100%" style="display:block; min-width: 720px;">
+        <defs>
+          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2.2" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <g stroke="#bdbdbd" stroke-width="1.4">
+          <line x1="460" y1="180" x2="180" y2="84" />
+          <line x1="460" y1="180" x2="740" y2="90" />
+          <line x1="460" y1="180" x2="205" y2="278" />
+          <line x1="460" y1="180" x2="725" y2="274" />
+          <line x1="460" y1="180" x2="462" y2="58" />
+          <line x1="460" y1="180" x2="462" y2="308" />
+          <line x1="180" y1="84" x2="205" y2="278" stroke-dasharray="4 5" />
+          <line x1="740" y1="90" x2="725" y2="274" stroke-dasharray="4 5" />
+          <line x1="462" y1="58" x2="180" y2="84" stroke-dasharray="3 4" />
+          <line x1="462" y1="308" x2="725" y2="274" stroke-dasharray="3 4" />
+        </g>
+        <a href="#sports" style="cursor:pointer;">
+          <g>
+            <circle cx="180" cy="84" r="44" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
+            <text x="180" y="90" text-anchor="middle" font-size="16" fill="#111" style="font-family: Georgia, serif;">Sports</text>
+          </g>
+        </a>
+        <a href="#projects-ideas" style="cursor:pointer;">
+          <g>
+            <circle cx="740" cy="90" r="48" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
+            <text x="740" y="86" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Projects</text>
+            <text x="740" y="104" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Ideas</text>
+          </g>
+        </a>
+        <a href="#learning" style="cursor:pointer;">
+          <g>
+            <circle cx="205" cy="278" r="44" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
+            <text x="205" y="284" text-anchor="middle" font-size="16" fill="#111" style="font-family: Georgia, serif;">Learning</text>
+          </g>
+        </a>
+        <a href="#travel-photo" style="cursor:pointer;">
+          <g>
+            <circle cx="725" cy="274" r="46" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
+            <text x="725" y="270" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Travel</text>
+            <text x="725" y="288" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Photo</text>
+          </g>
+        </a>
+        <a href="#tech-life" style="cursor:pointer;">
+          <g>
+            <circle cx="462" cy="58" r="40" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
+            <text x="462" y="54" text-anchor="middle" font-size="13" fill="#111" style="font-family: Georgia, serif;">Tech</text>
+            <text x="462" y="71" text-anchor="middle" font-size="13" fill="#111" style="font-family: Georgia, serif;">and life</text>
+          </g>
+        </a>
+        <a href="#philosophy" style="cursor:pointer;">
+          <g>
+            <circle cx="462" cy="308" r="42" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
+            <text x="462" y="314" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Philosophy</text>
+          </g>
+        </a>
+        <g filter="url(#softGlow)">
+          <circle cx="460" cy="180" r="56" fill="#111" stroke="#666" stroke-width="2" />
+          <text x="460" y="174" text-anchor="middle" font-size="18" fill="#fff" style="font-family: Georgia, serif;">Chris'</text>
+          <text x="460" y="196" text-anchor="middle" font-size="18" fill="#fff" style="font-family: Georgia, serif;">Interests</text>
+        </g>
+      </svg>
+    </div>
+    <!-- <div style="margin-top: 1rem; color: #444; line-height: 1.7;">
+      Think of the page as a loose map rather than a list: pick a node, jump to that section, and leave room for photos, examples, and deeper write-ups later.
+    </div> -->
+  </div>
+
   <div id="sports" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Sports</div>
     <div style="color: #888; margin-bottom: 1rem;">The sports I follow and play are the ones that reward repetition, technique, and small improvements over time.</div>
