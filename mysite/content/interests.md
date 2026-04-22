@@ -9,6 +9,138 @@ title: Interests
 
 <br>
 
+<div>
+This page is a snapshot of who I am outside of work and computer science - the many sports I play, the places I have travelled, the things I am learning, and the hobbies that keep me curious and grounded day to day.
+</div>
+
+<br>
+<br>
+
+  <div id="sports" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Sports</div>
+    <div style="color: #888; margin-bottom: 1rem;">The sports I follow and play are the ones that reward repetition, technique, and small improvements over time.</div>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Tennis</div>
+        <div style="line-height: 1.7; color: #444;">
+          Tennis is probably the sport I care about most. I want to write about how long I’ve played, the equipment I use, what I like about the game, and the prediction ideas I keep coming back to.
+        </div>
+        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
+          Image placeholder: me playing tennis
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Table tennis</div>
+        <div style="line-height: 1.7; color: #444;">
+          Fast, technical, and addictive. This section can cover how I got into it, favourite players, equipment, and the moments I’ve played at work or elsewhere.
+        </div>
+        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
+          Image placeholder: table tennis photo
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Badminton / Padel</div>
+        <div style="line-height: 1.7; color: #444;">
+          A smaller space for racket sports I want to keep playing more of. This is where I can talk about what I enjoy, where I play, and what I want to improve.
+        </div>
+        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
+          Image placeholder: badminton / padel
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="projects-ideas" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Projects ideas</div>
+    <div style="color: #888; margin-bottom: 1rem;">A vertical section for the ideas I keep returning to — these will eventually become fuller case studies with screenshots and demos.</div>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <strong>Prediction / ML projects</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          Grand slam predictors, football-style live match predictions, F1 ideas, weather analysis, and anything else where patterns, uncertainty, and data meet.
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <strong>Useful tools</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          An MPO-to-image package, a typing test, a chat context mover, a pronunciation fix for my name, and other small things that solve a real annoyance.
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <strong>Presentation / online presence</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          Improving my GitHub profile, writing better READMEs, exploring marketing for projects, and maybe rebuilding my CV in LaTeX or Typst.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="learning" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Learning</div>
+    <div style="color: #888; margin-bottom: 1rem;">Things I’m actively learning or want to learn more deeply over time.</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <strong>Mandarin</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          Why I started, how far I’ve got, and what I want to reach next.
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <strong>Reading and courses</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          Books, papers, courses, and whatever I’m currently learning in my spare time.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="travel-photo" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Travel and photography</div>
+    <div style="color: #888; margin-bottom: 1rem;">A place for photos, destinations, and the kind of moments I want to remember.</div>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <div style="line-height: 1.7; color: #444;">
+          Recently I’ve started travelling more and I want this section to become a photo-led diary of places I’ve been and places I want to go.
+        </div>
+        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
+          Image placeholder: travel / scenery photo
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tech-life" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Tech and life</div>
+    <div style="color: #888; margin-bottom: 1rem;">The everyday stuff: devices, finances, productivity, and the systems I like keeping tidy.</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <strong>Tech</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          Keyboards, laptops, headphones, Linux ideas, and the little design details that make tools nicer to use.
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <strong>Personal finances</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          Keeping track of my finances and building a better system for staying on top of everything.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="philosophy" style="border: 2px solid #ccc; background: #f4f4f4; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Philosophy</div>
+    <div style="line-height: 1.7; color: #444;">
+      I like the idea of building a life around curiosity, consistency, and useful output — learning a lot, making things that help people, and leaving room to enjoy the process too.
+    </div>
+  </div>
+</div>
+
+<!--
+Archived original notes for later expansion:
+
 ideas for future projects
 
 - UK weather analysis
@@ -196,104 +328,4 @@ looks like i can link to other parts just by doing this [posts](/post/) [notes](
 i also want to improve the footer.
 
 i have realised that what i mean by footer and header are the things above and below the dotted lines. but these arent header.html and footer.html. i need to improve my understanding
-
-**XMin** is the first Hugo theme I have designed. The original reason that I wrote it was I needed a minimal example of Hugo themes when I was writing the [**blogdown**](https://github.com/rstudio/blogdown) book. Basically I wanted a simple theme that supports a navigation menu, a home page, other single pages, lists of pages, blog posts, categories, tags, and RSS. That is all. Nothing fancy. In terms of CSS and JavaScript, I really want to keep them minimal. In fact, this theme does not contain any JavaScript code at all, although on this example website I did introduce some JavaScript code (still relatively simple anyway). The theme does not contain any images, either, and is pretty much a plain-text theme.
-
-The theme name "XMin" can be interpreted as "**X**ie's **Min**imal theme" (Xie is my last name) or "e**X**tremely **Min**imal theme".
-
-## `hugo.yaml` (the config file)
-
-For this example site, I defined permalinks for two sections, `post` and `note`, so that the links to pages under these directories will contain the date info, e.g., `https://xmin.yihui.org/post/2016/02/14/a-plain-markdown-post/`. This is optional, and it is up to your personal taste of URLs.
-
-```yaml
-permalinks:
-  note: "/note/:year/:month/:day/:slug/"
-  post: "/post/:year/:month/:day/:slug/"
-```
-
-You can define the menu through `menu.main`, e.g.,
-
-```yaml
-menu:
-  main:
-    - name: Home
-      url: ""
-      weight: 1
-    - name: About
-      url: "about/"
-      weight: 2
-    - name: Categories
-      url: "categories/"
-      weight: 3
-    - name: Tags
-      url: "tags/"
-      weight: 4
-    - name: Subscribe
-      url: "index.xml"
-```
-
-Alternatively, you can add `menu: main` to the YAML metadata of any of your pages, so that these pages will appear in the menu.
-
-The page footer can be defined in `.Params.footer`, and the text is treated as Markdown, e.g.,
-
-```
-params:
-  footer: "&copy; [Yihui Xie](https://yihui.org) 2017 -- {Year}"
-```
-
-Here `{Year}` means the year in which the site is built (usually the current year).
-
-## Custom layouts
-
-There are two layout files under `layouts/_partials/` that you may want to override: `head_custom.html` and `foot_custom.html`. This is how you inject arbitrary HTML code to the head and foot areas. For example, this site has a file `layouts/_partials/foot_custom.html` to support LaTeX math via KaTeX and center images automatically:
-
-```html
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
-<script
-  src="//cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js"
-  defer
-></script>
-
-<script
-  src="//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js"
-  defer
-></script>
-```
-
-You can certainly enable highlight.js for syntax highlighting by yourself through `head_custom.html` and `foot_custom.html` if you want.
-
-If you do not like the default fonts (e.g., `Palatino`), you may provide your own `static/css/fonts.css` under the root directory of your website to override the `fonts.css` in the theme.
-
-## Other features
-
-I could have added more features to this theme, but I decided not to, since I have no intention to make this theme feature-rich. However, I will teach you how. I have prepared several examples via pull requests at https://github.com/yihui/hugo-xmin/pulls, so that you can see the implementations of these features when you check out the diffs in the pull requests. For example, you can:
-
-- [Enable Google Analytics](https://github.com/yihui/hugo-xmin/pull/3)
-
-- [Enable Disqus comments](https://github.com/yihui/hugo-xmin/pull/4)
-
-- [Enable highlight.js for syntax highlighting of code blocks](https://github.com/yihui/hugo-xmin/pull/5)
-
-- [Display categories and tags on a page](https://github.com/yihui/hugo-xmin/pull/2)
-
-- [Add a table of contents](https://github.com/yihui/hugo-xmin/pull/7)
-
-- [Add a link in the footer of each page to "Edit this page" on Github](https://github.com/yihui/hugo-xmin/pull/6)
-
-To fully understand these examples, you have to read [the section on Hugo templates](https://bookdown.org/yihui/blogdown/templates.html) in the **blogdown** book.
-
-# Design philosophy
-
-Lastly, a few words about my design philosophy for this theme: I have been relying on existing frameworks like Bootstrap for years since I'm not really a designer, and I was always scared by the complexity of CSS.
-
-When I started writing this theme, I asked myself, "_What if I just write from scratch?_" No Bootstrap. No Normalize.css. I don't care about IE (life could be so much easier without IE) or inconsistencies among browsers (for personal websites). As long as the theme looks okay in Chrome, Firefox, and Safari, I'm done. Thanks to the simplicity of Markdown, you cannot really produce very complicated HTML, and I think styling the HTML output from Markdown is much simpler than general HTML documents. For example, I do not need to care much about form elements like textareas or buttons.
-
-After I finished this theme, I started to wonder why I'd need `normalize.css` at all. The default appearance of modern browsers actually looks pretty good in my eyes, after I tweak the typeface a little bit.
-
-Compared to inconsistencies across browsers, I care much more about these properties of HTML elements:
-
-- Tables should always be centered, and striped tables are easier to read especially when they are wide. Tables should not have vertical borders.
-- An image should be centered if it is the only child element of a paragraph.
-- The `max-width` of images, videos, and iframes should be `100%`.
-
-I hope you can enjoy this theme. The source code is [on Github](https://github.com/yihui/hugo-xmin). Happy hacking!
+-->
