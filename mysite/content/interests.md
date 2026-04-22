@@ -10,87 +10,163 @@ title: Interests
 <br>
 
 <div>
-This page is a snapshot of who I am outside of work and computer science - the many sports I play, the places I have travelled, the things I am learning, and the hobbies that keep me curious and grounded day to day.
+This page is a snapshot of who I am outside of work and computer science - the sports I play, the places I have travelled, the things I am learning, and the hobbies that keep me curious and grounded day to day.
 </div>
 
 <br>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<div style="max-width: 70rem; margin: 0 auto 1.1rem auto; border: 2px solid #ccc; background: white; padding: 0.7rem 0.9rem; box-sizing: border-box;">
+  <div id="graph-container" style="position: relative; width: 100%; height: 340px; overflow: hidden; cursor: grab;">
+    <svg id="brain-graph" style="width: 100%; height: 100%;"></svg>
+  </div>
+</div>
+
+<script>
+const data = {
+  nodes: [
+    { id: "Chris", label: "Chris", size: 22, color: "#2f2f2f", textColor: "#fff", target: null },
+    { id: "Tennis", label: "Tennis", size: 18, color: "#c4c4c4", textColor: "#333", target: "#sports" },
+    { id: "TableTennis", label: "Table Tennis", size: 18, color: "#c4c4c4", textColor: "#333", target: "#sports" },
+    { id: "Badminton", label: "Badminton", size: 18, color: "#c4c4c4", textColor: "#333", target: "#sports" },
+    { id: "Travelling", label: "Travelling", size: 18, color: "#c4c4c4", textColor: "#333", target: "#travel-photo" },
+    { id: "Photography", label: "Photography", size: 18, color: "#c4c4c4", textColor: "#333", target: "#travel-photo" },
+    { id: "Philosophy", label: "Philosophy", size: 18, color: "#c4c4c4", textColor: "#333", target: "#philosophy" },
+    { id: "Mandarin", label: "Mandarin", size: 18, color: "#c4c4c4", textColor: "#333", target: "#learning" },
+    { id: "ProjectIdeas", label: "Project Ideas", size: 18, color: "#c4c4c4", textColor: "#333", target: "#projects-ideas" },
+    { id: "Reading", label: "Reading", size: 18, color: "#c4c4c4", textColor: "#333", target: "#learning" },
+    { id: "Technology", label: "Technology", size: 18, color: "#c4c4c4", textColor: "#333", target: "#tech-life" }
+  ],
+  links: [
+    { source: "Chris", target: "Tennis" },
+    { source: "Chris", target: "TableTennis" },
+    { source: "Chris", target: "Badminton" },
+    { source: "Chris", target: "Travelling" },
+    { source: "Chris", target: "Photography" },
+    { source: "Chris", target: "Philosophy" },
+    { source: "Chris", target: "Mandarin" },
+    { source: "Chris", target: "ProjectIdeas" },
+    { source: "Chris", target: "Reading" },
+    { source: "Chris", target: "Technology" },
+    { source: "Tennis", target: "TableTennis" },
+    { source: "TableTennis", target: "Badminton" },
+    { source: "Badminton", target: "Tennis" },
+    { source: "Travelling", target: "Photography" },
+    { source: "Reading", target: "Philosophy" }
+  ]
+};
+
+const svg = d3.select("#brain-graph");
+const container = document.getElementById('graph-container');
+let width = container.clientWidth;
+let height = container.clientHeight;
+
+// Optimized Forces for a balanced "Galaxy" look
+function getTargetX(d) {
+  if (d.id === "Chris") return width / 2;
+  if (["Tennis", "TableTennis", "Badminton"].includes(d.id)) return width * 0.22;
+  if (d.id === "Travelling") return width * 0.33;
+  if (d.id === "Photography") return width * 0.38;
+  if (["Philosophy", "Mandarin", "Reading"].includes(d.id)) return width * 0.68;
+  if (["ProjectIdeas", "Technology"].includes(d.id)) return width * 0.84;
+  return width * 0.6;
+}
+
+function getTargetY(d) {
+  if (d.id === "Travelling") return height * 0.22;
+  return height / 2;
+}
+
+const simulation = d3.forceSimulation(data.nodes)
+  .force("link", d3.forceLink(data.links).id(d => d.id).distance(140))
+  .force("charge", d3.forceManyBody().strength(-420)) // Stronger repulsion for even spread
+  .force("x", d3.forceX(d => getTargetX(d)).strength(0.14))
+  .force("y", d3.forceY(d => getTargetY(d)).strength(0.22))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+  .force("collide", d3.forceCollide().radius(40)); // Keeps nodes from overlapping
+
+const link = svg.append("g")
+    .selectAll("line")
+    .data(data.links)
+    .join("line")
+    .attr("stroke", "#eee")
+    .attr("stroke-width", 1.5);
+
+const node = svg.append("g")
+    .selectAll("g")
+    .data(data.nodes)
+    .join("g")
+    .attr("cursor", "pointer")
+    .on("click", (event, d) => {
+        if (d.target) {
+            const el = document.querySelector(d.target);
+            if(el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    })
+    .call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+
+node.append("circle")
+    .attr("r", d => d.size)
+    .attr("fill", d => d.color)
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 2)
+    .style("filter", "drop-shadow(0 1px 2px rgba(0,0,0,0.05))");
+
+node.append("text")
+    .attr("text-anchor", "middle")
+  .attr("y", d => d.size + 12)
+  .attr("dy", "0")
+    .style("font-family", "Arial, sans-serif")
+  .style("font-size", "11px") // Smaller, cleaner text
+    .style("font-weight", "500")
+    .style("fill", d => d.textColor)
+    .style("pointer-events", "none")
+  .style("dominant-baseline", "hanging")
+    .text(d => d.label);
+
+simulation.on("tick", () => {
+    link.attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+    node.attr("transform", d => `translate(${d.x},${d.y})`);
+});
+
+function dragstarted(event) {
+  if (!event.active) simulation.alphaTarget(0.3).restart();
+  event.subject.fx = event.subject.x;
+  event.subject.fy = event.subject.y;
+}
+function dragged(event) {
+  event.subject.fx = event.x;
+  event.subject.fy = event.y;
+}
+function dragended(event) {
+  if (!event.active) simulation.alphaTarget(0);
+  event.subject.fx = null;
+  event.subject.fy = null;
+}
+
+window.addEventListener('resize', () => {
+    width = container.clientWidth;
+    height = container.clientHeight;
+
+    simulation.force("center", d3.forceCenter(width / 2, height / 2));
+    simulation.alpha(0.3).restart();
+});
+</script>
+
 <br>
 
-<div style="max-width: 70rem; margin: 0 auto;">
+<!-- <div style="max-width: 70rem; margin: 0 auto;">
   <div style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
-    <div style="border: 1px solid #ccc; background: #fafafa; padding: 0.75rem; overflow-x: auto;">
-      <svg viewBox="0 0 920 360" width="100%" style="display:block; min-width: 720px;">
-        <defs>
-          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.2" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <g stroke="#bdbdbd" stroke-width="1.4">
-          <line x1="460" y1="180" x2="180" y2="84" />
-          <line x1="460" y1="180" x2="740" y2="90" />
-          <line x1="460" y1="180" x2="205" y2="278" />
-          <line x1="460" y1="180" x2="725" y2="274" />
-          <line x1="460" y1="180" x2="462" y2="58" />
-          <line x1="460" y1="180" x2="462" y2="308" />
-          <line x1="180" y1="84" x2="205" y2="278" stroke-dasharray="4 5" />
-          <line x1="740" y1="90" x2="725" y2="274" stroke-dasharray="4 5" />
-          <line x1="462" y1="58" x2="180" y2="84" stroke-dasharray="3 4" />
-          <line x1="462" y1="308" x2="725" y2="274" stroke-dasharray="3 4" />
-        </g>
-        <a href="#sports" style="cursor:pointer;">
-          <g>
-            <circle cx="180" cy="84" r="44" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
-            <text x="180" y="90" text-anchor="middle" font-size="16" fill="#111" style="font-family: Georgia, serif;">Sports</text>
-          </g>
-        </a>
-        <a href="#projects-ideas" style="cursor:pointer;">
-          <g>
-            <circle cx="740" cy="90" r="48" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
-            <text x="740" y="86" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Projects</text>
-            <text x="740" y="104" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Ideas</text>
-          </g>
-        </a>
-        <a href="#learning" style="cursor:pointer;">
-          <g>
-            <circle cx="205" cy="278" r="44" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
-            <text x="205" y="284" text-anchor="middle" font-size="16" fill="#111" style="font-family: Georgia, serif;">Learning</text>
-          </g>
-        </a>
-        <a href="#travel-photo" style="cursor:pointer;">
-          <g>
-            <circle cx="725" cy="274" r="46" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
-            <text x="725" y="270" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Travel</text>
-            <text x="725" y="288" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Photo</text>
-          </g>
-        </a>
-        <a href="#tech-life" style="cursor:pointer;">
-          <g>
-            <circle cx="462" cy="58" r="40" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
-            <text x="462" y="54" text-anchor="middle" font-size="13" fill="#111" style="font-family: Georgia, serif;">Tech</text>
-            <text x="462" y="71" text-anchor="middle" font-size="13" fill="#111" style="font-family: Georgia, serif;">and life</text>
-          </g>
-        </a>
-        <a href="#philosophy" style="cursor:pointer;">
-          <g>
-            <circle cx="462" cy="308" r="42" fill="#f4f4f4" stroke="#8f8f8f" stroke-width="2" />
-            <text x="462" y="314" text-anchor="middle" font-size="14" fill="#111" style="font-family: Georgia, serif;">Philosophy</text>
-          </g>
-        </a>
-        <g filter="url(#softGlow)">
-          <circle cx="460" cy="180" r="56" fill="#111" stroke="#666" stroke-width="2" />
-          <text x="460" y="174" text-anchor="middle" font-size="18" fill="#fff" style="font-family: Georgia, serif;">Chris'</text>
-          <text x="460" y="196" text-anchor="middle" font-size="18" fill="#fff" style="font-family: Georgia, serif;">Interests</text>
-        </g>
-      </svg>
-    </div>
-    <!-- <div style="margin-top: 1rem; color: #444; line-height: 1.7;">
-      Think of the page as a loose map rather than a list: pick a node, jump to that section, and leave room for photos, examples, and deeper write-ups later.
-    </div> -->
-  </div>
+<script src="https://d3js.org/d3.v7.min.js"></script> -->
+
+</div>
 
   <div id="sports" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Sports</div>
