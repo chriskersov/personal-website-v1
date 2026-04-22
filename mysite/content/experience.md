@@ -15,6 +15,31 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 <br>
 
+<br>
+
+<table style="width:100%; border:2px solid #ccc; border-collapse:collapse; text-align:center; table-layout:fixed;">
+  <tr>
+    <td style="width:26%; border:1px solid #ccc; padding:0.5rem 0.75rem; background:#f4f4f4;"><strong>Role</strong></td>
+    <td style="width:26%; border:1px solid #ccc; padding:0.5rem 0.75rem; background:#f4f4f4;"><strong>Company</strong></td>
+    <td style="width:28%; border:1px solid #ccc; padding:0.5rem 0.75rem; background:#f4f4f4;"><strong>Location</strong></td>
+    <td style="width:20%; border:1px solid #ccc; padding:0.5rem 0.75rem; background:#f4f4f4;"><strong>Timeframe</strong></td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">Data Scientist</td>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">Shell</td>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">London</td>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">08/2025 - 09/2026</td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">Retail Assistant</td>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">Screwfix</td>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">Gerrards Cross, Hayes, Bath</td>
+    <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; background:white;">08/2021 - 05/2025</td>
+  </tr>
+</table>
+
+<br>
+
 ## Data Scientist&nbsp;-----&nbsp;Shell
 
 ### 08/2025 - 09/2026&nbsp;-----&nbsp;London
@@ -81,7 +106,7 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 <br>
 
-## Screwfix&nbsp;-----&nbsp;Retail Assistant
+## Retail Assistant&nbsp;-----&nbsp;Screwfix
 
 ### 08/2021 - 05/2025&nbsp;-----&nbsp;Gerrards Cross, Hayes, Bath
 
@@ -112,16 +137,18 @@ My experience at Screwfix across three locations over nearly four years built th
 
 <style>
   details > summary {
-    color: #888;
+    color: #000;
+    width: fit-content;
+    margin: 0 auto;
   }
 
   details > summary::marker {
-    color: #888;
+    color: #000;
     font-size: 0.85rem;
   }
 
   details > summary::-webkit-details-marker {
-    color: #888;
+    color: #000;
     font-size: 0.85rem;
   }
 
