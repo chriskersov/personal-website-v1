@@ -14,7 +14,17 @@
 
 {{/* Set up Request Options */}}
 {{- $body := dict "query" $query | jsonify -}}
-{{- $opts := dict "method" "post" "body" $body "headers" $headers "cacheControl" "no-cache" -}}
+
+{{/* Create a unique ID based on the current hour/day to bust the cache */}}
+{{- $cacheBuster := now.Format "2006-01-02-15" -}}
+
+{{- $opts := dict 
+    "method" "post" 
+    "body" $body 
+    "headers" $headers 
+    "key" (printf "%s-%s" $username $cacheBuster) 
+-}}
+
 {{- $weeks := slice -}}
 
 {{/* Fetch Data from GitHub API */}}
