@@ -33,7 +33,7 @@ menu:
 
 params:
   description: "A website built through Hugo and blogdown."
-  footer: "[CV](/cv/) | [Github](https://github.com/chriskersov) | [LinkedIn](https://www.linkedin.com/in/chriskersov/)"
+  footer: "[Github](https://github.com/chriskersov) [LinkedIn](https://www.linkedin.com/in/chriskersov/) [CV](/cv/) "
 
 markup:
   highlight:

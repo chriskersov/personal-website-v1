@@ -22,7 +22,8 @@ body {
 .title { font-size: 1.1em; }
 footer a {
   text-decoration: underline;
-  color: black
+  color: black;
+  padding: 5px;
 }
 hr {
   /* border-style: dashed; */

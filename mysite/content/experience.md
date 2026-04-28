@@ -47,7 +47,7 @@ My experience spans both industry and customer-facing environments, giving me a 
 <p>My placement year as a Data Scientist within Shell's E-Mobility team in central London was an incredibly varied and rewarding experience, spanning data analysis, machine learning, and software engineering to support both research and development and strategic business decisions.</p>
 
 <details>
-  <summary style="cursor:pointer;"><span class="more-label">More info</span><span class="less-label">Less info</span></summary>
+  <summary style="cursor:pointer;"><span class="details-button"><span class="arrow">▸</span><span class="open-arrow">▾</span><span class="more-label">More info</span><span class="less-label">Less info</span></span></summary>
 
 <br>
 
@@ -113,7 +113,7 @@ My experience spans both industry and customer-facing environments, giving me a 
 My experience at Screwfix across three locations over nearly four years built the interpersonal and operational skills that underpin everything else I do. Working in a fast-paced retail environment taught me how to communicate clearly, perform under pressure, and work as part of a team - qualities I continue to draw on in technical settings.
 
 <details>
-  <summary style="cursor:pointer;"><span class="more-label">More info</span><span class="less-label">Less info</span></summary>
+  <summary style="cursor:pointer;"><span class="details-button"><span class="arrow">▸</span><span class="open-arrow">▾</span><span class="more-label">More info</span><span class="less-label">Less info</span></span></summary>
 
 <br>
 
@@ -138,21 +138,36 @@ My experience at Screwfix across three locations over nearly four years built th
 <style>
   details > summary {
     color: #000;
+    display: block;
     width: fit-content;
     margin: 0 auto;
-  }
-
-  details > summary::marker {
-    color: #000;
-    font-size: 0.85rem;
+    list-style: none;
+    user-select: none;
   }
 
   details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details > summary::marker {
+    content: "";
+  }
+
+  details > summary .details-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 0.75rem;
+    border: 2px solid #ccc;
+    background: #f4f4f4;
     color: #000;
-    font-size: 0.85rem;
+    box-sizing: border-box;
+    line-height: 1;
   }
 
   details summary .less-label { display: none; }
   details[open] summary .more-label { display: none; }
   details[open] summary .less-label { display: inline; }
+  details[open] summary .arrow { display: none; }
+  details:not([open]) summary .open-arrow { display: none; }
 </style>
