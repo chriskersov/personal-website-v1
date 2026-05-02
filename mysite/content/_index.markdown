@@ -179,18 +179,16 @@ I'm passionate about building personal projects that combine my interests with t
 
 This website explores various aspects of my life, from professional work and education to personal hobbies and interests, such as tennis, table tennis, speedsolving Rubik’s cubes, and travelling.
 
-<br>
-
-<div style="max-width: 70rem; margin: 0 auto; padding: 0; box-sizing: border-box;">
-  <div style="line-height: 1.7; color: #444; display: grid; gap: 0.45rem;">
+<blockquote style="border-left: 3px solid #ccc; padding-left: 1rem; margin: 1rem 0; color: #444;">
+  <div style="line-height: 1.7; display: grid; gap: 0.45rem;">
     <div>
-      LinkedIn: <a href="https://www.linkedin.com/in/chriskersov/" target="_blank" rel="noreferrer" style="color:#000; text-decoration:underline;">https://www.linkedin.com/in/chriskersov/</a>
+      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chriskersov/" target="_blank" rel="noreferrer" style="color:#000; text-decoration:underline;">https://www.linkedin.com/in/chriskersov/</a>
     </div>
     <div>
-      Email: <button id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email address" style="background:none; border:0; padding:0; color:#000; text-decoration:underline; cursor:pointer; font:inherit;">chris@kersov.com</button> <span id="copyEmailFeedback" aria-hidden="true" style="margin-left:0.25em; color:#00A000; font-weight:bold;"></span>
+      <strong>Email:</strong> <button id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email address" style="background:none; border:0; padding:0; color:#000; text-decoration:underline; cursor:pointer; font:inherit;">chris@kersov.com</button> <span id="copyEmailFeedback" aria-hidden="true" style="margin-left:0.25em; color:#00A000; font-weight:bold;"></span>
     </div>
   </div>
-</div>
+</blockquote>
 
 <script>
 (function(){
