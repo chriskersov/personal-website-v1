@@ -75,8 +75,6 @@ My experience spans both industry and customer-facing environments, giving me a 
 
 <br>
 
-<span style="color:red;">generated x amount of money from leads / customers etc that use the lead generator then shell team uses the tool</span>
-
 <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
     <td style="width:18%; border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:middle; text-align:center; color:black; background:#f5f5f5;"><strong>Software Engineering</strong></td>
@@ -93,14 +91,14 @@ My experience spans both industry and customer-facing environments, giving me a 
   </tr>
 </table>
 
-<br>
+<!-- <br> -->
 
-<table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
+<!-- <table style="width:100%; border:2px solid #ccc; border-collapse:collapse;">
   <tr>
     <td style="width:18%; border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:middle; text-align:center; color:black; background:#f5f5f5;"><strong>Beyond the Work</strong></td>
     <td style="border:1px solid #ccc; padding:0.5rem 0.75rem; vertical-align:top;"><span style="color:red;">also talk about other things i did during shell. jp morgan run. other events idk. worked with vps etc. talk abt certs</span></td>
   </tr>
-</table>
+</table> -->
 
 </details>
 
@@ -137,10 +135,9 @@ My experience at Screwfix across three locations over nearly four years built th
 
 <style>
   details > summary {
-    color: #000;
+    color: #888;
     display: block;
-    width: fit-content;
-    margin: 0 auto;
+    width: 100%;
     list-style: none;
     user-select: none;
   }
@@ -154,13 +151,15 @@ My experience at Screwfix across three locations over nearly four years built th
   }
 
   details > summary .details-button {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.55rem;
+    width: 100%;
     padding: 0.45rem 0.75rem;
     border: 2px solid #ccc;
-    background: #f4f4f4;
-    color: #000;
+    background: #fff;
+    color: #888;
     box-sizing: border-box;
     line-height: 1;
   }
