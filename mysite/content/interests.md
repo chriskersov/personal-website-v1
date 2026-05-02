@@ -10,7 +10,7 @@ title: Interests
 <br>
 
 <div>
-This page is a snapshot of who I am outside of work and computer science - the sports I play, the places I have travelled, the things I am learning, and the hobbies that keep me curious and grounded day to day.
+This page is a snapshot of who I am outside of work and computer science - the sports I play, the places I have travelled, the things I am learning, and the hobbies I have that bring me so much joy in life.
 </div>
 
 <br>
@@ -25,35 +25,36 @@ This page is a snapshot of who I am outside of work and computer science - the s
 
 <script>
 const data = {
-  nodes: [
+    nodes: [
     { id: "Chris", label: "Chris", size: 22, color: "#2f2f2f", textColor: "#fff", target: null },
     { id: "Tennis", label: "Tennis", size: 18, color: "#c4c4c4", textColor: "#333", target: "#sports" },
     { id: "TableTennis", label: "Table Tennis", size: 18, color: "#c4c4c4", textColor: "#333", target: "#sports" },
     { id: "Badminton", label: "Badminton", size: 18, color: "#c4c4c4", textColor: "#333", target: "#sports" },
-    { id: "Travelling", label: "Travelling", size: 18, color: "#c4c4c4", textColor: "#333", target: "#travel-photo" },
+    { id: "Travel", label: "Travel", size: 18, color: "#c4c4c4", textColor: "#333", target: "#travel-photo" },
     { id: "Photography", label: "Photography", size: 18, color: "#c4c4c4", textColor: "#333", target: "#travel-photo" },
     { id: "Philosophy", label: "Philosophy", size: 18, color: "#c4c4c4", textColor: "#333", target: "#philosophy" },
-    { id: "Mandarin", label: "Mandarin", size: 18, color: "#c4c4c4", textColor: "#333", target: "#learning" },
+    { id: "RubiksCubes", label: "Rubik's Cubes", size: 18, color: "#c4c4c4", textColor: "#333", target: "#rubiks-cubes" },
+    { id: "Food", label: "Food", size: 18, color: "#c4c4c4", textColor: "#333", target: "#food" },
     { id: "ProjectIdeas", label: "Project Ideas", size: 18, color: "#c4c4c4", textColor: "#333", target: "#projects-ideas" },
-    { id: "Reading", label: "Reading", size: 18, color: "#c4c4c4", textColor: "#333", target: "#learning" },
-    { id: "Technology", label: "Technology", size: 18, color: "#c4c4c4", textColor: "#333", target: "#tech-life" }
+    { id: "Tech", label: "Tech", size: 18, color: "#c4c4c4", textColor: "#333", target: "#tech-life" }
   ],
   links: [
     { source: "Chris", target: "Tennis" },
     { source: "Chris", target: "TableTennis" },
     { source: "Chris", target: "Badminton" },
-    { source: "Chris", target: "Travelling" },
+    { source: "Chris", target: "Travel" },
     { source: "Chris", target: "Photography" },
     { source: "Chris", target: "Philosophy" },
-    { source: "Chris", target: "Mandarin" },
     { source: "Chris", target: "ProjectIdeas" },
-    { source: "Chris", target: "Reading" },
-    { source: "Chris", target: "Technology" },
+    { source: "Chris", target: "Tech" },
+    { source: "Chris", target: "RubiksCubes" },
+    { source: "Chris", target: "Food" },
+    { source: "Food", target: "Travel" },
+    { source: "Food", target: "Photography" },
     { source: "Tennis", target: "TableTennis" },
     { source: "TableTennis", target: "Badminton" },
     { source: "Badminton", target: "Tennis" },
-    { source: "Travelling", target: "Photography" },
-    { source: "Reading", target: "Philosophy" }
+    { source: "Travel", target: "Photography" }
   ]
 };
 
@@ -66,22 +67,46 @@ let height = container.clientHeight;
 function getTargetX(d) {
   if (d.id === "Chris") return width / 2;
   if (["Tennis", "TableTennis", "Badminton"].includes(d.id)) return width * 0.22;
-  if (d.id === "Travelling") return width * 0.33;
-  if (d.id === "Photography") return width * 0.38;
-  if (["Philosophy", "Mandarin", "Reading"].includes(d.id)) return width * 0.68;
-  if (["ProjectIdeas", "Technology"].includes(d.id)) return width * 0.84;
+  // Evenly space the travel/food/photography trio across the top
+  // Move the travel/food/photography trio to the right side (slightly left-shifted)
+  if (d.id === "Travel") return width * 0.68;
+  if (d.id === "Food") return width * 0.72;
+  if (d.id === "Photography") return width * 0.76;
+  if (["Tech"].includes(d.id)) return width * 0.5;
+  // Place Rubik's Cubes directly below the central node
+  if (d.id === "RubiksCubes") return width * 0.60;
+  // Place Philosophy centered above the central node
+  if (d.id === "Philosophy") return width / 2;
+  if (["ProjectIdeas"].includes(d.id)) return width * 0.45;
   return width * 0.6;
 }
 
 function getTargetY(d) {
-  if (d.id === "Travelling") return height * 0.22;
+  // Keep travel/food/photography at center like tennis trio
+  if (["Travel", "Food", "Photography"].includes(d.id)) return height / 2;
+  // Place Philosophy above and isolated
+  if (d.id === "Philosophy") return height * 0.15;
+  // Place Tech at bottom-right corner
+  if (d.id === "Tech") return height * 0.9;
+  // Place Project Ideas near the bottom
+  if (d.id === "ProjectIdeas") return height * 0.85;
+  // Rubik's Cubes below centre
+  if (d.id === "RubiksCubes") return height * 0.75;
   return height / 2;
 }
 
 const simulation = d3.forceSimulation(data.nodes)
   .alpha(0.55) // Start with less energy so initial motion is calmer
   .velocityDecay(0.58) // More damping slows node movement between ticks
-  .force("link", d3.forceLink(data.links).id(d => d.id).distance(140))
+  .force("link", d3.forceLink(data.links).id(d => d.id).distance(d => {
+    if (d.source.id === "Chris" && d.target.id === "ProjectIdeas" || d.source.id === "ProjectIdeas" && d.target.id === "Chris") {
+      return 100;
+    }
+    if (d.source.id === "Chris" && d.target.id === "Philosophy" || d.source.id === "Philosophy" && d.target.id === "Chris") {
+      return 130;
+    }
+    return 140;
+  }))
   .force("charge", d3.forceManyBody().strength(-420)) // Stronger repulsion for even spread
   .force("x", d3.forceX(d => getTargetX(d)).strength(0.14))
   .force("y", d3.forceY(d => getTargetY(d)).strength(0.22))
@@ -172,65 +197,219 @@ window.addEventListener('resize', () => {
 
   <div id="sports" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Sports</div>
-    <div style="color: #888; margin-bottom: 1rem;">The sports I follow and play are the ones that reward repetition, technique, and small improvements over time.</div>
+    <br>
+    <!-- <div style="color: #888; margin-bottom: 1rem;">The sports I follow and play are the ones that reward repetition, technique, and small improvements over time.</div> -->
     <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
       <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
         <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Tennis</div>
         <div style="line-height: 1.7; color: #444;">
-          Tennis is probably the sport I care about most. I want to write about how long I’ve played, the equipment I use, what I like about the game, and the prediction ideas I keep coming back to.
+          I have played tennis since I was 5 years old. I have always loved playing tennis. I competed regularly as a junior and have played first team for David Lloyd Northwood, Eastcote Lawn Tennis Club, and Lowlands Lawn Tennis Club. Over the past few years, I have battled through wrist and back injuries. I am still incredibly driven and motivated to keep improving in tennis, I just love it so much. I use a Head Extreme Pro with Head Lynx Tour at 54 / 52 lbs. I also have a stringing machine and string rackets for clients as a mini business.
         </div>
-        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
-          Image placeholder: me playing tennis
-        </div>
-      </div>
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
-        <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Table tennis</div>
-        <div style="line-height: 1.7; color: #444;">
-          Fast, technical, and addictive. This section can cover how I got into it, favourite players, equipment, and the moments I’ve played at work or elsewhere.
-        </div>
-        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
-          Image placeholder: table tennis photo
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <img src="tennis_image_1.jpg" alt="Tennis 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="tennis_image_4.jpg" alt="Tennis 4" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="tennis_image_2.jpg" alt="Tennis 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
         </div>
       </div>
       <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
-        <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Badminton / Padel</div>
+        <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Table Tennis</div>
         <div style="line-height: 1.7; color: #444;">
-          A smaller space for racket sports I want to keep playing more of. This is where I can talk about what I enjoy, where I play, and what I want to improve.
+         I love playing table tennis with my colleagues during lunch at work. It's a great way to take a break, reset my mind, and come back focused. Table tennis is very fast paced and requires super fast reaction times, which is one of the reasons I enjoy it so much. I quite enjoy watching table tennis as well, my favourite player is Truls Moregard.
         </div>
-        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
-          Image placeholder: badminton / padel
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 1</div>
+          <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 2</div>
+          <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 3</div>
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+        <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Badminton</div>
+        <div style="line-height: 1.7; color: #444;">
+        I really enjoy playing badminton because it offers a unique dynamic compared to both tennis and table tennis. The game is incredibly high-intensity with explosive bursts, extreme speed, and technical skill involved. Playing doubles with my friends is so much fun and provides an excellent workout.
+        </div>
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 1</div>
+          <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 2</div>
+          <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 3</div>
         </div>
       </div>
     </div>
-
   </div>
 
-  <div id="projects-ideas" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
-    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Projects ideas</div>
-    <div style="color: #888; margin-bottom: 1rem;">A vertical section for the ideas I keep returning to — these will eventually become fuller case studies with screenshots and demos.</div>
+  <div id="travel-photo" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Travel and Photography</div>
+    <br>
+    <!-- <div style="color: #888; margin-bottom: 1rem;"></div> -->
     <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
       <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
-        <strong>Prediction / ML projects</strong>
+        <strong>Hong Kong</strong>
         <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
-          Grand slam predictors, football-style live match predictions, F1 ideas, weather analysis, and anything else where patterns, uncertainty, and data meet.
+          I've been to Hong Kong once and it was my first ever trip to Asia. It was the greatest trip of my life.
+        </div>
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <img src="hong_kong_image_1.jpg" alt="Hong Kong 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="hong_kong_image_2.jpg" alt="Hong Kong 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="hong_kong_image_3.jpg" alt="Hong Kong 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
         </div>
       </div>
       <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
-        <strong>Useful tools</strong>
+        <strong>Macau</strong>
         <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
-          An MPO-to-image package, a typing test, a chat context mover, a pronunciation fix for my name, and other small things that solve a real annoyance.
+          During my first trip to Hong Kong I also went to Macau, exploring both the Macau Peninsula and Cotai. 
+        </div>
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <img src="macau_image_1.jpg" alt="Macau 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="macau_image_3.jpg" alt="Macau 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="macau_image_2.jpg" alt="Macau 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
         </div>
       </div>
       <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
-        <strong>Presentation / online presence</strong>
+        <strong>Spain</strong>
         <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
-          Improving my GitHub profile, writing better READMEs, exploring marketing for projects, and maybe rebuilding my CV in LaTeX or Typst.
+          I've been to Spain once; I went to Barcelona and Blanes. I was completely mesmerised by La Sagrada Familia.
+        </div>
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <img src="spain_image_1.jpg" alt="Spain 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="spain_image_2.jpg" alt="Spain 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="spain_image_3.jpg" alt="Spain 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <strong>Lithuania</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          Lithuania is very tranquil. I enjoy spending time in nature, especially in its forests and by its lakes.
+        </div>
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <img src="lithuania_image_1.jpg" alt="Lithuania 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="lithuania_image_2.jpg" alt="Lithuania 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="lithuania_image_3.jpg" alt="Lithuania 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        </div>
+      </div>
+      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <strong>Egypt</strong>
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          I stayed in Sharm El Sheikh on my trip to Egypt, where I relaxed on the beach and tried activities like diving on coral reefs and quad‑biking in the desert.
+        </div>
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+          <img src="egypt_image_1.jpg" alt="Egypt 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="egypt_image_2.jpg" alt="Egypt 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+          <img src="egypt_image_3.jpg" alt="Egypt 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 1.5rem; padding-top: 1.5rem;">
+      <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; color: #666;">Upcoming</div>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+          <strong>China</strong>
+            <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+              I will be visiting China and I'm excited to explore its rich culture, natural beauty, and delicious food.
+            </div>
+            <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+              <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: China 1</div>
+              <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: China 2</div>
+              <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: China 3</div>
+            </div>
+        </div>
+        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+          <strong>Japan</strong>
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+            I will be visiting Japan soon. I've always wanted to go to Japan so this will be a dream come true.
+          </div>
+          <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 1</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 2</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 3</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="learning" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+  <div id="food" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Food</div>
+    <br>
+    <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9; line-height: 1.7; color: #444;">
+      I love food so much. I enjoy trying new dishes in different countries and cultures - I get so much enjoyment from eating. I have so many images of food I've tried that I can't choose just a few to put here. I also love cooking and baking.
+    </div>
+  </div>
+
+  <div id="tech-life" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Tech and Life</div>
+    <br>
+    <!-- Tech Section -->
+    <div style="margin-bottom: 1.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+          <strong>Tech</strong>
+                <div style="margin-top: 0.9rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; color: #444; line-height: 1.7; margin: 0; padding: 0;">
+            <div>
+              <u>Laptop</u>: M4 Macbook Air<br>
+              <u>Mouse</u>: Logitech MX Master 3<br>
+              <u>Keyboard</u>: Custom built keyboard<br>
+              <u>Keyboard</u>: Logitech MX Keys<br>
+            </div>
+            <div>
+              <u>Notetaking</u>: iPad Air 4th Gen<br>
+              <u>Headphones</u>: Sony WH-1000XM5<br>
+              <u>Gaming</u>: Nintendo 3DS<br>
+            </div>
+          </div>
+          <br>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem;">
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 1</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 2</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 3</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 4</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 5</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 6</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 7</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 8</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Rubik's Cubes Section -->
+    <div id="rubiks-cubes" style="margin-bottom: 1.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+          <strong>Rubik's Cubes</strong>
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+            I enjoy solving Rubik's Cubes of different shapes and sizes, including the 2x2, 3x3, 4x4, 5x5, Pyraminx, and Megaminx. It is a fun mix of pattern recognition, memory, and problem-solving.
+          </div>
+          <div style="margin-top: 0.9rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; background: #f9f9f9; padding: 0.6rem;">
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 1</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 2</div>
+            <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Anime Section -->
+    <!-- <div style="margin-bottom: 1.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+          <strong>Shows & Anime</strong>
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+            Anime shows I'm watching currently. Series I have enjoyed. Could include some manga panels or cool photos.
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Personal Finances Section -->
+    <div style="margin-bottom: 0;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+          <strong>Personal Finances</strong>
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+            I'm interested in staying on top of my finances. I've created an <a href="https://github.com/chriskersov/personal-finances-spreadsheet" style="color: black; text-decoration: underline;">Excel spreadsheet</a> that tracks my monthly expenses, income, and savings. It helps me visualise spending patterns and maintain awareness of my financial health. Beyond tracking, I'm interested in investing and algorithmic trading strategies. I love exploring how data science and quantitative methods can unlock better financial decision-making.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div id="learning" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Learning</div>
     <div style="color: #888; margin-bottom: 1rem;">Things I’m actively learning or want to learn more deeply over time.</div>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
@@ -247,49 +426,37 @@ window.addEventListener('resize', () => {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div id="travel-photo" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
-    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Travel and photography</div>
-    <div style="color: #888; margin-bottom: 1rem;">A place for photos, destinations, and the kind of moments I want to remember.</div>
-    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
-        <div style="line-height: 1.7; color: #444;">
-          Recently I’ve started travelling more and I want this section to become a photo-led diary of places I’ve been and places I want to go.
-        </div>
-        <div style="margin-top: 0.8rem; border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">
-          Image placeholder: travel / scenery photo
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="tech-life" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
-    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Tech and life</div>
-    <div style="color: #888; margin-bottom: 1rem;">The everyday stuff: devices, finances, productivity, and the systems I like keeping tidy.</div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
-        <strong>Tech</strong>
-        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
-          Keyboards, laptops, headphones, Linux ideas, and the little design details that make tools nicer to use.
-        </div>
-      </div>
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
-        <strong>Personal finances</strong>
-        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
-          Keeping track of my finances and building a better system for staying on top of everything.
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div id="philosophy" style="border: 2px solid #ccc; background: #f4f4f4; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
-    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Philosophy</div>
-    <div style="line-height: 1.7; color: #444;">
+  <div id="projects-ideas" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Project Ideas</div>
     <br>
-    My everyday actions are what make me who I am. Results are just the side effects of what I do.<br><br>You do it right. And do it every day.<br><br>
-    Doing stuff right just feels good. Repitition. Consistency. Care.
+    <!-- <div style="color: #888; margin-bottom: 1rem;"></div> -->
+    <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9; line-height: 1.8; color: #444; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem 1.5rem;">
+      <div>
+        Tennis Grand Slam Predictors<br>
+        Football-Style Live Match Predictions<br>
+        F1 Ideas<br>
+        Weather Analysis<br>
+        An MPO-to-Image Package<br>
+        A Typing Test
+      </div>
+      <div>
+        A Chat Context Mover<br>
+        Improving My GitHub Profile<br>
+        Exploring Marketing for Projects<br>
+        Rebuilding My CV in LaTeX or Typst<br>
+        Quant-Related Projects
+      </div>
+    </div>
+  </div>
+
+  <div id="philosophy" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Philosophy</div>
+    <div style="margin-top: 0.6rem;">
+      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem; line-height: 1.7; color: #444;">
+        My everyday actions are what make me who I am. Results are just the side effects of what I do. You do it right. And do it every day. Doing stuff right just feels good. Repetition. Consistency. Care.
+      </div>
     </div>
   </div>
 </div>
@@ -343,43 +510,21 @@ ideas for future projects
 - i also want to have money involved
 - what about sentiment analysis
 - also what bookies
-  - haha what if you make a parlay for some likely combinations
 
-- need to fix the pronounciation of chris kersov to be able to work on all browsers
-- just make it play a stored audio
+also rewrite cv in latex or typst. can also have it previewed in one of the pages. with some annotations or something maybe idk.
 
-- have a cv download on the first page
+it could be cool to have my timezone and current time for me as well. also have the hk timezone on there.
 
-### Sports:
+also i want to enable google analytics.
 
-#### Tennis
+when you tab and then it higlights the surrounding of links i want that to be customised. i want the scroll bar to be customised as well.
 
-Talk about tennis history.
-How much I love it.
-How long I have been playing.
-My equipment, shoes etc.
-Predictions for next grand slam.
-ML predictor for next grand slam github link maybe.
-(I could do this for each year and then see how evolves etc).
-Racket stringing as sort of a mini business.
-IMAGE OF ME PLAYING TENNIS - NEEDS TO BE COLD.
+perhaps on my projects page i could have a heatmap of my leetcode
+and also a heatmap of my github
 
-#### Table tennis
 
-Talk about how much I love table tennis.
-My equipment.
-How I got into table tennis.
-Watching table tennis and fav players etc: ma long, truls, anders, fan.
-My fav ma long photo and maybe truls celebration photo.
-IMAGE OF ME PLAYING TABLE TENNIS AT WORK.
 
-#### Badminton
 
-Talk about my badminton interests.
-How I got into it.
-Want to play more, will play more at uni.
-My equipment.
-IMAGE OF ME PLAYING BADMINTON WITH YU SUM.
 
 #### Padel
 
@@ -389,99 +534,3 @@ IMAGE OF ME PLAYING BADMINTON WITH YU SUM.
 
 Solving Rubik's cubes of various shapes and sizes:
 2x2, 3x3, 4x4, 5x5, pyraminx, megaminx.
-
-#### Learning Mandarin:
-
-Give some explanation as to why I am learning Mandarin.
-How much I have learnt so far.
-My learning goals: HSK 1 etc.
-
-#### Travelling:
-
-Recently started travelling more.
-Absolutely love it.
-Places I have been to: list them.
-Places I plan and want to go.
-
-#### Photography:
-
-Some cool photos I have taken.
-I wish to learn more about photography.
-I love taking photos of pretty scenery.
-
-#### Eating:
-
-I love eating.
-
-#### Learning:
-
-Learning in my spare time.
-What stuff am I interested in learning.
-Books I am reading for personal learning. HOML.
-Any courses I am taking.
-
-#### Anime:
-
-Anime I am watching currently.
-Animes I have enjoyed.
-Could include some manga panels or cool photos.
-
-#### Gaming:
-
-Minecraft.
-Nintendo 3DS jailbroken.
-
-#### Personal Finances:
-
-Interested in staying on top of my finances.
-Created Excel spreadsheet to track.
-Could link the sheet.
-
-#### Tech:
-
-Logitech MX master 3.
-M4 Macbook Air.
-iPad air something (i want to look into e ink tablets).
-Sony xm5s (cant live without them).
-Nintendo 3ds.
-logitech mx master keyboard
-or my own keyboard I created (show photos - blank keycaps)
-
-Want to purchase and upgrade a thinkpad
-and use linux
-
-also rewrite cv in latex or typst. can also have it previewed in one of the pages. with some annotations or something maybe idk.
-
-it could be cool to have my timezone and current time for me as well. also have the hk timezone on there.
-
-i want something about my philosophy towards life as well.
-
-also i want to enable google analytics.
-
-when you tab and then it higlights the surrounding of links i want that to be customised. i want the scroll bar to be customised as well.
-
-I managed to make code blocks with syntax highlighting. I could make something cool where like it shows a block of code or like a function of sorts and then an animted output of like a cool graph or something. my github profile hahahhaha
-
-perhaps on my projects page i could have a heatmap of my leetcode
-and also a heatmap of my github
-
-```python
-print("hello world")
-```
-
-```
- > hello world
-```
-
-i can also render latex equations qhich is cool. maybe i might find a use for this somewhere. maybe when talking about what i am learning idk.
-
-$$
-{\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)
-$$
-
-looks like i can link to other parts just by doing this [posts](/post/) [notes](/note/). but idk what these pages are. in the template yihui mentions these 'pages not under the root directory' and shows these. so this must be something to do with the footer.
-
-i also want to improve the footer.
-
-i have realised that what i mean by footer and header are the things above and below the dotted lines. but these arent header.html and footer.html. i need to improve my understanding
--->
