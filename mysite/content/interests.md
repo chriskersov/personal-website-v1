@@ -62,6 +62,7 @@ const svg = d3.select("#brain-graph");
 const container = document.getElementById('graph-container');
 let width = container.clientWidth;
 let height = container.clientHeight;
+const graphPadding = 28;
 
 // Optimized Forces for a balanced "Galaxy" look
 function getTargetX(d) {
@@ -82,6 +83,7 @@ function getTargetX(d) {
 }
 
 function getTargetY(d) {
+  if (d.id === "Chris") return height * 0.41;
   // Keep travel/food/photography at center like tennis trio
   if (["Travel", "Food", "Photography"].includes(d.id)) return height / 2;
   // Place Philosophy above and isolated
@@ -93,6 +95,12 @@ function getTargetY(d) {
   // Rubik's Cubes below centre
   if (d.id === "RubiksCubes") return height * 0.75;
   return height / 2;
+}
+
+function clampNodePosition(node) {
+  const padding = Math.max(graphPadding, node.size + 18);
+  node.x = Math.max(padding, Math.min(width - padding, node.x));
+  node.y = Math.max(padding, Math.min(height - padding, node.y));
 }
 
 const simulation = d3.forceSimulation(data.nodes)
@@ -156,6 +164,7 @@ node.append("text")
     .text(d => d.label);
 
 simulation.on("tick", () => {
+  data.nodes.forEach(clampNodePosition);
     link.attr("x1", d => d.source.x)
         .attr("y1", d => d.source.y)
         .attr("x2", d => d.target.x)
@@ -171,6 +180,9 @@ function dragstarted(event) {
 function dragged(event) {
   event.subject.fx = event.x;
   event.subject.fy = event.y;
+  clampNodePosition(event.subject);
+  event.subject.fx = event.subject.x;
+  event.subject.fy = event.subject.y;
 }
 function dragended(event) {
   if (!event.active) simulation.alphaTarget(0);
@@ -183,6 +195,7 @@ window.addEventListener('resize', () => {
     height = container.clientHeight;
 
     simulation.force("center", d3.forceCenter(width / 2, height / 2));
+    data.nodes.forEach(clampNodePosition);
   simulation.alpha(0.16).restart();
 });
 </script>
