@@ -4,4 +4,3 @@
 
 [build.environment]
   HUGO_VERSION = "0.153.1"
-  HUGO_PARAMS_GITHUB_TOKEN = "$GITHUB_TOKEN"
