@@ -1,0 +1,7 @@
+[build]
+  command = "cd mysite && hugo --ignoreCache"
+  publish = "mysite/public"
+
+[build.environment]
+  HUGO_VERSION = "0.124.0"
+  HUGO_PARAMS_GITHUB_TOKEN = "$GITHUB_TOKEN"
