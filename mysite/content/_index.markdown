@@ -94,8 +94,8 @@ let targetMouseX = 0.5, targetMouseY = 0.5;
 let currentMouseX = 0.5, currentMouseY = 0.5;
 let animationFrame;
 
-const originalSrc = 'Chris Kersov pfp.jpeg';
-const depthSrc = 'Chris Kersov depth.png';
+const originalSrc = '/images/Chris Kersov pfp.jpeg';
+const depthSrc = '/images/Chris Kersov depth.png';
 
 Promise.all([loadImage(originalSrc), loadImage(depthSrc)])
   .then(([orig, depth]) => {
@@ -182,7 +182,7 @@ function render() {
 
 <br>
 
-### Data Science in E-Mobility at Shell <img src="Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
+### Data Science in E-Mobility at Shell <img src="/images/Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
 
 Final Year BSc (Hons) Computer Science and AI at the <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a>
 

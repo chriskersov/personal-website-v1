@@ -23,15 +23,13 @@ body {
 }
 .menu, .article-meta, footer { text-align: center; }
 .title { font-size: 1.1em; }
+footer { padding-top: 1.25em; }
 footer a {
   text-decoration: underline;
   color: black;
   padding: 5px;
 }
-hr {
-  /* border-style: dashed; */
-  color: black;
-}
+hr { margin: 0.5em 0; color: black; }
 
 /* code */
 pre {
