@@ -35,7 +35,7 @@ title: Home
       <path d="M7 10l5 5 5-5"/>
       <path d="M12 15V3"/>
     </svg>
-    <span style="font-size:0.95rem; line-height:1;">Download CV</span>
+    <span style="font-size:0.95rem; line-height:1; font-weight:bold;">Download CV</span>
   </a>
 </div>
 
@@ -54,6 +54,24 @@ title: Home
 </div>
 
 <script>
+function updateLondonTime() {
+  const now = new Date();
+  const londonTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' }));
+  const timeString = londonTime.toLocaleTimeString('en-GB', { 
+    hour: '2-digit', 
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  const timeElement = document.getElementById('london-time');
+  if (timeElement) {
+    timeElement.textContent = timeString;
+  }
+}
+
+// Update time immediately and then every second
+updateLondonTime();
+setInterval(updateLondonTime, 1000);
+
 function pronounceName() {
   speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance('Chris Kairsov');
@@ -175,18 +193,24 @@ I am in my third year studying Computer Science and Artificial Intelligence, mai
 
 Following my placement, I look forward to applying these industry insights to my final year and my dissertation. I am excited to return to an academic environment where I can continue tackling challenging, high-level topics. Looking further ahead, I am eager to pursue graduate opportunities for 2027, where I can continue delivering impact through data-driven innovation.
 
-I'm passionate about building personal projects that combine my interests with technical skills. One project I'm especially proud of is my <a href="/projects/#3ds-mpo-wobble-tool" style="color:black; text-decoration:underline;">3DS MPO Wobble Tool</a>, which converts Nintendo 3DS stereo MPO files into animated GIFs that preserve the depth effect in a web-friendly format. Check out my <a href="/projects/" style="color:black; text-decoration:underline;">projects page</a> for more details.
+I'm passionate about building personal projects that combine my interests with technical skills. One project I'm currently working on is my <a href="/projects/#3ds-mpo-wobble-tool" style="color:black; text-decoration:underline;">3DS MPO Wobble Tool</a>, which converts Nintendo 3DS stereo MPO files into animated GIFs that preserve the depth effect in a web-friendly format. Check out my <a href="/projects/" style="color:black; text-decoration:underline;">projects page</a> for more.
 
 <!-- This website explores various aspects of my life, from professional work and education to personal hobbies and interests, such as tennis, table tennis, speedsolving Rubik’s cubes, and travelling. -->
 
 <br>
 
-<div style="line-height: 1.7; display: grid; gap: 0.45rem; color: #000;">
-  <div>
-    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chriskersov/" target="_blank" rel="noreferrer" style="color:#000; text-decoration:underline;">linkedin.com/in/chriskersov</a>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 2rem;">
+  <div style="line-height: 1.7; display: grid; gap: 0.45rem; color: #000;">
+    <div>
+      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chriskersov/" target="_blank" rel="noreferrer" style="color:#000; text-decoration:underline;">linkedin.com/in/chriskersov</a>
+    </div>
+    <div>
+      <strong>Email:</strong> <button id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email address" style="background:none; border:0; padding:0; color:#000; text-decoration:underline; cursor:pointer; font:inherit;">chris@kersov.com</button> <span id="copyEmailFeedback" aria-hidden="true" style="margin-left:0.25em; color:#00A000; font-weight:bold;"></span>
+    </div>
   </div>
-  <div>
-    <strong>Email:</strong> <button id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email address" style="background:none; border:0; padding:0; color:#000; text-decoration:underline; cursor:pointer; font:inherit;">chris@kersov.com</button> <span id="copyEmailFeedback" aria-hidden="true" style="margin-left:0.25em; color:#00A000; font-weight:bold;"></span>
+  <div style="border: 2px solid #ccc; padding: 0.5rem 0.75rem; border-radius: 0; flex-shrink: 0; display: flex; align-items: center; gap: 0.35rem; background:#f4f4f4;">
+    <div style="font-size: 1rem; color: #000; white-space: nowrap;">LDN</div>
+    <div style="font-size: 1rem; font-weight: bold; font-variant-numeric: tabular-nums;" id="london-time"></div>
   </div>
 </div>
 
@@ -207,6 +231,23 @@ I'm passionate about building personal projects that combine my interests with t
     }
   });
 })();
+
+function updateLondonTime() {
+  const now = new Date();
+  const londonTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' }));
+  const timeString = londonTime.toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  const timeElement = document.getElementById('london-time');
+  if (timeElement) {
+    timeElement.textContent = timeString;
+  }
+}
+
+updateLondonTime();
+setInterval(updateLondonTime, 1000);
 </script>
 
 </div>
