@@ -6,3 +6,5 @@ node_modules/
 .env
 mysite/public/
 mysite/resources/
+mysite/node_modules/
+mysite/.hugo_build.lock
