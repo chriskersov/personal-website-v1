@@ -22,11 +22,7 @@ This page showcases the personal projects I've built in my spare time. I always 
                 <td style="border: 1px solid #ccc; padding: 1rem 1.25rem; vertical-align: top; background: white;">
                   <ul style="margin: 0; padding-left: 0; list-style: none; text-align: center;">
                     <li><a href="#3ds-mpo-wobble-tool" style="color: black; text-decoration: none; display: inline-block;">3DS MPO Wobble Tool</a></li>
-                    <li><a href="#" style="color: black; text-decoration: none; display: inline-block;">MPO Parser NPM Package</a></li>
                     <li><a href="#personal-finances-ai" style="color: black; text-decoration: none; display: inline-block;">Personal Finances AI</a></li>
-                    <li><a href="#" style="color: black; text-decoration: none; display: inline-block;">Australian Open Predictor</a></li>
-                    <li><a href="#" style="color: black; text-decoration: none; display: inline-block;">Roland Garros Predictor</a></li>
-                    <li><a href="#" style="color: black; text-decoration: none; display: inline-block;">LLM Typing Test</a></li>
                     </ul>
                 </td>
             </tr>
@@ -51,14 +47,6 @@ This page showcases the personal projects I've built in my spare time. I always 
 <script>
 const USERNAME = "chriskersov";
 const CONTRIBUTION_WEEKS = {{< github_contrib_weeks username="chriskersov" >}};
-
-function getColor(count) {
-  if (count === 0) return "#e8e8e8";
-  if (count <= 2)  return "#aaaaaa";
-  if (count <= 5)  return "#777777";
-  if (count <= 9)  return "#444444";
-  return "#111111";
-}
 
 function getColor(count) {
   if (count === 0) return "#ebedf0"; // GitHub empty cell
@@ -356,7 +344,7 @@ fetch(REPO_RAW_BASE + "README.md")
               <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
               <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
                 <div id="readme-container-2" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
-                  <div id="readme-content-2" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                  <div id="readme-content-2" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README ...</div>
                 </div>
               </a>
             </details>

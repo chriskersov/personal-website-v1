@@ -1,5 +1,5 @@
-baseurl: "https://localhost:1313/" # please update this to your actual URL
-languageCode: "en-uk"
+baseURL: "https://kersov.com/"
+languageCode: "en-gb"
 title: "Chris Kersov"
 theme: "hugo-xmin"
 googleAnalytics: ""
@@ -14,26 +14,24 @@ permalinks:
 menu:
   main:
     - name: Home
-      url: ""
+      url: "/"
       weight: 1
     - name: Education
-      url: "education/"
+      url: "/education/"
       weight: 2
     - name: Experience
-      url: "experience/"
+      url: "/experience/"
       weight: 3
     - name: Projects
-      url: "projects/"
+      url: "/projects/"
       weight: 4
     - name: Interests
-      url: "interests/"
+      url: "/interests/"
       weight: 5
-    # - name: Subscribe
-    #   url: "index.xml"
 
 params:
-  description: "A website built through Hugo and blogdown."
-  footer: "[Github](https://github.com/chriskersov) [LinkedIn](https://www.linkedin.com/in/chriskersov/) [CV](/cv/) "
+  description: "Chris Kersov's personal website"
+  footer: "[GitHub](https://github.com/chriskersov) [LinkedIn](https://www.linkedin.com/in/chriskersov/) [CV](/cv/)"
 
 markup:
   highlight:
@@ -46,10 +44,10 @@ markup:
         enable: true
         delimiters:
           block:
-            - - \[
-              - \]
-            - - $$
-              - $$
+            - - "\\["
+              - "\\]"
+            - - "$$"
+              - "$$"
           inline:
-            - - \(
-              - \)
+            - - "\\("
+              - "\\)"
