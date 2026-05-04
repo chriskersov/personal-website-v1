@@ -2,7 +2,7 @@ baseURL: "https://kersov.com/"
 languageCode: "en-gb"
 title: "Chris Kersov"
 theme: "hugo-xmin"
-googleAnalytics: ""
+googleAnalytics: "G-6WJMWTQKKP"
 disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 footnotereturnlinkcontents: "↩"
