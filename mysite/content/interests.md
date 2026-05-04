@@ -64,6 +64,13 @@ let height = container.clientHeight;
 function cx() { return width / 2; }
 function cy() { return height / 2; }
 
+data.nodes.forEach((d, i) => {
+  const angle = (i / data.nodes.length) * Math.PI * 2;
+  const radius = 10;
+  d.x = cx() + Math.cos(angle) * radius;
+  d.y = cy() + Math.sin(angle) * radius;
+});
+
 function targetX(d) {
   if (d.id === "Chris") return cx();
   if (["Tennis", "TableTennis", "Badminton"].includes(d.id)) return cx() - 180;
@@ -81,9 +88,9 @@ function targetY(d) {
   if (d.id === "Travel") return cy() - 80;
   if (d.id === "Food") return cy();
   if (d.id === "Photography") return cy() + 80;
-  if (d.id === "Philosophy") return cy() - 120;
-  if (d.id === "RubiksCubes") return cy() - 70;
-  if (d.id === "Tech") return cy() + 90;
+  if (d.id === "Philosophy") return cy() - 50;
+  if (d.id === "RubiksCubes") return cy() + 130;
+  if (d.id === "Tech") return cy() + 210;
   return cy();
 }
 
