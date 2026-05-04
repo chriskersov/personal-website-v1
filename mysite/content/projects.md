@@ -59,6 +59,7 @@ function getColor(count) {
 function renderGraph() {
   const allWeeks = CONTRIBUTION_WEEKS;
   const weeks = allWeeks.slice(-16);
+  const SVG_NS = "http://www.w3.org/2000/svg";
 
   const container = document.getElementById("contrib-graph");
   
@@ -72,14 +73,14 @@ function renderGraph() {
   const totalW = cols * (cellSize + gap) - gap;
   const totalH = rows * (cellSize + gap) - gap;
 
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const svg = document.createElementNS(SVG_NS, "svg");
   svg.setAttribute("viewBox", `0 0 ${totalW} ${totalH}`);
   svg.setAttribute("width", "100%"); 
   svg.style.display = "block";
 
   weeks.forEach((week, col) => {
     week.contributionDays.forEach((d, row) => {
-      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      const rect = document.createElementNS(SVG_NS, "rect");
       rect.setAttribute("x", col * (cellSize + gap));
       rect.setAttribute("y", row * (cellSize + gap));
       rect.setAttribute("width", cellSize);
@@ -87,7 +88,7 @@ function renderGraph() {
       rect.setAttribute("rx", 2);
       rect.setAttribute("fill", getColor(d.contributionCount));
       
-      const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      const title = document.createElementNS(SVG_NS, "title");
       title.textContent = `${d.date}: ${d.contributionCount} contribution${d.contributionCount !== 1 ? "s" : ""}`;
       rect.appendChild(title);
       svg.appendChild(rect);
