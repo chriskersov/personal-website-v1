@@ -33,7 +33,9 @@ jobs:
 
       - name: Build site
         working-directory: mysite
-        run: hugo --minify
+        run: hugo --minify --ignoreCache
+        env:
+          HUGO_PARAMS_GITHUB_TOKEN: ${{ secrets.HUGO_PARAMS_GITHUB_TOKEN }}
 
       - name: Add custom domain
         run: echo "kersov.com" > mysite/public/CNAME
