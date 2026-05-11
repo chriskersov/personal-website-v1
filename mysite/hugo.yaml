@@ -31,7 +31,7 @@ menu:
 
 params:
   description: "Chris Kersov's personal website"
-  footer: "[GitHub](https://github.com/chriskersov) [LinkedIn](https://www.linkedin.com/in/chriskersov/) [CV](/cv/)"
+  footer: "[GitHub](https://github.com/chriskersov) [LinkedIn](https://www.linkedin.com/in/chriskersov/)"
 
 markup:
   highlight:
