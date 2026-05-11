@@ -29,15 +29,18 @@ title: Home
 
 <div style="margin:0 0 0em;">
   <h1 style="font-size:3.5rem; margin:0;">Chris Kersov</h1>
-    <a href="/images/ChristopherKersovCV_UpReach%20(1).pdf" download aria-label="Download CV" title="Download CV" style="display:inline-flex; align-items:center; gap:0.55rem; margin-top:0.6rem; padding:0.45rem 0.75rem; border:2px solid #ccc; border-radius:0; background:#f4f4f4; color:#000; text-decoration:none; box-sizing:border-box; width:fit-content;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05rem; height:1.05rem; color:#000; flex:none;">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <!-- <a href="/images/ChristopherKersovCV_UpReach%20(1).pdf" download aria-label="Download CV" title="Download CV" style="display:inline-flex; align-items:center; gap:0.55rem; margin-top:0.6rem; padding:0.45rem 0.75rem; border:2px solid #ccc; border-radius:0; background:#f4f4f4; color:#000; text-decoration:none; box-sizing:border-box; width:fit-content;"> -->
+      <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05rem; height:1.05rem; color:#000; flex:none;"> -->
+      <!-- <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
       <path d="M7 10l5 5 5-5"/>
       <path d="M12 15V3"/>
-    </svg>
-    <span style="font-size:0.95rem; line-height:1; font-weight:bold;">Download CV</span>
-  </a>
+    </svg> -->
+    <!-- <span style="font-size:0.95rem; line-height:1; font-weight:bold;">Download CV</span> -->
+  <!-- </a> -->
 </div>
+
+<br>
+<br>
 
 <!-- <div style="margin-bottom:2.05em; color: #000000">
   /kr<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɪ</span>s ˈk<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɛə</span>rs<span style="font-size: 0.95em; font-weight:100; font-variation-settings: 'wght' 50; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;">ɒ</span>v/ -->
@@ -184,7 +187,9 @@ function render() {
 
 ### Data Science in E-Mobility at Shell <img src="/images/Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
 
-Final Year BSc (Hons) Computer Science and AI at the <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a>
+<!-- Final Year BSc (Hons) Computer Science and AI at the <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a> -->
+
+Third Year Computer Science and AI student at the <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a>
 
 <br>
 
