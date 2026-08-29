@@ -21,6 +21,7 @@ This page showcases the personal projects I've built in my spare time. I have so
             <tr>
                 <td style="border: 1px solid #ccc; padding: 1rem 1.25rem; vertical-align: top; background: white;">
                   <ul style="margin: 0; padding-left: 0; list-style: none; text-align: center;">
+                    <li><a href="#world-cup-heat-impact" style="color: black; text-decoration: none; display: inline-block;">World Cup Heat Impact</a></li>
                     <li><a href="#roland-garros-final-simulation" style="color: black; text-decoration: none; display: inline-block;">Roland Garros Final Simulation</a></li>
                     <li><a href="#llm-wpm" style="color: black; text-decoration: none; display: inline-block;">LLM WPM</a></li>
                     <li><a href="#3ds-mpo-wobble-tool" style="color: black; text-decoration: none; display: inline-block;">3DS MPO Wobble Tool</a></li>
@@ -159,6 +160,47 @@ renderGraph();
 
 <!-- ─── PROJECT 01 ─────────────────────────────────────────── -->
 
+## World Cup Heat Impact
+
+### <a href="https://world-cup-heat-impact.vercel.app" target="_blank" style="color:black; text-decoration:underline;">Link</a>&nbsp;-----&nbsp;<a href="https://github.com/chriskersov/world-cup-heat-impact" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+
+<div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Python</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Pandas</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">NumPy</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Matplotlib</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Seaborn</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Jupyter</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Monte Carlo</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">React</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Chart.js</span>
+</div>
+
+<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+    <tr>
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+            <strong>README.md</strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+            <details class="readme-expander">
+              <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
+              <a href="https://github.com/chriskersov/world-cup-heat-impact" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+                <div id="readme-container-5" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
+                  <div id="readme-content-5" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                </div>
+              </a>
+            </details>
+        </td>
+    </tr>
+</table>
+
+<br>
+<br>
+
+<!-- ─── PROJECT 02 ─────────────────────────────────────────── -->
+
 ## Roland Garros Final Simulation
 
 ### <a href="https://github.com/chriskersov/roland-garros-final-simulation" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
@@ -196,7 +238,7 @@ renderGraph();
 <br>
 <br>
 
-<!-- ─── PROJECT 02 ─────────────────────────────────────────── -->
+<!-- ─── PROJECT 03 ─────────────────────────────────────────── -->
 
 ## LLM WPM
 
@@ -232,7 +274,7 @@ renderGraph();
 <br>
 <br>
 
-<!-- ─── PROJECT 03 ─────────────────────────────────────────── -->
+<!-- ─── PROJECT 04 ─────────────────────────────────────────── -->
 
 ## 3DS MPO Wobble Tool
 
@@ -420,7 +462,7 @@ fetch(REPO_RAW_BASE + "README.md")
   .catch(() => { document.getElementById("readme-content").textContent = "Could not load README."; });
 </script>
 
-<!-- ─── PROJECT 04 ─────────────────────────────────────────── -->
+<!-- ─── PROJECT 05 ─────────────────────────────────────────── -->
 
 <br>
 <br>
@@ -558,4 +600,23 @@ fetch(REPO_RAW_BASE_4 + "README.md")
     document.getElementById("readme-content-4").innerHTML = marked.parse(rewritten);
   })
   .catch(() => { document.getElementById("readme-content-4").textContent = "Could not load README."; });
+</script>
+
+<script>
+const REPO_RAW_BASE_5 = "https://raw.githubusercontent.com/chriskersov/world-cup-heat-impact/main/";
+
+fetch(REPO_RAW_BASE_5 + "README.md")
+  .then(r => r.text())
+  .then(text => {
+    let rewritten = text.replace(
+      /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,
+      (match, alt, src) => `![${alt}](${REPO_RAW_BASE_5}${src})`
+    );
+    rewritten = rewritten.replace(
+      /src="(?!https?:\/\/)([^"]+)"/g,
+      (match, src) => `src="${REPO_RAW_BASE_5}${src}"`
+    );
+    document.getElementById("readme-content-5").innerHTML = marked.parse(rewritten);
+  })
+  .catch(() => { document.getElementById("readme-content-5").textContent = "Could not load README."; });
 </script>
