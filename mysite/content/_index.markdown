@@ -185,7 +185,7 @@ function render() {
 
 <br>
 
-### Data Science in E-Mobility at Shell <img src="/images/Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
+### Data Science in E-Mobility at Shell Recharge <img src="/images/Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
 
 <!-- Final Year BSc (Hons) Computer Science and AI at the <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a> -->
 
@@ -196,9 +196,9 @@ Third Year Computer Science and AI student at the <a href="https://www.bath.ac.u
 <div style="text-align:justify; text-justify:inter-word;">
 I am in my third year studying Computer Science and Artificial Intelligence, maintaining a first‑class honours, and currently on a placement year at Shell in Central London. I am gaining invaluable industry experience in data science while pursuing my passion for leveraging technology to solve complex business problems.
 
-Following my placement, I look forward to applying these industry insights to my final year and my dissertation. I am excited to return to an academic environment where I can continue tackling challenging, high-level topics. Looking further ahead, I am eager to pursue graduate opportunities for 2027, where I can continue delivering impact through data-driven innovation.
+Following my placement, I look forward to applying these industry insights to my final year and my dissertation. I am excited to return to an academic environment where I can continue tackling challenging, high-level topics. Looking further ahead, I am eager to pursue opportunities for 2027, where I can continue delivering impact through data-driven innovation.
 
-I'm passionate about building personal projects that combine my interests with technical skills. One project I'm currently working on is my <a href="/projects/#3ds-mpo-wobble-tool" style="color:black; text-decoration:underline;">3DS MPO Wobble Tool</a>, which converts Nintendo 3DS stereo MPO files into animated GIFs that preserve the depth effect in a web-friendly format. Check out my <a href="/projects/" style="color:black; text-decoration:underline;">projects page</a> for more.
+I'm passionate about building personal projects that combine my interests with technical skills. Most recently, I built a <a href="/projects/#roland-garros-final-simulation" style="color:black; text-decoration:underline;">probabilistic simulation of the Roland Garros 2026 final</a> using Bayesian inference and 100,000 Monte Carlo match simulations. Right now I'm working on Denarius, a deliberately overengineered full-stack personal finance tracker with a minimal, modern UI. Check out my <a href="/projects/" style="color:black; text-decoration:underline;">projects page</a> for more.
 
 <!-- This website explores various aspects of my life, from professional work and education to personal hobbies and interests, such as tennis, table tennis, speedsolving Rubik’s cubes, and travelling. -->
 
