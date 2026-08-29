@@ -6,10 +6,10 @@ Title: Projects
 
 <h1 style="font-size:3.5rem; margin:0 0 -0.2em;">Projects</h1>
 
-This page showcases the personal projects I've built in my spare time. I always have so many ideas and I love being able to bring them to life. I'm always thinking about what to build next, or how to make something I've already built better.
+This page showcases the personal projects I've built in my spare time. I have so many ideas and I love being able to bring them to life. I'm always thinking about what to build next, or how to make something I've already built better.
 
 <br>
- 
+
 <div style="display:grid; grid-template-columns:0.5fr 0.5fr; gap:3rem; align-items:start;">
     <div style="display:flex; flex-direction:column; gap:1rem;">
         <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
@@ -21,6 +21,8 @@ This page showcases the personal projects I've built in my spare time. I always 
             <tr>
                 <td style="border: 1px solid #ccc; padding: 1rem 1.25rem; vertical-align: top; background: white;">
                   <ul style="margin: 0; padding-left: 0; list-style: none; text-align: center;">
+                    <li><a href="#roland-garros-final-simulation" style="color: black; text-decoration: none; display: inline-block;">Roland Garros Final Simulation</a></li>
+                    <li><a href="#llm-wpm" style="color: black; text-decoration: none; display: inline-block;">LLM WPM</a></li>
                     <li><a href="#3ds-mpo-wobble-tool" style="color: black; text-decoration: none; display: inline-block;">3DS MPO Wobble Tool</a></li>
                     <li><a href="#personal-finances-ai" style="color: black; text-decoration: none; display: inline-block;">Personal Finances AI</a></li>
                     </ul>
@@ -28,7 +30,7 @@ This page showcases the personal projects I've built in my spare time. I always 
             </tr>
         </table>
     </div>
-    <div style="display:flex; flex-direction:column; justify-content: flex-start;"> 
+    <div style="display:flex; flex-direction:column; justify-content: flex-start;">
         <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
             <tr>
                 <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4; text-align: center;">
@@ -45,8 +47,7 @@ This page showcases the personal projects I've built in my spare time. I always 
 </div>
 
 <script>
-const USERNAME = "chriskersov";
-const CONTRIBUTION_WEEKS = {{< github_contrib_weeks username="chriskersov" >}};
+const CONTRIBUTION_API_URL = "https://github-contributions-api.jogruber.de/v4/chriskersov";
 
 function getColor(count) {
   if (count === 0) return "#ebedf0"; // GitHub empty cell
@@ -56,15 +57,48 @@ function getColor(count) {
   return "#216e39";                // GitHub Deepest Green
 }
 
-function renderGraph() {
-  const allWeeks = CONTRIBUTION_WEEKS;
-  const weeks = allWeeks.slice(-16);
-  const SVG_NS = "http://www.w3.org/2000/svg";
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
 
+function getRecentWeeks(contributions, numWeeks = 16) {
+  const sorted = [...contributions].sort((a, b) => a.date.localeCompare(b.date));
+  const countMap = new Map(sorted.map(d => [d.date, d.count]));
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // End on the most recent Saturday so the current week is included
+  const endDate = new Date(today);
+  endDate.setDate(today.getDate() + (6 - today.getDay()));
+
+  // Start numWeeks weeks before the end date
+  const startDate = new Date(endDate);
+  startDate.setDate(endDate.getDate() - (numWeeks * 7 - 1));
+
+  const days = [];
+  for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+    const iso = formatDate(d);
+    days.push({
+      date: iso,
+      contributionCount: countMap.has(iso) ? countMap.get(iso) : 0
+    });
+  }
+
+  const weeks = [];
+  for (let i = 0; i < days.length; i += 7) {
+    weeks.push({ contributionDays: days.slice(i, i + 7) });
+  }
+  return weeks;
+}
+
+function renderWeeks(weeks) {
+  const SVG_NS = "http://www.w3.org/2000/svg";
   const container = document.getElementById("contrib-graph");
-  
-  // FIX: Clear the container before appending the new graph
-  container.innerHTML = ""; 
+  container.innerHTML = "";
 
   const cellSize = 10;
   const gap = 2;
@@ -75,7 +109,7 @@ function renderGraph() {
 
   const svg = document.createElementNS(SVG_NS, "svg");
   svg.setAttribute("viewBox", `0 0 ${totalW} ${totalH}`);
-  svg.setAttribute("width", "100%"); 
+  svg.setAttribute("width", "100%");
   svg.style.display = "block";
 
   weeks.forEach((week, col) => {
@@ -87,7 +121,7 @@ function renderGraph() {
       rect.setAttribute("height", cellSize);
       rect.setAttribute("rx", 2);
       rect.setAttribute("fill", getColor(d.contributionCount));
-      
+
       const title = document.createElementNS(SVG_NS, "title");
       title.textContent = `${d.date}: ${d.contributionCount} contribution${d.contributionCount !== 1 ? "s" : ""}`;
       rect.appendChild(title);
@@ -98,6 +132,24 @@ function renderGraph() {
   container.appendChild(svg);
 }
 
+async function renderGraph() {
+  const container = document.getElementById("contrib-graph");
+  container.textContent = "Loading graph...";
+
+  try {
+    const response = await fetch(CONTRIBUTION_API_URL);
+    if (!response.ok) throw new Error("Graph request failed");
+    const data = await response.json();
+    const contributions = data.contributions || [];
+    if (!contributions.length) throw new Error("No contribution data");
+
+    const weeks = getRecentWeeks(contributions);
+    renderWeeks(weeks);
+  } catch (error) {
+    container.textContent = "Could not load contribution graph.";
+  }
+}
+
 renderGraph();
 </script>
 
@@ -106,6 +158,81 @@ renderGraph();
 <!-- <hr style="border:none; border-top:1px solid #e0e0e0; margin:0 0 3.5rem;"> -->
 
 <!-- ─── PROJECT 01 ─────────────────────────────────────────── -->
+
+## Roland Garros Final Simulation
+
+### <a href="https://github.com/chriskersov/roland-garros-final-simulation" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+
+<div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Python</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">NumPy</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Pandas</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Matplotlib</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Jupyter</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Bayesian inference</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Monte Carlo</span>
+</div>
+
+<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+    <tr>
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+            <strong>README.md</strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+            <details class="readme-expander">
+              <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
+              <a href="https://github.com/chriskersov/roland-garros-final-simulation" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+                <div id="readme-container-3" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
+                  <div id="readme-content-3" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                </div>
+              </a>
+            </details>
+        </td>
+    </tr>
+</table>
+
+<br>
+<br>
+
+<!-- ─── PROJECT 02 ─────────────────────────────────────────── -->
+
+## LLM WPM
+
+### <a href="https://github.com/chriskersov/llm-wpm" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+
+<div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Next.js</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">React</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Ollama</span>
+  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">qwen2.5:7b</span>
+</div>
+
+<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+    <tr>
+        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+            <strong>README.md</strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+            <details class="readme-expander">
+              <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
+              <a href="https://github.com/chriskersov/llm-wpm" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+                <div id="readme-container-4" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
+                  <div id="readme-content-4" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                </div>
+              </a>
+            </details>
+        </td>
+    </tr>
+</table>
+
+<br>
+<br>
+
+<!-- ─── PROJECT 03 ─────────────────────────────────────────── -->
 
 ## 3DS MPO Wobble Tool
 
@@ -118,13 +245,15 @@ renderGraph();
   <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit Community Cloud</span>
 </div>
 
-<div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
+<!-- A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required. -->
+
+<!-- <div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
 
   <div>
  A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required.
-  </div>
+  </div> -->
 
-<div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+<!-- <div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
   <div onclick="openLightbox(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
     <img src="/projects/screenshot1.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
     <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
@@ -137,9 +266,9 @@ renderGraph();
   </div>
   <div onclick="openLightbox(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:black; background:#f4f4f4; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
 </div>
-</div>
+</div> -->
 
-</div>
+<!-- </div> -->
 
 <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
@@ -211,11 +340,7 @@ renderGraph();
     content: "";
   }
 
-  #readme-container::-webkit-scrollbar {
-    display: none;
-  }
-
-  #readme-container-2::-webkit-scrollbar {
+  [id^="readme-container"]::-webkit-scrollbar {
     display: none;
   }
 </style>
@@ -295,7 +420,7 @@ fetch(REPO_RAW_BASE + "README.md")
   .catch(() => { document.getElementById("readme-content").textContent = "Could not load README."; });
 </script>
 
-<!-- ─── PROJECT 02 ─────────────────────────────────────────── -->
+<!-- ─── PROJECT 04 ─────────────────────────────────────────── -->
 
 <br>
 <br>
@@ -311,13 +436,13 @@ fetch(REPO_RAW_BASE + "README.md")
   <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">qwen2.5:7b</span>
 </div>
  
-<div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;">
- 
+<!-- <div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;"> -->
+<!--  
   <div>
     A Streamlit app that reads a personal Excel finance workbook — one sheet per month, tracking needs, wants, savings, income, and spending by category — and uses a locally running LLM to generate a plain-English summary of the current month. It produces a monthly digest covering cash flow, budget goal tracking, top spending categories, and a forward-looking observation. Everything runs fully offline on the machine; the Excel file is never committed to the repo.
-  </div>
+  </div> -->
  
-<div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+<!-- <div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
   <div onclick="openLightbox2(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
     <img src="/projects/screenshot7.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
     <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
@@ -331,7 +456,7 @@ fetch(REPO_RAW_BASE + "README.md")
   <div onclick="openLightbox2(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:black; background:#f4f4f4; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
 </div>
  
-</div>
+</div> -->
  
 <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
@@ -395,4 +520,42 @@ fetch(REPO_RAW_BASE_2 + "README.md")
     document.getElementById("readme-content-2").innerHTML = marked.parse(rewritten);
   })
   .catch(() => { document.getElementById("readme-content-2").textContent = "Could not load README."; });
+</script>
+
+<script>
+const REPO_RAW_BASE_3 = "https://raw.githubusercontent.com/chriskersov/roland-garros-final-simulation/main/";
+
+fetch(REPO_RAW_BASE_3 + "README.md")
+  .then(r => r.text())
+  .then(text => {
+    let rewritten = text.replace(
+      /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,
+      (match, alt, src) => `![${alt}](${REPO_RAW_BASE_3}${src})`
+    );
+    rewritten = rewritten.replace(
+      /src="(?!https?:\/\/)([^"]+)"/g,
+      (match, src) => `src="${REPO_RAW_BASE_3}${src}"`
+    );
+    document.getElementById("readme-content-3").innerHTML = marked.parse(rewritten);
+  })
+  .catch(() => { document.getElementById("readme-content-3").textContent = "Could not load README."; });
+</script>
+
+<script>
+const REPO_RAW_BASE_4 = "https://raw.githubusercontent.com/chriskersov/llm-wpm/main/";
+
+fetch(REPO_RAW_BASE_4 + "README.md")
+  .then(r => r.text())
+  .then(text => {
+    let rewritten = text.replace(
+      /!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,
+      (match, alt, src) => `![${alt}](${REPO_RAW_BASE_4}${src})`
+    );
+    rewritten = rewritten.replace(
+      /src="(?!https?:\/\/)([^"]+)"/g,
+      (match, src) => `src="${REPO_RAW_BASE_4}${src}"`
+    );
+    document.getElementById("readme-content-4").innerHTML = marked.parse(rewritten);
+  })
+  .catch(() => { document.getElementById("readme-content-4").textContent = "Could not load README."; });
 </script>
