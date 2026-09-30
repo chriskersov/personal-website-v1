@@ -17,7 +17,7 @@ This page is a snapshot of who I am outside of work and computer science - the s
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
-<div style="max-width: 70rem; margin: 0 auto 1.1rem auto; border: 2px solid #ccc; background: white; padding: 0.7rem 0.9rem; box-sizing: border-box;">
+<div style="max-width: 70rem; margin: 0 auto 1.1rem auto; border: 2px solid var(--border); background: var(--bg); padding: 0.7rem 0.9rem; box-sizing: border-box;">
   <div id="graph-container" style="position: relative; width: 100%; height: 340px; overflow: hidden; cursor: grab;">
     <svg id="brain-graph" style="width: 100%; height: 100%;"></svg>
   </div>
@@ -55,6 +55,28 @@ const data = {
     { source: "Travel", target: "Photography" }
   ]
 };
+
+function isDarkGraph() {
+  return document.documentElement.getAttribute('data-theme') === 'dark';
+}
+
+function nodeFill(id) {
+  if (id === 'Chris') return isDarkGraph() ? '#d4d4d4' : '#2f2f2f';
+  return isDarkGraph() ? '#555555' : '#c4c4c4';
+}
+
+function nodeStroke() {
+  return isDarkGraph() ? '#1a1a1a' : '#ffffff';
+}
+
+function nodeTextColor(id) {
+  if (id === 'Chris') return isDarkGraph() ? '#1a1a1a' : '#ffffff';
+  return isDarkGraph() ? '#e6e6e6' : '#333333';
+}
+
+function linkStroke() {
+  return isDarkGraph() ? '#444444' : '#eeeeee';
+}
 
 const svg = d3.select("#brain-graph");
 const container = document.getElementById('graph-container');
@@ -107,7 +129,7 @@ const link = svg.append("g")
   .selectAll("line")
   .data(data.links)
   .join("line")
-  .attr("stroke", "#eee")
+  .attr("stroke", linkStroke())
   .attr("stroke-width", 1.5);
 
 const node = svg.append("g")
@@ -142,8 +164,8 @@ const node = svg.append("g")
 
 node.append("circle")
   .attr("r", d => d.size)
-  .attr("fill", d => d.color)
-  .attr("stroke", "#fff")
+  .attr("fill", d => nodeFill(d.id))
+  .attr("stroke", nodeStroke())
   .attr("stroke-width", 2);
 
 node.append("text")
@@ -153,7 +175,7 @@ node.append("text")
   .style("font-family", "Arial, sans-serif")
   .style("font-size", "11px")
   .style("font-weight", "500")
-  .style("fill", d => d.textColor)
+  .style("fill", d => nodeTextColor(d.id))
   .style("pointer-events", "none")
   .text(d => d.label);
 
@@ -175,164 +197,173 @@ window.addEventListener('resize', () => {
   height = container.clientHeight;
   simulation.alpha(0.3).restart();
 });
+
+window.addEventListener('themechange', () => {
+  link.attr('stroke', linkStroke());
+  node.selectAll('circle')
+    .attr('fill', d => nodeFill(d.id))
+    .attr('stroke', nodeStroke());
+  node.selectAll('text')
+    .style('fill', d => nodeTextColor(d.id));
+});
 </script>
 
 <br>
 
 <!-- <div style="max-width: 70rem; margin: 0 auto;">
-  <div style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
+  <div style="border: 2px solid var(--border); background: var(--bg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
 <script src="https://d3js.org/d3.v7.min.js"></script> -->
 
 </div>
 
-  <div id="sports" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+  <div id="sports" style="border: 2px solid var(--border); background: var(--bg); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Sports</div>
     <br>
     <!-- <div style="color: #888; margin-bottom: 1rem;">The sports I follow and play are the ones that reward repetition, technique, and small improvements over time.</div> -->
     <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+      <div style="border: 1px solid var(--border); background: var(--surface-alt); padding: 1rem 1.1rem;">
         <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Tennis</div>
-        <div style="line-height: 1.7; color: #444;">
+        <div style="line-height: 1.7; color: var(--text-muted);">
           I have played tennis since I was 5 years old. I have always loved playing tennis. I competed regularly as a junior and have played first team for David Lloyd Northwood, Eastcote Lawn Tennis Club, and Lowlands Lawn Tennis Club. Over the past few years, I have battled through wrist and back injuries. I am still incredibly driven and motivated to keep improving in tennis, I just love it so much. I use a Head Extreme Pro with Head Lynx Tour at 54 / 52 lbs. I also have a stringing machine and string rackets for clients as a mini business.
         </div>
-        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
-          <img src="tennis_image_1.jpg" alt="Tennis 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="tennis_image_4.jpg" alt="Tennis 4" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="tennis_image_2.jpg" alt="Tennis 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;">
+          <img src="tennis_image_1.jpg" alt="Tennis 1" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="tennis_image_4.jpg" alt="Tennis 4" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="tennis_image_2.jpg" alt="Tennis 2" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
         </div>
       </div>
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+      <div style="border: 1px solid var(--border); background: var(--surface-alt); padding: 1rem 1.1rem;">
         <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Table Tennis</div>
-        <div style="line-height: 1.7; color: #444;">
+        <div style="line-height: 1.7; color: var(--text-muted);">
          I love playing table tennis with my colleagues during lunch at work. It's a great way to take a break, reset my mind, and come back focused. Table tennis is very fast paced and requires super fast reaction times, which is one of the reasons I enjoy it so much. I quite enjoy watching table tennis as well, my favourite current player is Truls Moregard and my favourite retired player is Ma Long.
         </div>
-        <!-- <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;"> -->
-          <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 1</div> -->
-          <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 2</div> -->
-          <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 3</div> -->
+        <!-- <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;"> -->
+          <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 1</div> -->
+          <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 2</div> -->
+          <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Table tennis 3</div> -->
         <!-- </div> -->
       </div>
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem 1.1rem;">
+      <div style="border: 1px solid var(--border); background: var(--surface-alt); padding: 1rem 1.1rem;">
         <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem;">Badminton</div>
-        <div style="line-height: 1.7; color: #444;">
+        <div style="line-height: 1.7; color: var(--text-muted);">
         I really enjoy playing badminton because it offers a unique dynamic compared to both tennis and table tennis. The game is incredibly high-intensity with explosive bursts, extreme speed, and technical skill involved. Playing doubles with my friends is so much fun and provides an excellent workout.
         </div>
-        <!-- <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;"> -->
-          <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 1</div> -->
-          <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 2</div> -->
-          <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 3</div> -->
+        <!-- <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;"> -->
+          <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 1</div> -->
+          <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 2</div> -->
+          <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Badminton 3</div> -->
         <!-- </div> -->
       </div>
     </div>
   </div>
 
-  <div id="travel-photo" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+  <div id="travel-photo" style="border: 2px solid var(--border); background: var(--bg); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Travel and Photography</div>
     <br>
     <!-- <div style="color: #888; margin-bottom: 1rem;"></div> -->
     <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+      <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
         <strong>Hong Kong</strong>
-        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
           I've been to Hong Kong a few times and every time I have been I loved it. Hong Kong holds a special place in my heart. 
         </div>
-        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
-          <img src="hong_kong_image_1.jpg" alt="Hong Kong 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="hong_kong_image_2.jpg" alt="Hong Kong 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="hong_kong_image_3.jpg" alt="Hong Kong 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;">
+          <img src="hong_kong_image_1.jpg" alt="Hong Kong 1" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="hong_kong_image_2.jpg" alt="Hong Kong 2" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="hong_kong_image_3.jpg" alt="Hong Kong 3" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
         </div>
       </div>
-      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+      <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
         <strong>Macau</strong>
-        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
           During a trip to Hong Kong I also went to Macau, exploring both the Macau Peninsula and Cotai. 
         </div>
-        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
-          <img src="macau_image_1.jpg" alt="Macau 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="macau_image_3.jpg" alt="Macau 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="macau_image_2.jpg" alt="Macau 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;">
+          <img src="macau_image_1.jpg" alt="Macau 1" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="macau_image_3.jpg" alt="Macau 2" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="macau_image_2.jpg" alt="Macau 3" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
         </div>
       </div>
-      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+      <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
         <strong>Spain</strong>
-        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
           I've been to Spain once; I went to Barcelona. I was completely mesmerised by La Sagrada Familia.
         </div>
-        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
-          <img src="spain_image_1.jpg" alt="Spain 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="spain_image_2.jpg" alt="Spain 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="spain_image_3.jpg" alt="Spain 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;">
+          <img src="spain_image_1.jpg" alt="Spain 1" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="spain_image_2.jpg" alt="Spain 2" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="spain_image_3.jpg" alt="Spain 3" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
         </div>
       </div>
-      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+      <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
         <strong>Lithuania</strong>
-        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
           Lithuania is very tranquil. I enjoy spending time in nature, especially in its forests and by its lakes.
         </div>
-        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
-          <img src="lithuania_image_1.jpg" alt="Lithuania 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="lithuania_image_2.jpg" alt="Lithuania 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="lithuania_image_3.jpg" alt="Lithuania 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;">
+          <img src="lithuania_image_1.jpg" alt="Lithuania 1" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="lithuania_image_2.jpg" alt="Lithuania 2" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="lithuania_image_3.jpg" alt="Lithuania 3" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
         </div>
       </div>
-      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+      <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
         <strong>Egypt</strong>
-        <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+        <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
           I stayed in Sharm El Sheikh on my trip to Egypt, where I relaxed on the beach and tried activities like diving on coral reefs and quad‑biking in the desert.
         </div>
-        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
-          <img src="egypt_image_1.jpg" alt="Egypt 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="egypt_image_2.jpg" alt="Egypt 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-          <img src="egypt_image_3.jpg" alt="Egypt 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+        <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;">
+          <img src="egypt_image_1.jpg" alt="Egypt 1" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="egypt_image_2.jpg" alt="Egypt 2" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+          <img src="egypt_image_3.jpg" alt="Egypt 3" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
         </div>
       </div>
-      <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+      <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
           <strong>China</strong>
-            <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+            <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
               I have been to Shenzhen, Guilin, and Guangzhou. Delicious food, beautiful landscape, awesome cities, and incredible culture. I hope to explore more of China. 
             </div>
-            <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;">
-              <img src="china_image_1.jpg" alt="Egypt 1" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-              <img src="china_image_2.jpg" alt="Egypt 2" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
-              <img src="china_image_3.jpg" alt="Egypt 3" style="width:100%; height:auto; border:1px solid #e6e6e6; box-sizing:border-box; display:block;" />
+            <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;">
+              <img src="china_image_1.jpg" alt="Egypt 1" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+              <img src="china_image_2.jpg" alt="Egypt 2" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
+              <img src="china_image_3.jpg" alt="Egypt 3" style="width:100%; height:auto; border:1px solid var(--border-light); box-sizing:border-box; display:block;" />
             </div>
         </div>
     </div>
     <div style="margin-top: 1.5rem; padding-top: 1.5rem;">
-      <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; color: #666;">Upcoming</div>
+      <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-muted);">Upcoming</div>
       <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
           <strong>Japan</strong>
-          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
             I will be visiting Japan soon. I've always wanted to go to Japan so this will be a dream come true.
           </div>
-          <!-- <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: #f9f9f9; padding: 0.6rem;"> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 1</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 2</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 3</div> -->
+          <!-- <div style="margin-top: 0.8rem; display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.6rem; background: var(--surface-alt); padding: 0.6rem;"> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 1</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 2</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Japan 3</div> -->
           <!-- </div> -->
         </div>
       </div>
     </div>
   </div>
 
-  <div id="food" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+  <div id="food" style="border: 2px solid var(--border); background: var(--bg); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Food</div>
     <br>
-    <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9; line-height: 1.7; color: #444;">
+    <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt); line-height: 1.7; color: var(--text-muted);">
       I love food so much. I enjoy trying new dishes in different countries and cultures - I get so much enjoyment from eating. I have so many images of food I've tried that I can't choose just a few to put here. I also love cooking and baking.
     </div>
   </div>
 
-  <div id="tech-life" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+  <div id="tech-life" style="border: 2px solid var(--border); background: var(--bg); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Tech and Life</div>
     <br>
     <!-- Tech Section -->
     <div style="margin-bottom: 1.5rem;">
       <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
           <strong>Tech</strong>
-                <div style="margin-top: 0.9rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; color: #444; line-height: 1.7; margin: 0; padding: 0;">
+                <div style="margin-top: 0.9rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; color: var(--text-muted); line-height: 1.7; margin: 0; padding: 0;">
             <div>
               <u>Laptop</u>: M4 Macbook Air<br>
               <u>Mouse</u>: Logitech MX Master 3<br>
@@ -347,14 +378,14 @@ window.addEventListener('resize', () => {
           </div>
           <!-- <br> -->
           <!-- <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem;"> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 1</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 2</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 3</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 4</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 5</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 6</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 7</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 8</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 1</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 2</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 3</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 4</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 5</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 6</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 7</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Tech 8</div> -->
           <!-- </div> -->
         </div>
       </div>
@@ -362,15 +393,15 @@ window.addEventListener('resize', () => {
     <!-- Rubik's Cubes Section -->
     <div id="rubiks-cubes" style="margin-bottom: 1.5rem;">
       <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
           <strong>Rubik's Cubes</strong>
-          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
             I enjoy solving Rubik's Cubes of different shapes and sizes, including the 2x2, 3x3, 4x4, 5x5, Pyraminx, and Megaminx. It is a fun mix of pattern recognition, memory, and problem-solving.
           </div>
-          <!-- <div style="margin-top: 0.9rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; background: #f9f9f9; padding: 0.6rem;"> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 1</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 2</div> -->
-            <!-- <div style="border: 2px dashed #ccc; background: white; padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 3</div> -->
+          <!-- <div style="margin-top: 0.9rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; background: var(--surface-alt); padding: 0.6rem;"> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 1</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 2</div> -->
+            <!-- <div style="border: 2px dashed #ccc; background: var(--bg); padding: 1rem; color: #888; text-align: center;">Image placeholder: Rubik's Cube 3</div> -->
           <!-- </div> -->
         </div>
       </div>
@@ -378,9 +409,9 @@ window.addEventListener('resize', () => {
     <!-- Anime Section -->
     <!-- <div style="margin-bottom: 1.5rem;">
       <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
           <strong>Shows & Anime</strong>
-          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
             Anime shows I'm watching currently. Series I have enjoyed. Could include some manga panels or cool photos.
           </div>
         </div>
@@ -389,20 +420,20 @@ window.addEventListener('resize', () => {
     <!-- Personal Finances Section -->
     <div style="margin-bottom: 0;">
       <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-        <div style="border: 1px solid #ccc; padding: 1rem 1.1rem; background: #f9f9f9;">
+        <div style="border: 1px solid var(--border); padding: 1rem 1.1rem; background: var(--surface-alt);">
           <strong>Personal Finances</strong>
-          <div style="margin-top: 0.45rem; line-height: 1.7; color: #444;">
-            I'm interested in staying on top of my finances. I've created an <a href="https://github.com/chriskersov/personal-finances-spreadsheet" style="color: black; text-decoration: underline;">Excel spreadsheet</a> that tracks my monthly expenses, income, and savings. It helps me visualise spending patterns and maintain awareness of my financial health. Beyond tracking, I'm interested in investing and algorithmic trading strategies. I love exploring how data science and quantitative methods can unlock better financial decision-making.
+          <div style="margin-top: 0.45rem; line-height: 1.7; color: var(--text-muted);">
+            I'm interested in staying on top of my finances. I've created an <a href="https://github.com/chriskersov/personal-finances-spreadsheet" style="color: var(--text); text-decoration: underline;">Excel spreadsheet</a> that tracks my monthly expenses, income, and savings. It helps me visualise spending patterns and maintain awareness of my financial health. Beyond tracking, I'm interested in investing and algorithmic trading strategies. I love exploring how data science and quantitative methods can unlock better financial decision-making.
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="philosophy" style="border: 2px solid #ccc; background: white; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
+  <div id="philosophy" style="border: 2px solid var(--border); background: var(--bg); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;">
     <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem;">Philosophy</div>
     <div style="margin-top: 0.6rem;">
-      <div style="border: 1px solid #ccc; background: #f9f9f9; padding: 1rem; line-height: 1.7; color: #444;">
+      <div style="border: 1px solid var(--border); background: var(--surface-alt); padding: 1rem; line-height: 1.7; color: var(--text-muted);">
         My everyday actions are what make me who I am. Results are just the side effects of what I do. You do it right. And do it every day. Doing stuff right just feels good. Repetition. Consistency. Care.
       </div>
     </div>
