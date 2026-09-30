@@ -185,36 +185,38 @@ function render() {
 
 <br>
 
-### Data Science in E-Mobility at Shell Recharge <img src="/images/Shell Recharge logo.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
+### Prev. Data Science at Shell Recharge <img src="/images/Shell Recharge Logo 2.png" alt="Shell Recharge logo" style="max-height:2.3em; display:inline-block; vertical-align:text-bottom; margin-left:-0.1em; margin-bottom: -0.4em" />
 
 <!-- Final Year BSc (Hons) Computer Science and AI at the <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a> -->
 
-Third Year Computer Science and AI student at the <a href="https://www.bath.ac.uk/" target="_blank" style="color:#00478f; text-decoration:underline;">University of Bath</a>
+Third Year Computer Science and AI student at the <a href="https://www.bath.ac.uk/" target="_blank" style="text-decoration:underline;">University of Bath</a>
 
 <br>
 
 <div style="text-align:justify; text-justify:inter-word;">
-I am in my third year studying Computer Science and Artificial Intelligence, maintaining a first‑class honours, and currently on a placement year at Shell in Central London. I am gaining invaluable industry experience in data science while pursuing my passion for leveraging technology to solve complex business problems.
+I am in my third year studying Computer Science and Artificial Intelligence, maintaining a first‑class honours, having recently completed a placement year at Shell in Central London. I gained invaluable industry experience while pursuing my passion for leveraging technology to solve complex business problems.
 
-Following my placement, I look forward to applying these industry insights to my final year and my dissertation. I am excited to return to an academic environment where I can continue tackling challenging, high-level topics. Looking further ahead, I am eager to pursue opportunities for 2027, where I can continue delivering impact through data-driven innovation.
+<!-- Returning to academia, I’m applying these industry insights to my third year and my dissertation. Looking ahead, I'm eager to pursue opportunities for 2027, where I can continue delivering impact through data-driven innovation. -->
 
-I'm passionate about building personal projects that combine my interests with technical skills. Most recently, I built a <a href="/projects/#roland-garros-final-simulation" style="color:black; text-decoration:underline;">probabilistic simulation of the Roland Garros 2026 final</a> using Bayesian inference and 100,000 Monte Carlo match simulations. Right now I'm working on Denarius, a deliberately overengineered full-stack personal finance tracker with a minimal, modern UI. Check out my <a href="/projects/" style="color:black; text-decoration:underline;">projects page</a> for more.
+Returning to academia, I’m applying these industry insights to my third year and my dissertation. I’m also working as an AI & ML Lab Tutor at the University of Bath, supporting students with practical machine learning and artificial intelligence coursework. Looking ahead, I’m eager to pursue opportunities for 2027, where I can continue delivering impact through data-driven innovation.
+
+Outside of work and studies, I'm passionate about building personal projects that combine my interests with technical skills. Recently, I built a <a href="/projects/#roland-garros-final-simulation" class="link-plain">probabilistic simulation of the Roland Garros 2026 final</a> using Bayesian inference and 100,000 Monte Carlo match simulations. Right now I'm working on Denarius, a deliberately overengineered full-stack personal finance tracker with a minimal, modern UI. Check out my <a href="/projects/" class="link-plain">projects page</a> for more.
 
 <!-- This website explores various aspects of my life, from professional work and education to personal hobbies and interests, such as tennis, table tennis, speedsolving Rubik’s cubes, and travelling. -->
 
 <br>
 
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 2rem;">
-  <div style="line-height: 1.7; display: grid; gap: 0.45rem; color: #000;">
+  <div class="contact-row">
     <div>
-      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chriskersov/" target="_blank" rel="noreferrer" style="color:#000; text-decoration:underline;">linkedin.com/in/chriskersov</a>
+      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/chriskersov/" target="_blank" rel="noreferrer" class="link-plain">linkedin.com/in/chriskersov</a>
     </div>
     <div>
-      <strong>Email:</strong> <button id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email address" style="background:none; border:0; padding:0; color:#000; text-decoration:underline; cursor:pointer; font:inherit;">chris@kersov.com</button> <span id="copyEmailFeedback" aria-hidden="true" style="margin-left:0.25em; color:#00A000; font-weight:bold;"></span>
+      <strong>Email:</strong> <button id="copyEmailBtn" type="button" aria-label="Copy email address" title="Copy email address" style="background:none; border:0; padding:0; text-decoration:underline; cursor:pointer; font:inherit;">chris@kersov.com</button> <span id="copyEmailFeedback" class="accent-text" aria-hidden="true" style="margin-left:0.25em; font-weight:bold;"></span>
     </div>
   </div>
-  <div style="border: 2px solid #ccc; padding: 0.5rem 0.75rem; border-radius: 0; flex-shrink: 0; display: flex; align-items: center; gap: 0.35rem; background:#f4f4f4;">
-    <div style="font-size: 1rem; color: #000; white-space: nowrap;">LDN</div>
+  <div class="info-box">
+    <div style="font-size: 1rem; white-space: nowrap;">LDN</div>
     <div style="font-size: 1rem; font-weight: bold; font-variant-numeric: tabular-nums;" id="london-time"></div>
   </div>
 </div>
