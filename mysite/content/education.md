@@ -17,61 +17,63 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
 
 ## University of Bath
 
-### BSc(Hons) Computer Science and Artificial Intelligence&nbsp;---&nbsp;First (72.42%)
+### Computer Science and Artificial Intelligence&nbsp;---&nbsp;First (72.42%)
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; text-align: center;">
+<table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; text-align: center;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: #f4f4f4;">
+        <td style="width:25%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--surface);">
+            <strong>Year 4</strong>
+        </td>
+        <td style="width:25%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--surface);">
             <strong>Year 3</strong>
         </td>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: #f4f4f4;">
+        <td style="width:25%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--surface);">
             <strong>Year 2&nbsp;—&nbsp;72.42%</strong>
         </td>
-        <td style="width:34%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: #f4f4f4;">
+        <td style="width:25%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--surface);">
             <strong>Year 1&nbsp;—&nbsp;75.50%</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
-            <a href="../experience/" style="color:#888; text-decoration:underline;">Placement Year</a>
-        </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0; vertical-align: top; background: var(--bg);">
             <details>
-                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
+                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: var(--text-muted); list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2024-2025/cm/CM22007.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM22007 Software Engineering</a><br><br> -->
-                    CM22007 - Software Engineering<br><br> 
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2024-2025/cm/CM22008.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM22008 Algorithms and Complexity</a><br><br> -->
-                    CM22008 - Algorithms and Complexity<br><br> 
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2024-2025/cm/CM22009.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM22009 Machine Learning</a><br><br> -->
-                    CM22009 - Machine Learning<br><br> 
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2024-2025/cm/CM22010.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM22010 Visual Computing</a><br><br> -->
-                    CM22010 - Visual Computing<br><br> 
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2024-2025/cm/CM22011.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM22011 Human-Computer Interaction 1</a><br><br> -->
-                    CM22011 - Human-Computer Interaction 1<br><br> 
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2024-2025/cm/CM22015.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM22015 Artificial Intelligence 2</a><br><br> -->
-                    CM22015 - Artifical Intelligence 2<br><br> 
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2024-2025/cm/CM22016.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM22016 Foundations and Frontiers of Machine Learning</a> -->
-                    CM22016 - Foundations and Frontiers of Machine Learning
+                    Dissertation<br><br> 
+                    Bayesian Machine Learning<br><br> 
+                    Natural Language Processing<br><br> 
+                    Reinforcement Learning<br><br> 
+                    Computational Complexity<br><br> 
                 </div>
             </details>
         </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--bg);">
+            <a href="../experience/" style="color: var(--text-muted); text-decoration:underline;">Placement Year</a>
+        </td>
+        <td style="border: 1px solid var(--border); padding: 0; vertical-align: top; background: var(--bg);">
             <details>
-                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
+                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: var(--text-muted); list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2023-2024/cm/CM12001.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM12001 Artificial Intelligence 1</a><br><br> -->
-                    CM12001 - Artifical Intelligence 1<br><br>
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2023-2024/cm/CM12002.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM12002 Computer Systems Architectures</a><br><br> -->
-                    CM12002 - Computer Systems Architectures<br><br>
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2023-2024/cm/CM12003.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM12003 Programming 1</a><br><br> -->
-                    CM12003 - Programming 1<br><br>
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2023-2024/cm/CM12004.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM12004 Discrete Mathematics and Databases</a><br><br> -->
-                    CM12004 - Discrete Mathematics and Databases<br><br>
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2023-2024/cm/CM12005.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM12005 Programming 2</a><br><br> -->
-                    CM12005 - Programming 2<br><br>
-                    <!-- <a href="https://www.bath.ac.uk/catalogues/2023-2024/cm/CM12006.html" target="_blank" style="color:#00478f; text-decoration:underline;">CM12006 Mathematics for Computation</a> -->
-                    CM12006 - Mathematics for Computation
+                    Software Engineering<br><br> 
+                    Algorithms and Complexity<br><br> 
+                    Machine Learning<br><br> 
+                    Visual Computing<br><br> 
+                    Human-Computer Interaction 1<br><br> 
+                    Artifical Intelligence 2<br><br> 
+                    Foundations and Frontiers of Machine Learning
+                </div>
+            </details>
+        </td>
+        <td style="border: 1px solid var(--border); padding: 0; vertical-align: top; background: var(--bg);">
+            <details>
+                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: var(--text-muted); list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
+                <div style="padding: 0.5rem 0.75rem;">
+                    Artifical Intelligence 1<br><br>
+                    Computer Systems Architectures<br><br>
+                    Programming 1<br><br>
+                    Discrete Mathematics and Databases<br><br>
+                    Programming 2<br><br>
+                    Mathematics for Computation
                 </div>
             </details>
         </td>
@@ -90,40 +92,40 @@ I am currently studying Computer Science and Artificial Intelligence at the Univ
   details:not([open]) summary .open-arrow { display: none; }
 </style>
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; text-align: center;">
+<table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; text-align: center;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4;">
+        <td style="width:33%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; background: var(--surface);">
             <strong>Computer Science&nbsp;—&nbsp;A*</strong>
         </td>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4;">
+        <td style="width:33%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; background: var(--surface);">
             <strong>Mathematics&nbsp;—&nbsp;A</strong>
         </td>
-        <td style="width:34%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4;">
+        <td style="width:34%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; background: var(--surface);">
             <strong>Further Mathematics&nbsp;—&nbsp;A</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0; vertical-align: top; background: var(--bg);">
             <details>
-                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
+                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: var(--text-muted); list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
                     Computer Systems<br><br>
                     Algorithms and Programming
                 </div>
             </details>
         </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0; vertical-align: top; background: var(--bg);">
             <details>
-                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
+                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: var(--text-muted); list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
                     Pure Mathematics<br><br>
                     Statistics &amp; Mechanics
                 </div>
             </details>
         </td>
-        <td style="border: 1px solid #ccc; padding: 0; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0; vertical-align: top; background: var(--bg);">
             <details>
-                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: #888; list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
+                <summary style="cursor: pointer; padding: 0.5rem 0.75rem; color: var(--text-muted); list-style: none;"><span class="arrow">▸</span><span class="open-arrow">▾</span> Modules</summary>
                 <div style="padding: 0.5rem 0.75rem;">
                     Core Pure 1<br><br>
                     Core Pure 2<br><br>
