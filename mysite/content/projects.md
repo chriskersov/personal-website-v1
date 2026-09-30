@@ -12,34 +12,34 @@ This page showcases the personal projects I've built in my spare time. I have so
 
 <div style="display:grid; grid-template-columns:0.5fr 0.5fr; gap:3rem; align-items:start;">
     <div style="display:flex; flex-direction:column; gap:1rem;">
-        <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+        <table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
             <tr>
-                <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4; text-align: center;">
+                <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; background: var(--surface); text-align: center;">
                     <strong>Contents</strong>
                 </td>
             </tr>
             <tr>
-                <td style="border: 1px solid #ccc; padding: 1rem 1.25rem; vertical-align: top; background: white;">
+                <td style="border: 1px solid var(--border); padding: 1rem 1.25rem; vertical-align: top; background: var(--bg);">
                   <ul style="margin: 0; padding-left: 0; list-style: none; text-align: center;">
-                    <li><a href="#world-cup-heat-impact" style="color: black; text-decoration: none; display: inline-block;">World Cup Heat Impact</a></li>
-                    <li><a href="#roland-garros-final-simulation" style="color: black; text-decoration: none; display: inline-block;">Roland Garros Final Simulation</a></li>
-                    <li><a href="#llm-wpm" style="color: black; text-decoration: none; display: inline-block;">LLM WPM</a></li>
-                    <li><a href="#3ds-mpo-wobble-tool" style="color: black; text-decoration: none; display: inline-block;">3DS MPO Wobble Tool</a></li>
-                    <li><a href="#personal-finances-ai" style="color: black; text-decoration: none; display: inline-block;">Personal Finances AI</a></li>
+                    <li><a href="#world-cup-heat-impact" style="color: var(--text); text-decoration: none; display: inline-block;">World Cup Heat Impact</a></li>
+                    <li><a href="#roland-garros-final-simulation" style="color: var(--text); text-decoration: none; display: inline-block;">Roland Garros Final Simulation</a></li>
+                    <li><a href="#llm-wpm" style="color: var(--text); text-decoration: none; display: inline-block;">LLM WPM</a></li>
+                    <li><a href="#3ds-wobble-gif-generator" style="color: var(--text); text-decoration: none; display: inline-block;">3DS Wobble GIF Generator</a></li>
+                    <li><a href="#personal-finances-ai" style="color: var(--text); text-decoration: none; display: inline-block;">Personal Finances AI</a></li>
                     </ul>
                 </td>
             </tr>
         </table>
     </div>
     <div style="display:flex; flex-direction:column; justify-content: flex-start;">
-        <table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+        <table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
             <tr>
-                <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; background: #f4f4f4; text-align: center;">
+                <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; background: var(--surface); text-align: center;">
                     <strong>Github Contribution Graph</strong>
                 </td>
             </tr>
             <tr>
-                <td style="border: 1px solid #ccc; padding: 1rem; vertical-align: top; text-align: center; background: white;">
+                <td style="border: 1px solid var(--border); padding: 1rem; vertical-align: top; text-align: center; background: var(--bg);">
                     <div id="contrib-graph" style="width:100%;"></div>
                 </td>
             </tr>
@@ -50,7 +50,18 @@ This page showcases the personal projects I've built in my spare time. I have so
 <script>
 const CONTRIBUTION_API_URL = "https://github-contributions-api.jogruber.de/v4/chriskersov";
 
+function isDarkMode() {
+  return document.documentElement.getAttribute('data-theme') === 'dark';
+}
+
 function getColor(count) {
+  if (isDarkMode()) {
+    if (count === 0) return "#2d333b";
+    if (count <= 2)  return "#0e4429";
+    if (count <= 5)  return "#006d32";
+    if (count <= 9)  return "#26a641";
+    return "#39d353";
+  }
   if (count === 0) return "#ebedf0"; // GitHub empty cell
   if (count <= 2)  return "#9be9a8"; // GitHub Light Green
   if (count <= 5)  return "#40c463"; // GitHub Medium Green
@@ -96,7 +107,10 @@ function getRecentWeeks(contributions, numWeeks = 16) {
   return weeks;
 }
 
+let graphWeeks = null;
+
 function renderWeeks(weeks) {
+  graphWeeks = weeks;
   const SVG_NS = "http://www.w3.org/2000/svg";
   const container = document.getElementById("contrib-graph");
   container.innerHTML = "";
@@ -152,6 +166,10 @@ async function renderGraph() {
 }
 
 renderGraph();
+
+window.addEventListener('themechange', () => {
+  if (graphWeeks) renderWeeks(graphWeeks);
+});
 </script>
 
 <br>
@@ -162,33 +180,33 @@ renderGraph();
 
 ## World Cup Heat Impact
 
-### <a href="https://world-cup-heat-impact.vercel.app" target="_blank" style="color:black; text-decoration:underline;">Link</a>&nbsp;-----&nbsp;<a href="https://github.com/chriskersov/world-cup-heat-impact" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+### <a href="https://world-cup-heat-impact.vercel.app" target="_blank" style="color:var(--text); text-decoration:underline;">Link</a>&nbsp;-----&nbsp;<a href="https://github.com/chriskersov/world-cup-heat-impact" target="_blank" style="color:var(--text); text-decoration:underline;">GitHub</a>
 
 <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Python</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Pandas</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">NumPy</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Matplotlib</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Seaborn</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Jupyter</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Monte Carlo</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">React</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Chart.js</span>
+  <span class="tag">Python</span>
+  <span class="tag">Pandas</span>
+  <span class="tag">NumPy</span>
+  <span class="tag">Matplotlib</span>
+  <span class="tag">Seaborn</span>
+  <span class="tag">Jupyter</span>
+  <span class="tag">Monte Carlo</span>
+  <span class="tag">React</span>
+  <span class="tag">Chart.js</span>
 </div>
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+<table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+        <td style="width:33%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: var(--surface);">
             <strong>README.md</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--bg);">
             <details class="readme-expander">
               <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
-              <a href="https://github.com/chriskersov/world-cup-heat-impact" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+              <a href="https://github.com/chriskersov/world-cup-heat-impact" target="_blank" style="color:var(--text); text-decoration:none; display:block; margin-top:0.5rem;">
                 <div id="readme-container-5" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
-                  <div id="readme-content-5" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                  <div id="readme-content-5" style="font-family:monospace; color:var(--text); margin:0; word-break:break-word;">Loading README...</div>
                 </div>
               </a>
             </details>
@@ -203,31 +221,31 @@ renderGraph();
 
 ## Roland Garros Final Simulation
 
-### <a href="https://github.com/chriskersov/roland-garros-final-simulation" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+### <a href="https://github.com/chriskersov/roland-garros-final-simulation" target="_blank" style="color:var(--text); text-decoration:underline;">GitHub</a>
 
 <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Python</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">NumPy</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Pandas</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Matplotlib</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Jupyter</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Bayesian inference</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Monte Carlo</span>
+  <span class="tag">Python</span>
+  <span class="tag">NumPy</span>
+  <span class="tag">Pandas</span>
+  <span class="tag">Matplotlib</span>
+  <span class="tag">Jupyter</span>
+  <span class="tag">Bayesian inference</span>
+  <span class="tag">Monte Carlo</span>
 </div>
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+<table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+        <td style="width:33%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: var(--surface);">
             <strong>README.md</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--bg);">
             <details class="readme-expander">
               <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
-              <a href="https://github.com/chriskersov/roland-garros-final-simulation" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+              <a href="https://github.com/chriskersov/roland-garros-final-simulation" target="_blank" style="color:var(--text); text-decoration:none; display:block; margin-top:0.5rem;">
                 <div id="readme-container-3" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
-                  <div id="readme-content-3" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                  <div id="readme-content-3" style="font-family:monospace; color:var(--text); margin:0; word-break:break-word;">Loading README...</div>
                 </div>
               </a>
             </details>
@@ -242,28 +260,28 @@ renderGraph();
 
 ## LLM WPM
 
-### <a href="https://github.com/chriskersov/llm-wpm" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+### <a href="https://github.com/chriskersov/llm-wpm" target="_blank" style="color:var(--text); text-decoration:underline;">GitHub</a>
 
 <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Next.js</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">React</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Ollama</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">qwen2.5:7b</span>
+  <span class="tag">Next.js</span>
+  <span class="tag">React</span>
+  <span class="tag">Ollama</span>
+  <span class="tag">qwen2.5:7b</span>
 </div>
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+<table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+        <td style="width:33%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: var(--surface);">
             <strong>README.md</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--bg);">
             <details class="readme-expander">
               <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
-              <a href="https://github.com/chriskersov/llm-wpm" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+              <a href="https://github.com/chriskersov/llm-wpm" target="_blank" style="color:var(--text); text-decoration:none; display:block; margin-top:0.5rem;">
                 <div id="readme-container-4" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
-                  <div id="readme-content-4" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                  <div id="readme-content-4" style="font-family:monospace; color:var(--text); margin:0; word-break:break-word;">Loading README...</div>
                 </div>
               </a>
             </details>
@@ -276,15 +294,15 @@ renderGraph();
 
 <!-- ─── PROJECT 04 ─────────────────────────────────────────── -->
 
-## 3DS MPO Wobble Tool
+## 3DS Wobble GIF Generator
 
-### <a href="https://3ds-wobble-gif.streamlit.app" target="_blank" style="color:black; text-decoration:underline;">Link</a>&nbsp;-----&nbsp;<a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+### <a href="https://3ds-wobble-gif.vercel.app" target="_blank" style="color:var(--text); text-decoration:underline;">Link</a>&nbsp;-----&nbsp;<a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank" style="color:var(--text); text-decoration:underline;">GitHub</a>
 
 <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Pillow</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">NumPy</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit Community Cloud</span>
+  <span class="tag">JavaScript</span>
+  <span class="tag">React</span>
+  <span class="tag">Vite</span>
+  <span class="tag">ONNX Runtime Web (WASM)</span>
 </div>
 
 <!-- A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required. -->
@@ -295,7 +313,7 @@ renderGraph();
  A web tool that converts Nintendo 3DS .mpo stereo image files into animated wobble GIFs. The 3DS captured true stereoscopic photos - two slightly offset images stored in a single file - but the format is almost universally unsupported outside the handheld itself. This tool extracts the stereo pair, aligns the frames using a pixel-difference score, and encodes them into a smoothly crossfaded, looping GIF that conveys the original depth and parallax allowing it to be viewable on any device with no special hardware required.
   </div> -->
 
-<!-- <div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+<!-- <div style="width:100%; border: 2px solid var(--border); table-layout: fixed; box-sizing: border-box;">
   <div onclick="openLightbox(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
     <img src="/projects/screenshot1.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
     <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
@@ -306,25 +324,25 @@ renderGraph();
       <span style="color:white;">7 photos</span>
     </div>
   </div>
-  <div onclick="openLightbox(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:black; background:#f4f4f4; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
+  <div onclick="openLightbox(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:var(--text); background:#f4f4f4; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
 </div>
 </div> -->
 
 <!-- </div> -->
 
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+<table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+        <td style="width:33%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: var(--surface);">
             <strong>README.md</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--bg);">
             <details class="readme-expander">
               <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
-              <a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+              <a href="https://github.com/chriskersov/3DS-wobble-gif" target="_blank" style="color:var(--text); text-decoration:none; display:block; margin-top:0.5rem;">
                 <div id="readme-container" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
-                  <div id="readme-content" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README...</div>
+                  <div id="readme-content" style="font-family:monospace; color:var(--text); margin:0; word-break:break-word;">Loading README...</div>
                 </div>
               </a>
             </details>
@@ -356,14 +374,14 @@ renderGraph();
     gap: 0.5rem;
     user-select: none;
     font-weight: 400;
-    color: #888;
+    color: var(--text-muted);
     text-align: center;
     width: 100%;
   }
 
   details.readme-expander > summary .arrow,
   details.readme-expander > summary .open-arrow {
-    color: #888;
+    color: var(--text-muted);
   }
 
   details.readme-expander[open] > summary .arrow {
@@ -469,13 +487,13 @@ fetch(REPO_RAW_BASE + "README.md")
  
 ## Personal Finances AI
  
-### <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:black; text-decoration:underline;">GitHub</a>
+### <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:var(--text); text-decoration:underline;">GitHub</a>
  
 <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Streamlit</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">openpyxl</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">Ollama</span>
-  <span style="border:2px solid #ccc; padding:0.1rem 0.5rem; color: #888;">qwen2.5:7b</span>
+  <span class="tag">Streamlit</span>
+  <span class="tag">openpyxl</span>
+  <span class="tag">Ollama</span>
+  <span class="tag">qwen2.5:7b</span>
 </div>
  
 <!-- <div style="display:grid; grid-template-columns:0.6fr 0.4fr; gap:3rem; align-items:start; margin-bottom:1.75rem;"> -->
@@ -484,7 +502,7 @@ fetch(REPO_RAW_BASE + "README.md")
     A Streamlit app that reads a personal Excel finance workbook — one sheet per month, tracking needs, wants, savings, income, and spending by category — and uses a locally running LLM to generate a plain-English summary of the current month. It produces a monthly digest covering cash flow, budget goal tracking, top spending categories, and a forward-looking observation. Everything runs fully offline on the machine; the Excel file is never committed to the repo.
   </div> -->
  
-<!-- <div style="width:100%; border: 2px solid #ccc; table-layout: fixed; box-sizing: border-box;">
+<!-- <div style="width:100%; border: 2px solid var(--border); table-layout: fixed; box-sizing: border-box;">
   <div onclick="openLightbox2(0)" style="position:relative; cursor:pointer; overflow:hidden; background: #000000; line-height:0;">
     <img src="/projects/screenshot7.png" alt="Project screenshot" style="width:100%; display:block; opacity:0.35;">
     <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; line-height:1.5;">
@@ -495,24 +513,24 @@ fetch(REPO_RAW_BASE + "README.md")
       <span style="color:white;">1 photo</span>
     </div>
   </div>
-  <div onclick="openLightbox2(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:black; background:#f4f4f4; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
+  <div onclick="openLightbox2(0)" style="cursor:pointer; text-align:center; padding:0.4rem 0; color:var(--text); background:#f4f4f4; border-top:1px solid #ccc;"><strong>View Gallery</strong></div>
 </div>
  
 </div> -->
  
-<table style="width:100%; border: 2px solid #ccc; border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
+<table style="width:100%; border: 2px solid var(--border); border-collapse: collapse; table-layout: fixed; box-sizing: border-box;">
     <tr>
-        <td style="width:33%; border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: #f4f4f4;">
+        <td style="width:33%; border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; text-align: center; background: var(--surface);">
             <strong>README.md</strong>
         </td>
     </tr>
     <tr>
-        <td style="border: 1px solid #ccc; padding: 0.5rem 0.75rem; vertical-align: top; background: white;">
+        <td style="border: 1px solid var(--border); padding: 0.5rem 0.75rem; vertical-align: top; background: var(--bg);">
             <details class="readme-expander">
               <summary><span class="arrow">▸</span><span class="open-arrow">▾</span> Toggle preview</summary>
-              <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:black; text-decoration:none; display:block; margin-top:0.5rem;">
+              <a href="https://github.com/chriskersov/personal-finances-ai" target="_blank" style="color:var(--text); text-decoration:none; display:block; margin-top:0.5rem;">
                 <div id="readme-container-2" style="max-height:500px; overflow-y:scroll; scrollbar-width:none; -ms-overflow-style:none; padding:1rem 1.25rem; box-sizing:border-box; width:100%;">
-                  <div id="readme-content-2" style="font-family:monospace; color:black; margin:0; word-break:break-word;">Loading README ...</div>
+                  <div id="readme-content-2" style="font-family:monospace; color:var(--text); margin:0; word-break:break-word;">Loading README ...</div>
                 </div>
               </a>
             </details>
